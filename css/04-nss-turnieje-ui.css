@@ -1,0 +1,76 @@
+/* NSS — warstwa wizualna turniejów. Można wkleić do głównego CSS gry. */
+.nss-hidden{display:none!important}
+.nss-root{--nss-paper:var(--chalk,#eef6ea);--nss-paper2:var(--chalk2,#d8eed0);--nss-ink:var(--ink,#0f1a12);--nss-muted:var(--muted,#3d5c48);--nss-line:var(--line,#0f1a12);--nss-accent:var(--blaze,#e6392b);--nss-green:var(--pitch-dark,#1a5c28);background:var(--nss-paper);color:var(--nss-ink);border:4px solid var(--nss-line);box-shadow:4px 4px 0 #0f1a12;padding:28px;font-family:var(--font-body,"VT323",monospace);font-size:20px}
+.nss-root *{box-sizing:border-box}
+.nss-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:16px}
+.nss-kicker{font-family:var(--font-pixel,"Jersey 10",monospace);font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.nss-root h2{font-family:var(--font-pixel,"Jersey 10",monospace);font-size:clamp(18px,2.4vw,26px);letter-spacing:0;margin:5px 0 8px;line-height:1.25;overflow-wrap:anywhere}
+.nss-root h3{font-family:var(--font-pixel,"Jersey 10",monospace);font-size:16px;margin:0 0 9px;line-height:1.3;overflow-wrap:anywhere}
+.nss-summary{font-size:16px;line-height:1.55;margin:4px 0 18px}
+.nss-muted{color:var(--nss-muted);font-style:italic}
+.nss-content{display:grid;gap:22px}
+.nss-table-wrap{overflow-x:auto;border:2px solid var(--nss-line);background:var(--nss-paper2)}
+.nss-table{width:100%;border-collapse:collapse;min-width:520px;font:800 12px var(--font-pixel),"Jersey 10",monospace}
+.nss-table th,.nss-table td{padding:9px 10px;border-bottom:1px solid #aaa;text-align:right;white-space:nowrap}
+.nss-table th{background:var(--nss-ink);color:#fff;font-size:10px;letter-spacing:.8px;text-transform:uppercase}
+.nss-table th:nth-child(2),.nss-table td:nth-child(2){text-align:left}
+.nss-table tr:last-child td{border-bottom:0}
+.nss-table tr.nss-poland td{background:#f4d9d4;font-weight:900}
+.nss-table tr.nss-cut td{border-bottom:4px solid var(--nss-accent)}
+.nss-results,.nss-bracket{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.nss-result,.nss-bracket-match{border:1px solid var(--nss-line);background:var(--nss-paper2);padding:10px 12px;font:800 12px var(--font-pixel),"Jersey 10",monospace;line-height:1.45}
+.nss-bracket-match.nss-poland{border:3px solid var(--nss-accent);background:#f4d9d4}
+.nss-score-inline{float:right;font-weight:900}
+.nss-note{color:var(--nss-muted);font-size:13px;line-height:1.45}
+.nss-actions{display:grid;gap:9px;margin-top:18px}
+.nss-button{width:100%;border:2px solid var(--nss-line);padding:13px 15px;background:#fff;text-align:left;font:900 13px var(--font-pixel),"Jersey 10",monospace;cursor:pointer}
+.nss-button:hover{background:#e8e2d5}
+.nss-primary{background:var(--nss-accent);color:#fff;box-shadow:3px 3px 0 #111;text-align:center;text-transform:uppercase;letter-spacing:.8px}
+.nss-choice-main{display:block}
+.nss-choice-stake{display:block;margin-top:6px;color:var(--nss-muted);font-size:12px;line-height:1.35}
+.nss-score{font:900 12px var(--font-pixel),"Jersey 10",monospace;border:2px solid var(--nss-line);padding:9px 11px;background:var(--nss-paper2);text-transform:uppercase}
+.nss-speed{display:flex;gap:8px;margin:14px 0}
+.nss-speed button{border:2px solid var(--nss-line);background:var(--nss-paper2);padding:8px 14px;font:800 11px var(--font-pixel),"Jersey 10",monospace;cursor:pointer}
+.nss-speed button.nss-active{background:var(--nss-accent);color:#fff}
+.nss-log{max-height:400px;overflow-y:auto;border:2px solid var(--nss-line);background:var(--nss-paper2);padding:16px;font-size:14px;line-height:1.7}
+.nss-log-line{padding:5px 0;border-bottom:1px dashed #b8b2a4}
+.nss-log-line:last-child{border-bottom:0}
+.nss-log-line.nss-goal{font-weight:900;color:var(--nss-accent)}
+.nss-log-line.nss-decision{font-weight:800;background:#f3efe6;padding:9px 11px;margin:5px -11px}
+.nss-log-line.nss-final{font-weight:900;font-size:16px;border-top:2px solid var(--nss-line);padding-top:12px}
+@media(max-width:800px){.nss-root{padding:18px}.nss-results,.nss-bracket{grid-template-columns:1fr}.nss-head{gap:10px}}
+
+/* ---- Match Lab: panel meczu (dodane) ---- */
+.nss-match-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(240px,.9fr);gap:16px;margin-top:14px}
+.nss-side{display:grid;gap:12px;align-content:start}
+.nss-status-box{border:2px solid var(--nss-line);background:var(--nss-paper2);padding:12px 14px}
+.nss-status-box h3{font:900 11px var(--font-pixel),"Jersey 10",monospace;letter-spacing:1.2px;text-transform:uppercase;margin:0 0 10px;color:var(--nss-muted)}
+.nss-stat-grid{display:grid;grid-template-columns:1fr auto;gap:6px 10px;font:700 13px Georgia,serif}
+.nss-stat-grid strong{text-align:right;font-weight:900}
+.nss-meter{height:16px;background:#fff;border:2px solid var(--nss-line)}
+.nss-meter>div{height:100%;background:linear-gradient(90deg,var(--nss-green),#3a7a52);transition:width .25s ease}
+
+.nss-decision{margin-top:12px;padding:14px;border:2px solid var(--nss-line);background:var(--nss-paper2)}
+.nss-decision-title{min-height:34px;margin-bottom:10px;font-weight:800;font-size:15px;line-height:1.4}
+.nss-reaction-wrap{display:block;margin-bottom:10px}
+.nss-skill-panel{display:grid;grid-template-columns:1fr 150px;gap:10px;align-items:start}
+.nss-skill-bars{display:grid;gap:4px;align-content:start}
+.nss-skill-row{display:grid;grid-template-columns:80px 1fr 30px;gap:6px;align-items:center;font:700 11px var(--font-pixel),"Jersey 10",monospace}
+.nss-skill-row.nss-flash{animation:nssFlash .22s linear 5}
+@keyframes nssFlash{50%{color:#fff;background:var(--nss-accent)}}
+.nss-mini-track{height:12px;background:#fff;border:1px solid var(--nss-line)}
+.nss-mini-fill{height:100%;background:var(--nss-accent)}
+.nss-skill-buttons{display:grid;gap:6px;align-content:start}
+.nss-skill-btn{min-height:28px;padding:5px 8px;border:2px solid var(--nss-line);background:#fff;font:800 12px var(--font-pixel),"Jersey 10",monospace;text-align:left;cursor:pointer}
+.nss-skill-btn:disabled{color:#aaa;background:#eee;cursor:default}
+.nss-skill-btn.nss-selected{background:var(--nss-ink);color:#fff}
+.nss-secondary{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;min-height:0}
+.nss-secondary button{border:2px solid var(--nss-line);background:#fff;padding:5px 10px;font:800 11px var(--font-pixel),"Jersey 10",monospace;cursor:pointer}
+.nss-secondary button.nss-active{background:var(--nss-accent);color:#fff}
+.nss-tip{min-height:30px;padding:8px 10px;margin-top:4px;background:#fff;border:1px solid var(--nss-line);font-size:12px;line-height:1.4;font-style:italic;color:var(--nss-muted)}
+.nss-play-row{display:grid;grid-template-columns:1fr 130px;gap:8px;margin-top:10px}
+.nss-play-row .nss-button{width:100%;min-height:42px;text-align:center}
+@media(max-width:800px){
+  .nss-match-grid{grid-template-columns:1fr}
+  .nss-skill-panel{grid-template-columns:1fr 120px}
+}

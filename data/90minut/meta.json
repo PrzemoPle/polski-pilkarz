@@ -1,0 +1,17 @@
+{
+  "source": "http://www.90minut.pl",
+  "season": "2026/2027",
+  "seasonId": 109,
+  "fetchedAt": "2026-08-02T08:49:12Z",
+  "leagues": 397,
+  "clubs": 5404,
+  "players": 2017,
+  "tierMap": {
+    "6": "Ekstraklasa",
+    "5": "I liga",
+    "4": "II liga",
+    "3": "III liga",
+    "2": "IV liga",
+    "1": "V liga / klasa okręgowa / A–C"
+  }
+}

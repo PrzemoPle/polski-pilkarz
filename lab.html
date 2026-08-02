@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a3a5c" />
+  <title>Lab — Polski Piłkarz</title>
+  <link rel="stylesheet" href="css/main.css?v=pixel8pl" />
+  <link rel="stylesheet" href="css/lab.css?v=pixel8pl" />
+</head>
+<body>
+<main class="app-shell">
+  <div class="title-stage title-stage--lab">
+    <p class="title-chip">DEBUG CART · NO CAREER</p>
+    <h1 class="title-logo">
+      <span class="title-line">LAB</span>
+      <span class="title-line title-line--big">MECZOWY</span>
+    </h1>
+    <p class="title-tag">Same mecze. Zero transferów. Maksimum pecha.</p>
+    <div class="lab-top-links title-lab-links">
+      <a class="link-chip" href="index.html">← KARIERA</a>
+      <button id="labResetBtn" class="ghost hidden" type="button">RESET</button>
+    </div>
+  </div>
+
+  <section id="labSetup" class="create-board lab-setup-board">
+    <header class="board-head">
+      <h2>SANDBOX LOADOUT</h2>
+      <p class="board-sub">Rozdaj skille jak w RPG. Im wyższy skill, tym więcej głupot przy piłce.</p>
+    </header>
+
+    <div class="create-grid">
+      <fieldset class="create-block create-id">
+        <legend>ZAWODNIK</legend>
+        <form id="labSetupForm" class="setup-form" style="padding:0;gap:10px;">
+          <label>
+            <span>Imię i nazwisko</span>
+            <input id="labName" maxlength="28" required />
+          </label>
+          <div class="field-row">
+            <label>
+              <span>Pozycja</span>
+              <select id="labPosition">
+                <option value="DEF">Obrońca</option>
+                <option value="MID" selected>Pomocnik</option>
+                <option value="FWD">Napastnik</option>
+              </select>
+            </label>
+            <label>
+              <span>Województwo</span>
+              <select id="labRegion"></select>
+            </label>
+          </div>
+          <div class="field-row">
+            <label>
+              <span>Start OVR</span>
+              <select id="labStart">
+                <option value="38">Podwórko ~38</option>
+                <option value="45" selected>Normalny ~45</option>
+                <option value="55">Syrenka ~55</option>
+                <option value="64">Wonderkid ~64</option>
+              </select>
+            </label>
+            <label>
+              <span>Budżet</span>
+              <select id="labPoints">
+                <option value="12">12</option>
+                <option value="20" selected>20</option>
+                <option value="32">32</option>
+                <option value="48">48</option>
+              </select>
+            </label>
+          </div>
+        </form>
+        <div class="points-bank">
+          <span>PKT</span>
+          <strong id="labPointsLeft">20</strong>
+        </div>
+        <div id="labAttrEditor" class="attr-groups skill-scroll"></div>
+      </fieldset>
+
+      <fieldset class="create-block create-modes" style="grid-area: skills;">
+        <legend>TRYB</legend>
+        <div class="mode-picks">
+          <label>
+            <input type="radio" name="labMode" value="auto" />
+            <div>
+              <strong>Auto — popcorn</strong>
+              <span>Silnik gra. Ty udajesz, że to Twoja wina.</span>
+            </div>
+          </label>
+          <label>
+            <input type="radio" name="labMode" value="key" checked />
+            <div>
+              <strong>Big matches</strong>
+              <span>Derby i puchar: decyzje. Reszta auto.</span>
+            </div>
+          </label>
+          <label>
+            <input type="radio" name="labMode" value="full" />
+            <div>
+              <strong>Masochizm</strong>
+              <span>Każdy kontakt. Tylko odblokowane skille.</span>
+            </div>
+          </label>
+        </div>
+        <div class="soft-grid" id="labSoftPreview"></div>
+        <p class="lab-muted" id="labOvrPreview" style="color:var(--muted);background:var(--chalk);padding:6px 8px;border:2px solid var(--line);">OVR: —</p>
+        <button id="labStartBtn" class="primary full press-start" type="button">▶ START LAB</button>
+      </fieldset>
+    </div>
+  </section>
+
+  <section id="labPlay" class="lab-grid hidden">
+    <div class="lab-panel">
+      <div class="section-head compact" style="padding:0 0 12px;">
+        <div>
+          <div class="eyebrow" id="labRoundLabel">KOLEJKA</div>
+          <h2 id="labMatchTitle">Mecz</h2>
+        </div>
+        <div class="weather-chip" id="labWeather">—</div>
+      </div>
+
+      <div class="match-score">
+        <div>
+          <div class="eyebrow" id="labHomeName">Dom</div>
+          <div class="big" id="labScore">0:0</div>
+          <div class="eyebrow" id="labAwayName">Wyjazd</div>
+        </div>
+        <div>
+          <div class="eyebrow">MINUTA</div>
+          <div class="big" id="labMinute" style="font-size:36px;">0'</div>
+          <div class="eyebrow" id="labPhase">—</div>
+        </div>
+      </div>
+
+      <div class="stat-strip" id="labMatchStats"></div>
+      <div class="log-box" id="labLog"></div>
+
+      <div id="labDecision" class="decision-box-lab hidden">
+        <div class="eyebrow">DECYZJA PRZY PIŁCE</div>
+        <h3 id="labDecisionText" style="margin:6px 0 0;font-size:20px;"></h3>
+        <div class="action-grid" id="labActions"></div>
+        <ul class="locked-list" id="labLocked"></ul>
+      </div>
+
+      <div id="labSeasonEvent" class="decision-box-lab hidden" style="border-left-color:var(--lab-warn);">
+        <div class="eyebrow">ZDARZENIE LOSOWE</div>
+        <h3 id="labEventTitle" style="margin:6px 0 4px;font-size:20px;"></h3>
+        <p id="labEventText" style="margin:0 0 10px;"></p>
+        <div class="action-grid" id="labEventChoices"></div>
+      </div>
+
+      <div class="season-actions">
+        <button id="labTickBtn" class="primary" type="button">+5 MIN</button>
+        <button id="labAutoMatchBtn" class="ghost" type="button">DOKOŃCZ MECZ AUTO</button>
+        <button id="labNextBtn" class="ghost hidden" type="button">NASTĘPNY MECZ</button>
+        <button id="labAutoSeasonBtn" class="ghost" type="button">CAŁY SEZON AUTO</button>
+      </div>
+    </div>
+
+    <div class="lab-panel">
+      <h2 id="labPlayerName">Zawodnik</h2>
+      <p class="lab-muted" id="labPlayerMeta"></p>
+      <div class="points-bank">
+        <span>Punkty skilli</span>
+        <strong id="labBank">0</strong>
+      </div>
+      <div class="soft-grid" id="labSoftLive"></div>
+      <div id="labAttrLive" class="attr-groups"></div>
+
+      <h3 style="margin-top:18px;">Sezon</h3>
+      <div class="stat-strip" id="labSeasonStats"></div>
+      <div class="fixture-list" id="labFixtures"></div>
+    </div>
+  </section>
+
+  <section id="labSummary" class="lab-panel hidden" style="margin-top:18px;">
+    <div class="eyebrow">KONIEC SEZONU LAB</div>
+    <h2 id="labSummaryTitle">Raport</h2>
+    <p id="labSummaryText" class="retire-verdict"></p>
+    <div class="stat-strip" id="labSummaryStats"></div>
+    <div class="season-actions">
+      <button id="labAgainBtn" class="primary" type="button">NOWY LAB</button>
+      <a class="ghost" href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;padding:14px 18px;">WRÓĆ DO KARIERY</a>
+    </div>
+  </section>
+</main>
+
+<script src="js/08-polska-kariera-kluby.js"></script>
+<script src="js/08b-polskie-imiona.js"></script>
+<script src="js/lab/lab-data.js"></script>
+<script src="js/lab/lab-match.js"></script>
+<script src="js/lab/lab-season.js"></script>
+<script src="js/lab/lab-app.js"></script>
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a3a5c" />
+  <title>Polski Piłkarz — 16-bit kariera</title>
+  <link rel="stylesheet" href="css/main.css?v=pixel8pl" />
+  <link rel="stylesheet" href="css/04-nss-turnieje-ui.css?v=pixel8pl" />
+  <link rel="stylesheet" href="css/lab.css?v=pixel8pl" />
+</head>
+<body>
+<main class="app-shell">
+
+  <button id="newCareerBtn" class="ghost hud-reset hidden" type="button">RESET</button>
+
+  <!-- ===== SETUP: title stage + character create (NOT original split) ===== -->
+  <section id="setupView" class="setup-stage">
+    <div class="title-stage" aria-label="Ekran tytułowy">
+      <p class="title-chip">v1.07 · CAREER CART</p>
+      <h1 class="title-logo">
+        <span class="title-line">POLSKI</span>
+        <span class="title-line title-line--big">PIŁKARZ</span>
+      </h1>
+      <p class="title-tag">16 lat. Jedna noga lepsza. Reszta to pech.</p>
+      <div class="title-sprite" aria-hidden="true">
+        <span class="px-ball"></span>
+        <span class="px-goal"></span>
+      </div>
+      <p class="title-blink">▼ STWÓRZ ZAWODNIKA</p>
+    </div>
+
+    <form id="setupForm" class="create-board">
+      <header class="board-head">
+        <h2>CREATE PLAYER</h2>
+        <p class="board-sub">Jak w RPG — tylko zamiast smoka masz trenera z IV ligi.</p>
+      </header>
+
+      <div class="create-grid">
+        <fieldset class="create-block create-id">
+          <legend>TOŻSAMOŚĆ</legend>
+          <label>
+            <span>Imię i nazwisko</span>
+            <input id="playerName" maxlength="28" value="" required />
+          </label>
+          <div class="field-row">
+            <label>
+              <span>Pozycja</span>
+              <select id="position">
+                <option value="DEF">Obrońca</option>
+                <option value="MID" selected>Pomocnik</option>
+                <option value="FWD">Napastnik</option>
+              </select>
+            </label>
+            <label>
+              <span>Lepsza noga</span>
+              <select id="foot">
+                <option value="Prawa" selected>Prawa</option>
+                <option value="Lewa">Lewa</option>
+              </select>
+            </label>
+          </div>
+          <div class="field-row">
+            <label>
+              <span>Województwo</span>
+              <select id="region"></select>
+            </label>
+            <label>
+              <span>Start</span>
+              <select id="startPoint">
+                <option value="backyard">Podwórko 29–34</option>
+                <option value="normal" selected>Normalny 39–45</option>
+                <option value="syrenka">Syrenka 50–55</option>
+                <option value="wonderkid">Wonderkid 60–66</option>
+              </select>
+            </label>
+          </div>
+          <div class="field-row">
+            <label>
+              <span>Trudność</span>
+              <select id="difficulty">
+                <option value="normal" selected>Normalny</option>
+                <option value="easy">Łatwy</option>
+              </select>
+            </label>
+            <label>
+              <span>Budżet skilli</span>
+              <select id="skillBudget">
+                <option value="12">12</option>
+                <option value="20" selected>20</option>
+                <option value="32">32</option>
+              </select>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="create-block create-skills">
+          <legend>SKILLE</legend>
+          <div class="points-bank"><span>PKT</span><strong id="careerSkillBank">20</strong></div>
+          <p class="lab-muted" id="careerSkillOvr">OVR: —</p>
+          <div id="careerSkillEditor" class="attr-groups skill-scroll"></div>
+        </fieldset>
+
+        <fieldset class="create-block create-modes">
+          <legend>TRYB SEZONU</legend>
+          <div class="mode-picks">
+            <label>
+              <input type="radio" name="playMode" value="classic" />
+              <div>
+                <strong>Klasyczny</strong>
+                <span>Jeden rzut sezonu. Pogoda w tle.</span>
+              </div>
+            </label>
+            <label>
+              <input type="radio" name="playMode" value="auto" />
+              <div>
+                <strong>Auto</strong>
+                <span>Silnik gra. Ty oglądasz raport.</span>
+              </div>
+            </label>
+            <label>
+              <input type="radio" name="playMode" value="key" checked />
+              <div>
+                <strong>Big matches</strong>
+                <span>Decyzje w derby i pucharze.</span>
+              </div>
+            </label>
+            <label>
+              <input type="radio" name="playMode" value="full" />
+              <div>
+                <strong>Hardcore</strong>
+                <span>Każdy kontakt przy piłce.</span>
+              </div>
+            </label>
+          </div>
+          <legend style="margin-top:14px;">TEMPO KARIERY</legend>
+          <div class="mode-picks">
+            <label>
+              <input type="radio" name="careerPace" value="intense" />
+              <div>
+                <strong>Intensywny</strong>
+                <span>Decyzja co sezon — jak NSS na sterydach.</span>
+              </div>
+            </label>
+            <label>
+              <input type="radio" name="careerPace" value="normal" checked />
+              <div>
+                <strong>Normalny</strong>
+                <span>Historia co 2 sezony. Reszta to gazeta i życie.</span>
+              </div>
+            </label>
+            <label>
+              <input type="radio" name="careerPace" value="express" />
+              <div>
+                <strong>Express</strong>
+                <span>Co 3 sezony — wiralowa pętla à la Copero.</span>
+              </div>
+            </label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="create-actions">
+        <button class="primary press-start" type="submit">▶ START KARIERY</button>
+        <div class="extra-links">
+          <a class="link-chip" href="lab.html">LAB</a>
+          <a class="link-chip link-chip--alt" href="https://tetrycy.com.pl/ekstraklasadraft/" target="_blank" rel="noopener noreferrer">DRAFT</a>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <!-- ===== OFFERS: vertical select menu, not 3 equal cards ===== -->
+  <section id="offersView" class="offers-stage hidden">
+    <header class="stage-banner">
+      <div>
+        <p class="eyebrow">LEVEL 1 · FAX Z KLUBU</p>
+        <h2>Trzy oferty. Jedna będzie żalem.</h2>
+      </div>
+      <div id="offerRegion" class="region-chip"></div>
+    </header>
+    <div id="offersGrid" class="offers-stack"></div>
+  </section>
+
+  <!-- ===== CAREER: top HUD + stage (not sticky sidebar) ===== -->
+  <section id="careerView" class="hidden career-stage">
+    <header class="player-hud panel">
+      <div class="hud-id">
+        <div class="shirt" id="shirtNumber">10</div>
+        <div>
+          <p class="eyebrow" id="playerRegionLabel"></p>
+          <h2 id="playerNameLabel"></h2>
+          <p class="player-meta" id="playerMeta"></p>
+        </div>
+      </div>
+      <div class="hud-meters">
+        <div class="hud-stat">
+          <span class="stat-label">OVR</span>
+          <strong id="overallValue" class="overall">52</strong>
+        </div>
+        <div class="hud-stat">
+          <span class="stat-label">WIEK</span>
+          <strong id="ageValue" class="big-number">16</strong>
+        </div>
+        <div class="hud-stat hud-stat--wide">
+          <span class="stat-label">KLUB</span>
+          <strong id="clubValue" class="club-name"></strong>
+          <small id="clubTierValue" class="muted"></small>
+        </div>
+        <div class="hud-stat">
+          <span class="stat-label">WART.</span>
+          <strong id="valueLabel">50 tys.</strong>
+        </div>
+      </div>
+      <div class="hud-soft">
+        <div class="hud-chip"><span>Status</span><strong id="statusValue">—</strong></div>
+        <div class="hud-chip"><span>Kadry</span><strong id="nationalValue">—</strong></div>
+        <div class="hud-chip"><span>Gra</span><strong id="playChanceValue">—</strong></div>
+        <div class="hud-chip"><span>Pro</span><strong id="professionalismValue">—</strong></div>
+        <div class="hud-chip"><span>Lojal.</span><strong id="loyaltyValue">—</strong></div>
+        <div class="hud-chip"><span>Media</span><strong id="recognitionValue">—</strong></div>
+        <div class="hud-chip"><span>Uraz</span><strong id="injuryRiskValue">—</strong></div>
+        <div class="hud-chip"><span>Pkt</span><strong id="careerPointsLive">0</strong></div>
+      </div>
+      <div class="hud-soft hud-relations">
+        <div class="hud-chip"><span>Trener</span><strong id="relCoach">55</strong></div>
+        <div class="hud-chip"><span>Szatnia</span><strong id="relSquad">50</strong></div>
+        <div class="hud-chip"><span>Kibice</span><strong id="relFans">45</strong></div>
+        <div class="hud-chip"><span>Agent</span><strong id="relAgent">40</strong></div>
+        <div class="hud-chip hud-chip--energy"><span>Energia</span><strong id="energyValue">2</strong></div>
+      </div>
+      <div id="careerSoftStats" class="soft-grid hidden"></div>
+    </header>
+
+    <div class="career-body">
+      <section class="panel season-panel">
+        <div class="section-head compact">
+          <div>
+            <div id="seasonLabel" class="eyebrow">SEZON 2026/27</div>
+            <h2 id="seasonHeadline">Pierwszy sezon</h2>
+          </div>
+          <div id="careerScore" class="score-pill">0 pkt</div>
+        </div>
+
+        <div class="stats-grid">
+          <div><span>Mecze</span><strong id="appsStat">0</strong></div>
+          <div><span>Gole</span><strong id="goalsStat">0</strong></div>
+          <div><span>Asysty</span><strong id="assistsStat">0</strong></div>
+          <div><span>Minuty</span><strong id="minutesStat">0</strong></div>
+        </div>
+
+        <div id="eventBox" class="event-box">
+          <div class="event-kicker">PRZED SEZONEM</div>
+          <h3>Boisko czeka. Trybuny jeszcze nie.</h3>
+          <p>Wejdź do pierwszej drużyny, zanim trener zapomni Twoje nazwisko.</p>
+        </div>
+
+        <div id="decisionBox" class="decision-box hidden">
+          <div class="event-kicker">DECYZJA</div>
+          <h3 id="decisionTitle"></h3>
+          <p id="decisionText"></p>
+          <div id="decisionChoices" class="choices"></div>
+        </div>
+
+        <div id="careerMatchPanel" class="lab-panel match-embed hidden">
+          <div class="section-head compact">
+            <div>
+              <div class="eyebrow" id="cmRound">MECZ</div>
+              <h2 id="cmTitle">Sezon meczowy</h2>
+            </div>
+            <div class="weather-chip" id="cmWeather">—</div>
+          </div>
+          <div class="match-score">
+            <div class="big" id="cmScore">0:0</div>
+            <div>
+              <div class="eyebrow">MINUTA</div>
+              <div class="big" id="cmMinute">0'</div>
+            </div>
+          </div>
+          <div class="stat-strip" id="cmStats"></div>
+          <div class="log-box" id="cmLog"></div>
+
+          <div id="cmEvent" class="decision-box-lab hidden">
+            <div class="eyebrow">ZDARZENIE LOSOWE</div>
+            <h3 id="cmEventTitle"></h3>
+            <p id="cmEventText"></p>
+            <div class="choices" id="cmEventChoices"></div>
+          </div>
+
+          <div id="cmDecision" class="decision-box-lab hidden">
+            <div class="eyebrow">DECYZJA PRZY PIŁCE</div>
+            <h3 id="cmDecisionText"></h3>
+            <div class="action-grid" id="cmActions"></div>
+            <ul class="locked-list" id="cmLocked"></ul>
+          </div>
+
+          <div class="points-bank"><span>Punkty skilli</span><strong id="cmBank">0</strong></div>
+          <div id="cmAttrLive" class="attr-groups skill-scroll"></div>
+
+          <div class="season-actions">
+            <button id="cmTick" class="primary" type="button">+5 MIN</button>
+            <button id="cmAutoMatch" class="ghost" type="button">DOKOŃCZ MECZ</button>
+            <button id="cmNext" class="ghost hidden" type="button">NASTĘPNY MECZ</button>
+            <button id="cmAutoSeason" class="ghost" type="button">CAŁY SEZON AUTO</button>
+          </div>
+        </div>
+
+        <button id="playSeasonBtn" class="primary full press-start">▶ ROZEGRAJ SEZON</button>
+      </section>
+
+      <aside class="panel history-panel">
+        <div class="section-head compact">
+          <div>
+            <div class="eyebrow">SAVE LOG</div>
+            <h2>Historia</h2>
+          </div>
+        </div>
+        <div id="timeline" class="timeline"></div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="retirementView" class="panel hidden retirement">
+    <div id="retirementSummary">
+      <div class="retirement-profile-top">
+        <button id="shareCardBtn" class="primary press-start" type="button">POBIERZ KARTĘ (STORIES)</button>
+        <button id="profile89Btn" class="ghost" type="button">PROFIL 89 MINUT (JPG)</button>
+      </div>
+      <div class="eyebrow">GAME OVER</div>
+      <h2 id="retireTitle"></h2>
+      <p id="retireVerdict" class="retire-verdict"></p>
+      <div id="retireStats" class="retire-stats"></div>
+      <div id="retireClubs" class="retire-clubs"></div>
+      <div class="season-review">
+        <div class="eyebrow">SEZON PO SEZONIE</div>
+        <h3>Przebieg całej kariery</h3>
+        <div id="retireSeasons" class="season-review-list"></div>
+      </div>
+      <div class="retirement-actions">
+        <button id="restartBtn" class="ghost">ZAGRAJ JESZCZE RAZ</button>
+      </div>
+    </div>
+
+    <section id="profile89View" class="profile89 hidden" aria-live="polite">
+      <div class="profile89-toolbar">
+        <button id="profile89BackBtn" class="ghost">← WRÓĆ DO PODSUMOWANIA</button>
+      </div>
+      <div id="profile89Content"></div>
+    </section>
+  </section>
+
+<section id="nssTournamentRoot" class="nss-root nss-hidden">
+  <div data-nss-view="overview">
+    <div class="nss-kicker" data-nss="kicker">TURNIEJ</div>
+    <h2 data-nss="title">Turniej reprezentacji</h2>
+    <p class="nss-summary" data-nss="summary"></p>
+    <div class="nss-content" data-nss="content"></div>
+    <div class="nss-actions" data-nss="actions"></div>
+  </div>
+
+  <div data-nss-view="match" class="nss-hidden">
+    <div class="nss-head">
+      <div>
+        <div class="nss-kicker" data-nss="match-kicker">MECZ</div>
+        <h2 data-nss="match-title">Polska vs Rywal</h2>
+      </div>
+      <div class="nss-score" data-nss="match-score">0 : 0</div>
+    </div>
+    <p class="nss-muted" data-nss="match-meta"></p>
+    <div class="nss-speed">
+      <button type="button" data-nss-speed="slow">WOLNO</button>
+      <button type="button" data-nss-speed="normal" class="nss-active">NORMALNIE</button>
+      <button type="button" data-nss-speed="fast">SZYBKO</button>
+    </div>
+
+    <div class="nss-match-grid">
+      <div>
+        <div class="nss-log" data-nss="match-log"></div>
+
+        <div class="nss-decision nss-hidden" data-nss="decision">
+          <div class="nss-decision-title" data-nss="decision-title"></div>
+          <div class="nss-reaction-wrap">
+            <div class="nss-skill-panel">
+              <div class="nss-skill-bars" data-nss="skill-bars"></div>
+              <div class="nss-skill-buttons" data-nss="skill-buttons"></div>
+            </div>
+          </div>
+          <div class="nss-secondary" data-nss="secondary-actions"></div>
+          <div class="nss-tip" data-nss="tip">Wybierz umiejętność i naciśnij Graj.</div>
+          <div class="nss-play-row">
+            <button type="button" class="nss-button" data-nss="clear-btn">Wyczyść</button>
+            <button type="button" class="nss-button nss-primary" data-nss="play-btn">GRAJ</button>
+          </div>
+        </div>
+
+        <div class="nss-actions" data-nss="match-actions"></div>
+      </div>
+
+      <aside class="nss-side">
+        <div class="nss-status-box">
+          <h3>Występ zawodnika</h3>
+          <div class="nss-stat-grid">
+            <span>Ocena meczu</span><strong data-nss="stat-rating">6.0</strong>
+            <span>Twoje zdarzenia</span><strong data-nss="stat-personal">0 / 0</strong>
+            <span>Gole</span><strong data-nss="stat-goals">0</strong>
+            <span>Asysty</span><strong data-nss="stat-assists">0</strong>
+            <span>Strzały / celne</span><strong data-nss="stat-shots">0 / 0</strong>
+            <span>Podania</span><strong data-nss="stat-passes">0 / 0</strong>
+            <span>Dryblingi</span><strong data-nss="stat-dribbles">0 / 0</strong>
+            <span>Odbiory</span><strong data-nss="stat-tackles">0 / 0</strong>
+            <span>Straty</span><strong data-nss="stat-turnovers">0</strong>
+            <span>Kartki</span><strong data-nss="stat-cards">—</strong>
+          </div>
+        </div>
+        <div class="nss-status-box">
+          <h3>Kondycja</h3>
+          <div class="nss-meter"><div data-nss="condition-meter" style="width:100%"></div></div>
+          <p class="nss-note" data-nss="condition-text"></p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+  <div id="patronitePrompt" class="patronite-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="patronitePromptTitle">
+    <div class="patronite-card">
+      <button id="patronitePromptCloseX" class="patronite-close" type="button" aria-label="Zamknij">×</button>
+      <div class="eyebrow">30 MINUT Z GRĄ</div>
+      <h3 id="patronitePromptTitle">Gratulacje, grasz już 30 minut!</h3>
+      <p>Jeśli podoba ci się gra, może spodoba ci się też nasz przepis na ogórkową na Patronite.</p>
+      <div class="patronite-actions">
+        <a id="patronitePromptLink" class="primary" href="https://patronite.pl/tetrycy" target="_blank" rel="noopener noreferrer">PATRONITE.PL/TETRYCY</a>
+        <button id="patronitePromptClose" class="ghost" type="button">ZAMKNIJ</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer"><a href="https://patronite.pl/tetrycy" target="_blank" rel="noopener noreferrer">powered by Tetrycy</a></footer>
+</main>
+
+  <script src="js/01-nss-dane-reprezentacji.js"></script>
+  <script src="js/02-nss-silnik-meczowy.js"></script>
+  <script src="js/03-nss-turnieje.js"></script>
+  <script src="js/06-nss-kontroler-ui.js"></script>
+  <script src="js/07-nss-adapter-polska-kariera.js"></script>
+  <script src="js/08-polska-kariera-kluby.js"></script>
+  <script src="js/08b-polskie-imiona.js"></script>
+  <script src="js/09-polska-kariera-decyzje.js"></script>
+  <script src="js/lab/lab-data.js"></script>
+  <script src="js/lab/lab-match.js"></script>
+  <script src="js/lab/lab-season.js"></script>
+  <script src="js/12-career-life.js"></script>
+  <script src="js/10-polska-kariera-core.js"></script>
+  <script src="js/11-lab-integration.js"></script>
+</body>
+</html>

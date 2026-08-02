@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.fontvenv/
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local / temp
+*.log
+.tmp/
+.temp/
+dist/
+.cache/
+
+# Cursor / agent local
+.cursor/
+.fontvenv/

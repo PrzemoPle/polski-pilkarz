@@ -1,0 +1,3972 @@
+[
+  {
+    "id": 14675,
+    "name": "PKO BP Ekstraklasa",
+    "url": "/liga/1/liga14675.html",
+    "tier": 6,
+    "level": "PKO BP Ekstraklasa",
+    "region": null,
+    "central": true,
+    "clubCount": 18
+  },
+  {
+    "id": 14676,
+    "name": "Betclic I liga",
+    "url": "/liga/1/liga14676.html",
+    "tier": 5,
+    "level": "Betclic I liga",
+    "region": null,
+    "central": true,
+    "clubCount": 18
+  },
+  {
+    "id": 14677,
+    "name": "Betclic II liga",
+    "url": "/liga/1/liga14677.html",
+    "tier": 4,
+    "level": "Betclic II liga",
+    "region": null,
+    "central": true,
+    "clubCount": 18
+  },
+  {
+    "id": 14742,
+    "name": "III liga, gr. I",
+    "url": "/liga/1/liga14742.html",
+    "tier": 3,
+    "level": "III liga, gr. I",
+    "region": null,
+    "central": true,
+    "clubCount": 18
+  },
+  {
+    "id": 14743,
+    "name": "III liga, gr. II",
+    "url": "/liga/1/liga14743.html",
+    "tier": 3,
+    "level": "III liga, gr. II",
+    "region": null,
+    "central": true,
+    "clubCount": 18
+  },
+  {
+    "id": 14744,
+    "name": "III liga, gr. III",
+    "url": "/liga/1/liga14744.html",
+    "tier": 3,
+    "level": "III liga, gr. III",
+    "region": null,
+    "central": true,
+    "clubCount": 18
+  },
+  {
+    "id": 14745,
+    "name": "III liga, gr. IV",
+    "url": "/liga/1/liga14745.html",
+    "tier": 3,
+    "level": "III liga, gr. IV",
+    "region": null,
+    "central": true,
+    "clubCount": 18
+  },
+  {
+    "id": 14768,
+    "name": "IV liga 2026/2027, grupa: dolnośląska",
+    "url": "/liga/1/liga14768.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 18
+  },
+  {
+    "id": 14800,
+    "name": "Klasa okręgowa 2026/2027, grupa: Jelenia Góra",
+    "url": "/liga/1/liga14800.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14781,
+    "name": "Klasa okręgowa 2026/2027, grupa: Legnica",
+    "url": "/liga/1/liga14781.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14801,
+    "name": "Klasa okręgowa 2026/2027, grupa: Wałbrzych",
+    "url": "/liga/1/liga14801.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15096,
+    "name": "Klasa okręgowa 2026/2027, grupa: Wrocław",
+    "url": "/liga/1/liga15096.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14879,
+    "name": "Decathlon Klasa A 2026/2027, grupa: Jelenia Góra I",
+    "url": "/liga/1/liga14879.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14880,
+    "name": "Decathlon Klasa A 2026/2027, grupa: Jelenia Góra II",
+    "url": "/liga/1/liga14880.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14881,
+    "name": "Decathlon Klasa A 2026/2027, grupa: Jelenia Góra III",
+    "url": "/liga/1/liga14881.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14811,
+    "name": "Decathlon Klasa A 2026/2027, grupa: Legnica I",
+    "url": "/liga/1/liga14811.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14812,
+    "name": "Decathlon Klasa A 2026/2027, grupa: Legnica II",
+    "url": "/liga/1/liga14812.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14813,
+    "name": "Decathlon Klasa A 2026/2027, grupa: Legnica III",
+    "url": "/liga/1/liga14813.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14814,
+    "name": "Decathlon Klasa A 2026/2027, grupa: Wałbrzych I",
+    "url": "/liga/1/liga14814.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14815,
+    "name": "Decathlon Klasa A 2026/2027, grupa: Wałbrzych II",
+    "url": "/liga/1/liga14815.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14816,
+    "name": "Decathlon Klasa A 2026/2027, grupa: Wałbrzych III",
+    "url": "/liga/1/liga14816.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14784,
+    "name": "Decathlon Klasa A 2026/2027, grupa: Wrocław I",
+    "url": "/liga/1/liga14784.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 0
+  },
+  {
+    "id": 14785,
+    "name": "Decathlon Klasa A 2026/2027, grupa: Wrocław II",
+    "url": "/liga/1/liga14785.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14786,
+    "name": "Decathlon Klasa A 2026/2027, grupa: Wrocław III",
+    "url": "/liga/1/liga14786.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14787,
+    "name": "Decathlon Klasa A 2026/2027, grupa: Wrocław IV",
+    "url": "/liga/1/liga14787.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14976,
+    "name": "Klasa B 2026/2027, grupa: Jelenia Góra I",
+    "url": "/liga/1/liga14976.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14977,
+    "name": "Klasa B 2026/2027, grupa: Jelenia Góra II",
+    "url": "/liga/1/liga14977.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14978,
+    "name": "Klasa B 2026/2027, grupa: Jelenia Góra III",
+    "url": "/liga/1/liga14978.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14979,
+    "name": "Klasa B 2026/2027, grupa: Jelenia Góra IV",
+    "url": "/liga/1/liga14979.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14980,
+    "name": "Klasa B 2026/2027, grupa: Jelenia Góra V",
+    "url": "/liga/1/liga14980.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14842,
+    "name": "Klasa B 2026/2027, grupa: Legnica I",
+    "url": "/liga/1/liga14842.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14843,
+    "name": "Klasa B 2026/2027, grupa: Legnica II",
+    "url": "/liga/1/liga14843.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14844,
+    "name": "Klasa B 2026/2027, grupa: Legnica III",
+    "url": "/liga/1/liga14844.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14845,
+    "name": "Klasa B 2026/2027, grupa: Legnica IV",
+    "url": "/liga/1/liga14845.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14846,
+    "name": "Klasa B 2026/2027, grupa: Legnica V",
+    "url": "/liga/1/liga14846.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14882,
+    "name": "Klasa B 2026/2027, grupa: Wałbrzych I",
+    "url": "/liga/1/liga14882.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14883,
+    "name": "Klasa B 2026/2027, grupa: Wałbrzych II",
+    "url": "/liga/1/liga14883.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14884,
+    "name": "Klasa B 2026/2027, grupa: Wałbrzych III",
+    "url": "/liga/1/liga14884.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14885,
+    "name": "Klasa B 2026/2027, grupa: Wałbrzych IV",
+    "url": "/liga/1/liga14885.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14886,
+    "name": "Klasa B 2026/2027, grupa: Wałbrzych V",
+    "url": "/liga/1/liga14886.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14788,
+    "name": "Klasa B 2026/2027, grupa: Wrocław I",
+    "url": "/liga/1/liga14788.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14789,
+    "name": "Klasa B 2026/2027, grupa: Wrocław II",
+    "url": "/liga/1/liga14789.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14790,
+    "name": "Klasa B 2026/2027, grupa: Wrocław III",
+    "url": "/liga/1/liga14790.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14791,
+    "name": "Klasa B 2026/2027, grupa: Wrocław IV",
+    "url": "/liga/1/liga14791.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14796,
+    "name": "Klasa B 2026/2027, grupa: Wrocław IX",
+    "url": "/liga/1/liga14796.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14792,
+    "name": "Klasa B 2026/2027, grupa: Wrocław V",
+    "url": "/liga/1/liga14792.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14793,
+    "name": "Klasa B 2026/2027, grupa: Wrocław VI",
+    "url": "/liga/1/liga14793.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14794,
+    "name": "Klasa B 2026/2027, grupa: Wrocław VII",
+    "url": "/liga/1/liga14794.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14795,
+    "name": "Klasa B 2026/2027, grupa: Wrocław VIII",
+    "url": "/liga/1/liga14795.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Dolnośląskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14836,
+    "name": "IV liga 2026/2027, grupa: kujawsko-pomorska",
+    "url": "/liga/1/liga14836.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Kujawsko-pomorskie",
+    "central": false,
+    "clubCount": 18
+  },
+  {
+    "id": 14867,
+    "name": "Klasa okręgowa 2026/2027, grupa: kujawsko-pomorska I",
+    "url": "/liga/1/liga14867.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Kujawsko-pomorskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14868,
+    "name": "Klasa okręgowa 2026/2027, grupa: kujawsko-pomorska II",
+    "url": "/liga/1/liga14868.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Kujawsko-pomorskie",
+    "central": false,
+    "clubCount": 15
+  },
+  {
+    "id": 14920,
+    "name": "Klasa A 2026/2027, grupa: Bydgoszcz I",
+    "url": "/liga/1/liga14920.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Kujawsko-pomorskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14921,
+    "name": "Klasa A 2026/2027, grupa: Bydgoszcz II",
+    "url": "/liga/1/liga14921.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Kujawsko-pomorskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14797,
+    "name": "Klasa A 2026/2027, grupa: Toruń",
+    "url": "/liga/1/liga14797.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Kujawsko-pomorskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15063,
+    "name": "Klasa A 2026/2027, grupa: Włocławek",
+    "url": "/liga/1/liga15063.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Kujawsko-pomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14949,
+    "name": "Klasa B 2026/2027, grupa: Bydgoszcz I",
+    "url": "/liga/1/liga14949.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Kujawsko-pomorskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14950,
+    "name": "Klasa B 2026/2027, grupa: Bydgoszcz II",
+    "url": "/liga/1/liga14950.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Kujawsko-pomorskie",
+    "central": false,
+    "clubCount": 10
+  },
+  {
+    "id": 14951,
+    "name": "Klasa B 2026/2027, grupa: Bydgoszcz III",
+    "url": "/liga/1/liga14951.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Kujawsko-pomorskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 14952,
+    "name": "Klasa B 2026/2027, grupa: Bydgoszcz IV",
+    "url": "/liga/1/liga14952.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Kujawsko-pomorskie",
+    "central": false,
+    "clubCount": 10
+  },
+  {
+    "id": 14953,
+    "name": "Klasa B 2026/2027, grupa: Bydgoszcz V",
+    "url": "/liga/1/liga14953.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Kujawsko-pomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14798,
+    "name": "Klasa B 2026/2027, grupa: Toruń I",
+    "url": "/liga/1/liga14798.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Kujawsko-pomorskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14799,
+    "name": "Klasa B 2026/2027, grupa: Toruń II",
+    "url": "/liga/1/liga14799.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Kujawsko-pomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15064,
+    "name": "Klasa B 2026/2027, grupa: Włocławek",
+    "url": "/liga/1/liga15064.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Kujawsko-pomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15026,
+    "name": "IV liga 2026/2027, grupa: lubelska",
+    "url": "/liga/1/liga15026.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 15
+  },
+  {
+    "id": 15059,
+    "name": "Klasa okręgowa 2026/2027, grupa: Biała Podlaska",
+    "url": "/liga/1/liga15059.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15097,
+    "name": "Klasa okręgowa 2026/2027, grupa: Chełm",
+    "url": "/liga/1/liga15097.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15027,
+    "name": "Klasa okręgowa 2026/2027, grupa: Lublin",
+    "url": "/liga/1/liga15027.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15028,
+    "name": "Klasa okręgowa 2026/2027, grupa: Zamość",
+    "url": "/liga/1/liga15028.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15153,
+    "name": "Klasa A 2026/2027, grupa: Chełm",
+    "url": "/liga/1/liga15153.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15107,
+    "name": "Klasa A 2026/2027, grupa: Lublin I",
+    "url": "/liga/1/liga15107.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15108,
+    "name": "Klasa A 2026/2027, grupa: Lublin II",
+    "url": "/liga/1/liga15108.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15109,
+    "name": "Klasa A 2026/2027, grupa: Lublin III",
+    "url": "/liga/1/liga15109.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15150,
+    "name": "Klasa A 2026/2027, grupa: Zamość",
+    "url": "/liga/1/liga15150.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15154,
+    "name": "Klasa B 2026/2027, grupa: Chełm",
+    "url": "/liga/1/liga15154.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 10
+  },
+  {
+    "id": 15110,
+    "name": "Klasa B 2026/2027, grupa: Lublin I",
+    "url": "/liga/1/liga15110.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 15111,
+    "name": "Klasa B 2026/2027, grupa: Lublin II",
+    "url": "/liga/1/liga15111.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15112,
+    "name": "Klasa B 2026/2027, grupa: Lublin III",
+    "url": "/liga/1/liga15112.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 15113,
+    "name": "Klasa B 2026/2027, grupa: Lublin IV",
+    "url": "/liga/1/liga15113.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15214,
+    "name": "Klasa B 2026/2027, grupa: Zamość I",
+    "url": "/liga/1/liga15214.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 10
+  },
+  {
+    "id": 15215,
+    "name": "Klasa B 2026/2027, grupa: Zamość II",
+    "url": "/liga/1/liga15215.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubelskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 14837,
+    "name": "IV liga Keeza 2026/2027, grupa: lubuska",
+    "url": "/liga/1/liga14837.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 18
+  },
+  {
+    "id": 14838,
+    "name": "Klasa okręgowa Keeza 2026/2027, grupa: Gorzów Wielkopolski",
+    "url": "/liga/1/liga14838.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14869,
+    "name": "Klasa okręgowa Keeza 2026/2027, grupa: Zielona Góra",
+    "url": "/liga/1/liga14869.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14922,
+    "name": "Klasa A 2026/2027, grupa: Gorzów Wielkopolski I",
+    "url": "/liga/1/liga14922.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14923,
+    "name": "Klasa A 2026/2027, grupa: Gorzów Wielkopolski II",
+    "url": "/liga/1/liga14923.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14908,
+    "name": "Keeza Klasa A 2026/2027, grupa: Zielona Góra I",
+    "url": "/liga/1/liga14908.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14909,
+    "name": "Keeza Klasa A 2026/2027, grupa: Zielona Góra II",
+    "url": "/liga/1/liga14909.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14910,
+    "name": "Keeza Klasa A 2026/2027, grupa: Zielona Góra III",
+    "url": "/liga/1/liga14910.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15147,
+    "name": "Klasa B 2026/2027, grupa: Gorzów Wielkopolski I",
+    "url": "/liga/1/liga15147.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15148,
+    "name": "Klasa B 2026/2027, grupa: Gorzów Wielkopolski II",
+    "url": "/liga/1/liga15148.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15149,
+    "name": "Klasa B 2026/2027, grupa: Gorzów Wielkopolski III",
+    "url": "/liga/1/liga15149.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 14981,
+    "name": "Klasa B 2026/2027, grupa: Krosno Odrzańskie",
+    "url": "/liga/1/liga14981.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 14992,
+    "name": "Klasa B 2026/2027, grupa: Nowa Sól",
+    "url": "/liga/1/liga14992.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15155,
+    "name": "Klasa B 2026/2027, grupa: Świebodzin",
+    "url": "/liga/1/liga15155.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 14993,
+    "name": "Klasa B 2026/2027, grupa: Zielona Góra",
+    "url": "/liga/1/liga14993.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15174,
+    "name": "Klasa B 2026/2027, grupa: Żagań",
+    "url": "/liga/1/liga15174.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 15146,
+    "name": "Klasa B 2026/2027, grupa: Żary",
+    "url": "/liga/1/liga15146.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Lubuskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14968,
+    "name": "IV liga 2026/2027, grupa: łódzka",
+    "url": "/liga/1/liga14968.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 18
+  },
+  {
+    "id": 14847,
+    "name": "Klasa okręgowa 2026/2027, grupa: Łódź",
+    "url": "/liga/1/liga14847.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14848,
+    "name": "Klasa okręgowa 2026/2027, grupa: Piotrków Trybunalski",
+    "url": "/liga/1/liga14848.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14849,
+    "name": "Klasa okręgowa 2026/2027, grupa: Sieradz",
+    "url": "/liga/1/liga14849.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14850,
+    "name": "Klasa okręgowa 2026/2027, grupa: Skierniewice",
+    "url": "/liga/1/liga14850.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15072,
+    "name": "Klasa A 2026/2027, grupa: łódzka I",
+    "url": "/liga/1/liga15072.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15073,
+    "name": "Klasa A 2026/2027, grupa: łódzka II",
+    "url": "/liga/1/liga15073.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 15
+  },
+  {
+    "id": 15074,
+    "name": "Klasa A 2026/2027, grupa: łódzka III",
+    "url": "/liga/1/liga15074.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15075,
+    "name": "Klasa A 2026/2027, grupa: łódzka IV",
+    "url": "/liga/1/liga15075.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15076,
+    "name": "Klasa A 2026/2027, grupa: łódzka V",
+    "url": "/liga/1/liga15076.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 15
+  },
+  {
+    "id": 15077,
+    "name": "Klasa A 2026/2027, grupa: łódzka VI",
+    "url": "/liga/1/liga15077.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15078,
+    "name": "Klasa A 2026/2027, grupa: łódzka VII",
+    "url": "/liga/1/liga15078.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15079,
+    "name": "Klasa A 2026/2027, grupa: łódzka VIII",
+    "url": "/liga/1/liga15079.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15156,
+    "name": "Klasa B 2026/2027, grupa: łódzka I",
+    "url": "/liga/1/liga15156.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 15157,
+    "name": "Klasa B 2026/2027, grupa: łódzka II",
+    "url": "/liga/1/liga15157.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15158,
+    "name": "Klasa B 2026/2027, grupa: łódzka III",
+    "url": "/liga/1/liga15158.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 10
+  },
+  {
+    "id": 15159,
+    "name": "Klasa B 2026/2027, grupa: łódzka IV",
+    "url": "/liga/1/liga15159.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15164,
+    "name": "Klasa B 2026/2027, grupa: łódzka IX",
+    "url": "/liga/1/liga15164.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 9
+  },
+  {
+    "id": 15160,
+    "name": "Klasa B 2026/2027, grupa: łódzka V",
+    "url": "/liga/1/liga15160.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15161,
+    "name": "Klasa B 2026/2027, grupa: łódzka VI",
+    "url": "/liga/1/liga15161.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 10
+  },
+  {
+    "id": 15162,
+    "name": "Klasa B 2026/2027, grupa: łódzka VII",
+    "url": "/liga/1/liga15162.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 10
+  },
+  {
+    "id": 15163,
+    "name": "Klasa B 2026/2027, grupa: łódzka VIII",
+    "url": "/liga/1/liga15163.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 9
+  },
+  {
+    "id": 15165,
+    "name": "Klasa B 2026/2027, grupa: łódzka X",
+    "url": "/liga/1/liga15165.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 15166,
+    "name": "Klasa B 2026/2027, grupa: łódzka XI",
+    "url": "/liga/1/liga15166.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 9
+  },
+  {
+    "id": 15167,
+    "name": "Klasa B 2026/2027, grupa: łódzka XII",
+    "url": "/liga/1/liga15167.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Łódzkie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 14839,
+    "name": "IV liga 2026/2027, grupa: małopolska",
+    "url": "/liga/1/liga14839.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 18
+  },
+  {
+    "id": 14840,
+    "name": "V liga 2026/2027, grupa: małopolska (wschód)",
+    "url": "/liga/1/liga14840.html",
+    "tier": 1,
+    "level": "V liga",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14841,
+    "name": "V liga 2026/2027, grupa: małopolska (zachód)",
+    "url": "/liga/1/liga14841.html",
+    "tier": 1,
+    "level": "V liga",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14907,
+    "name": "Klasa okręgowa 2026/2027, grupa: Bochnia-Brzesko",
+    "url": "/liga/1/liga14907.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14874,
+    "name": "Klasa okręgowa 2026/2027, grupa: Kraków I",
+    "url": "/liga/1/liga14874.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14875,
+    "name": "Klasa okręgowa 2026/2027, grupa: Kraków II",
+    "url": "/liga/1/liga14875.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14876,
+    "name": "Klasa okręgowa 2026/2027, grupa: Kraków III",
+    "url": "/liga/1/liga14876.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15116,
+    "name": "Klasa okręgowa 2026/2027, grupa: Nowy Sącz I (Nowy Sącz-Gorlice)",
+    "url": "/liga/1/liga15116.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14851,
+    "name": "Klasa okręgowa 2026/2027, grupa: Nowy Sącz II (Limanowa-Podhale)",
+    "url": "/liga/1/liga14851.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15044,
+    "name": "Klasa okręgowa 2026/2027, grupa: Tarnów-Żabno",
+    "url": "/liga/1/liga15044.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14877,
+    "name": "Klasa okręgowa 2026/2027, grupa: Wadowice",
+    "url": "/liga/1/liga14877.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15106,
+    "name": "Klasa A 2026/2027, grupa: Bochnia",
+    "url": "/liga/1/liga15106.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14983,
+    "name": "Klasa A 2026/2027, grupa: Brzesko",
+    "url": "/liga/1/liga14983.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14887,
+    "name": "Klasa A 2026/2027, grupa: Chrzanów",
+    "url": "/liga/1/liga14887.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14989,
+    "name": "Klasa A 2026/2027, grupa: Gorlice",
+    "url": "/liga/1/liga14989.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15218,
+    "name": "Klasa A 2026/2027, grupa: Kraków I",
+    "url": "/liga/1/liga15218.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15219,
+    "name": "Klasa A 2026/2027, grupa: Kraków II",
+    "url": "/liga/1/liga15219.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15220,
+    "name": "Klasa A 2026/2027, grupa: Kraków III",
+    "url": "/liga/1/liga15220.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14852,
+    "name": "Klasa A 2026/2027, grupa: Limanowa",
+    "url": "/liga/1/liga14852.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15045,
+    "name": "Klasa A 2026/2027, grupa: Myślenice",
+    "url": "/liga/1/liga15045.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15117,
+    "name": "Klasa A 2026/2027, grupa: Nowy Sącz",
+    "url": "/liga/1/liga15117.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15024,
+    "name": "Klasa A 2026/2027, grupa: Olkusz",
+    "url": "/liga/1/liga15024.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 15
+  },
+  {
+    "id": 14990,
+    "name": "Klasa A 2026/2027, grupa: Oświęcim",
+    "url": "/liga/1/liga14990.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14888,
+    "name": "Klasa A 2026/2027, grupa: Podhale",
+    "url": "/liga/1/liga14888.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14924,
+    "name": "Klasa A 2026/2027, grupa: Tarnów",
+    "url": "/liga/1/liga14924.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14985,
+    "name": "Klasa A 2026/2027, grupa: Wadowice I",
+    "url": "/liga/1/liga14985.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14986,
+    "name": "Klasa A 2026/2027, grupa: Wadowice II",
+    "url": "/liga/1/liga14986.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15047,
+    "name": "Klasa A 2026/2027, grupa: Wieliczka",
+    "url": "/liga/1/liga15047.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14854,
+    "name": "Klasa A 2026/2027, grupa: Żabno",
+    "url": "/liga/1/liga14854.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15172,
+    "name": "Klasa B 2026/2027, grupa: Bochnia",
+    "url": "/liga/1/liga15172.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14984,
+    "name": "Klasa B 2026/2027, grupa: Brzesko",
+    "url": "/liga/1/liga14984.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 15
+  },
+  {
+    "id": 14954,
+    "name": "Klasa B 2026/2027, grupa: Chrzanów",
+    "url": "/liga/1/liga14954.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 15
+  },
+  {
+    "id": 15221,
+    "name": "Klasa B 2026/2027, grupa: Kraków I",
+    "url": "/liga/1/liga15221.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15222,
+    "name": "Klasa B 2026/2027, grupa: Kraków II",
+    "url": "/liga/1/liga15222.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15223,
+    "name": "Klasa B 2026/2027, grupa: Kraków III",
+    "url": "/liga/1/liga15223.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14853,
+    "name": "Klasa B 2026/2027, grupa: Limanowa",
+    "url": "/liga/1/liga14853.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 15046,
+    "name": "Klasa B 2026/2027, grupa: Myślenice",
+    "url": "/liga/1/liga15046.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 20
+  },
+  {
+    "id": 15118,
+    "name": "Klasa B 2026/2027, grupa: Nowy Sącz",
+    "url": "/liga/1/liga15118.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15025,
+    "name": "Klasa B 2026/2027, grupa: Olkusz",
+    "url": "/liga/1/liga15025.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 6
+  },
+  {
+    "id": 14991,
+    "name": "Klasa B 2026/2027, grupa: Oświęcim",
+    "url": "/liga/1/liga14991.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 10
+  },
+  {
+    "id": 15210,
+    "name": "Klasa B 2026/2027, grupa: Podhale I",
+    "url": "/liga/1/liga15210.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15211,
+    "name": "Klasa B 2026/2027, grupa: Podhale II",
+    "url": "/liga/1/liga15211.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14925,
+    "name": "Klasa B 2026/2027, grupa: Tarnów I",
+    "url": "/liga/1/liga14925.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 14926,
+    "name": "Klasa B 2026/2027, grupa: Tarnów II",
+    "url": "/liga/1/liga14926.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 10
+  },
+  {
+    "id": 14987,
+    "name": "Klasa B 2026/2027, grupa: Wadowice I",
+    "url": "/liga/1/liga14987.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14988,
+    "name": "Klasa B 2026/2027, grupa: Wadowice II",
+    "url": "/liga/1/liga14988.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15048,
+    "name": "Klasa B 2026/2027, grupa: Wieliczka",
+    "url": "/liga/1/liga15048.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14855,
+    "name": "Klasa B 2026/2027, grupa: Żabno",
+    "url": "/liga/1/liga14855.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Małopolskie",
+    "central": false,
+    "clubCount": 17
+  },
+  {
+    "id": 14764,
+    "name": "Decathlon IV liga 2026/2027, grupa: mazowiecka",
+    "url": "/liga/1/liga14764.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 18
+  },
+  {
+    "id": 14765,
+    "name": "Decathlon V liga 2026/2027, grupa: mazowiecka I",
+    "url": "/liga/1/liga14765.html",
+    "tier": 1,
+    "level": "V liga",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14766,
+    "name": "Decathlon V liga 2026/2027, grupa: mazowiecka II",
+    "url": "/liga/1/liga14766.html",
+    "tier": 1,
+    "level": "V liga",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14772,
+    "name": "Liga okręgowa 2026/2027, grupa: Ciechanów-Ostrołęka",
+    "url": "/liga/1/liga14772.html",
+    "tier": 1,
+    "level": "ligi regionalne",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14819,
+    "name": "Keeza Liga okręgowa 2026/2027, grupa: Płock",
+    "url": "/liga/1/liga14819.html",
+    "tier": 1,
+    "level": "ligi regionalne",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14857,
+    "name": "Liga okręgowa 2026/2027, grupa: Radom",
+    "url": "/liga/1/liga14857.html",
+    "tier": 1,
+    "level": "ligi regionalne",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14862,
+    "name": "Keeza Liga okręgowa 2026/2027, grupa: Siedlce",
+    "url": "/liga/1/liga14862.html",
+    "tier": 1,
+    "level": "ligi regionalne",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14870,
+    "name": "Keeza Liga okręgowa 2026/2027, grupa: Warszawa I",
+    "url": "/liga/1/liga14870.html",
+    "tier": 1,
+    "level": "ligi regionalne",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14871,
+    "name": "Keeza Liga okręgowa 2026/2027, grupa: Warszawa II",
+    "url": "/liga/1/liga14871.html",
+    "tier": 1,
+    "level": "ligi regionalne",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14773,
+    "name": "Klasa A 2026/2027, grupa: Ciechanów-Ostrołęka",
+    "url": "/liga/1/liga14773.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14889,
+    "name": "Keeza Klasa A 2026/2027, grupa: Płock",
+    "url": "/liga/1/liga14889.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14858,
+    "name": "Klasa A 2026/2027, grupa: Radom I",
+    "url": "/liga/1/liga14858.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14859,
+    "name": "Klasa A 2026/2027, grupa: Radom II",
+    "url": "/liga/1/liga14859.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14863,
+    "name": "Keeza Klasa A 2026/2027, grupa: Siedlce",
+    "url": "/liga/1/liga14863.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14935,
+    "name": "Keeza Klasa A 2026/2027, grupa: Warszawa I",
+    "url": "/liga/1/liga14935.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14936,
+    "name": "Keeza Klasa A 2026/2027, grupa: Warszawa II",
+    "url": "/liga/1/liga14936.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14937,
+    "name": "Keeza Klasa A 2026/2027, grupa: Warszawa III",
+    "url": "/liga/1/liga14937.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14938,
+    "name": "Keeza Klasa A 2026/2027, grupa: Warszawa IV",
+    "url": "/liga/1/liga14938.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14782,
+    "name": "Keeza Klasa B 2026/2027, grupa: Ciechanów",
+    "url": "/liga/1/liga14782.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14783,
+    "name": "Keeza Klasa B 2026/2027, grupa: Ostrołęka",
+    "url": "/liga/1/liga14783.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 14890,
+    "name": "Keeza Klasa B 2026/2027, grupa: Płock",
+    "url": "/liga/1/liga14890.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14860,
+    "name": "Klasa B 2026/2027, grupa: Radom I",
+    "url": "/liga/1/liga14860.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 15
+  },
+  {
+    "id": 14861,
+    "name": "Klasa B 2026/2027, grupa: Radom II",
+    "url": "/liga/1/liga14861.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 15
+  },
+  {
+    "id": 14864,
+    "name": "Keeza Klasa B 2026/2027, grupa: Siedlce I",
+    "url": "/liga/1/liga14864.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 10
+  },
+  {
+    "id": 14865,
+    "name": "Keeza Klasa B 2026/2027, grupa: Siedlce II",
+    "url": "/liga/1/liga14865.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 9
+  },
+  {
+    "id": 14939,
+    "name": "Keeza Klasa B 2026/2027, grupa: Warszawa I",
+    "url": "/liga/1/liga14939.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14940,
+    "name": "Keeza Klasa B 2026/2027, grupa: Warszawa II",
+    "url": "/liga/1/liga14940.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14941,
+    "name": "Keeza Klasa B 2026/2027, grupa: Warszawa III",
+    "url": "/liga/1/liga14941.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14942,
+    "name": "Keeza Klasa B 2026/2027, grupa: Warszawa IV",
+    "url": "/liga/1/liga14942.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14943,
+    "name": "Keeza Klasa B 2026/2027, grupa: Warszawa V",
+    "url": "/liga/1/liga14943.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14944,
+    "name": "Keeza Klasa B 2026/2027, grupa: Warszawa VI",
+    "url": "/liga/1/liga14944.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14945,
+    "name": "Keeza Klasa B 2026/2027, grupa: Warszawa VII",
+    "url": "/liga/1/liga14945.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14946,
+    "name": "Keeza Klasa B 2026/2027, grupa: Warszawa VIII",
+    "url": "/liga/1/liga14946.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Mazowieckie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14808,
+    "name": "IV liga 2026/2027, grupa: opolska",
+    "url": "/liga/1/liga14808.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14809,
+    "name": "Klasa okręgowa 2026/2027, grupa: opolska I",
+    "url": "/liga/1/liga14809.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14810,
+    "name": "Klasa okręgowa 2026/2027, grupa: opolska II",
+    "url": "/liga/1/liga14810.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14955,
+    "name": "Klasa A 2026/2027, grupa: Opole I",
+    "url": "/liga/1/liga14955.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14956,
+    "name": "Klasa A 2026/2027, grupa: Opole II",
+    "url": "/liga/1/liga14956.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14957,
+    "name": "Klasa A 2026/2027, grupa: Opole III",
+    "url": "/liga/1/liga14957.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14958,
+    "name": "Klasa A 2026/2027, grupa: Opole IV",
+    "url": "/liga/1/liga14958.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15184,
+    "name": "Klasa B 2026/2027, grupa: Opole I",
+    "url": "/liga/1/liga15184.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15185,
+    "name": "Klasa B 2026/2027, grupa: Opole II",
+    "url": "/liga/1/liga15185.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15186,
+    "name": "Klasa B 2026/2027, grupa: Opole III",
+    "url": "/liga/1/liga15186.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15187,
+    "name": "Klasa B 2026/2027, grupa: Opole IV",
+    "url": "/liga/1/liga15187.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15192,
+    "name": "Klasa B 2026/2027, grupa: Opole IX",
+    "url": "/liga/1/liga15192.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15188,
+    "name": "Klasa B 2026/2027, grupa: Opole V",
+    "url": "/liga/1/liga15188.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15189,
+    "name": "Klasa B 2026/2027, grupa: Opole VI",
+    "url": "/liga/1/liga15189.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15190,
+    "name": "Klasa B 2026/2027, grupa: Opole VII",
+    "url": "/liga/1/liga15190.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15191,
+    "name": "Klasa B 2026/2027, grupa: Opole VIII",
+    "url": "/liga/1/liga15191.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15193,
+    "name": "Klasa B 2026/2027, grupa: Opole X",
+    "url": "/liga/1/liga15193.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15194,
+    "name": "Klasa B 2026/2027, grupa: Opole XI",
+    "url": "/liga/1/liga15194.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15195,
+    "name": "Klasa B 2026/2027, grupa: Opole XII",
+    "url": "/liga/1/liga15195.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15196,
+    "name": "Klasa B 2026/2027, grupa: Opole XIII",
+    "url": "/liga/1/liga15196.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Opolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14818,
+    "name": "IV liga 2026/2027, grupa: podkarpacka",
+    "url": "/liga/1/liga14818.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 18
+  },
+  {
+    "id": 15200,
+    "name": "Klasa okręgowa 2026/2027, grupa: Dębica",
+    "url": "/liga/1/liga15200.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15029,
+    "name": "Klasa okręgowa 2026/2027, grupa: Jarosław",
+    "url": "/liga/1/liga15029.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15062,
+    "name": "Klasa okręgowa 2026/2027, grupa: Krosno",
+    "url": "/liga/1/liga15062.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15081,
+    "name": "Klasa okręgowa 2026/2027, grupa: Rzeszów",
+    "url": "/liga/1/liga15081.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15053,
+    "name": "Klasa okręgowa 2026/2027, grupa: Stalowa Wola",
+    "url": "/liga/1/liga15053.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15201,
+    "name": "Klasa A 2026/2027, grupa: Dębica",
+    "url": "/liga/1/liga15201.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15030,
+    "name": "Klasa A 2026/2027, grupa: Jarosław",
+    "url": "/liga/1/liga15030.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15069,
+    "name": "Klasa A 2026/2027, grupa: Krosno I",
+    "url": "/liga/1/liga15069.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 15
+  },
+  {
+    "id": 15070,
+    "name": "Klasa A 2026/2027, grupa: Krosno II",
+    "url": "/liga/1/liga15070.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 15
+  },
+  {
+    "id": 15071,
+    "name": "Klasa A 2026/2027, grupa: Krosno III",
+    "url": "/liga/1/liga15071.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15061,
+    "name": "Klasa A 2026/2027, grupa: Lubaczów",
+    "url": "/liga/1/liga15061.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15031,
+    "name": "Klasa A 2026/2027, grupa: Przemyśl",
+    "url": "/liga/1/liga15031.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15060,
+    "name": "Klasa A 2026/2027, grupa: Przeworsk",
+    "url": "/liga/1/liga15060.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15082,
+    "name": "Klasa A 2026/2027, grupa: Rzeszów I",
+    "url": "/liga/1/liga15082.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15083,
+    "name": "Klasa A 2026/2027, grupa: Rzeszów II - Łańcut",
+    "url": "/liga/1/liga15083.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 15
+  },
+  {
+    "id": 15084,
+    "name": "Klasa A 2026/2027, grupa: Rzeszów III - Mielec",
+    "url": "/liga/1/liga15084.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15054,
+    "name": "Klasa A 2026/2027, grupa: Stalowa Wola I",
+    "url": "/liga/1/liga15054.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15055,
+    "name": "Klasa A 2026/2027, grupa: Stalowa Wola II",
+    "url": "/liga/1/liga15055.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15202,
+    "name": "Klasa B 2026/2027, grupa: Dębica I",
+    "url": "/liga/1/liga15202.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 10
+  },
+  {
+    "id": 15203,
+    "name": "Klasa B 2026/2027, grupa: Dębica II",
+    "url": "/liga/1/liga15203.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 10
+  },
+  {
+    "id": 15178,
+    "name": "Klasa B 2026/2027, grupa: Jarosław",
+    "url": "/liga/1/liga15178.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15099,
+    "name": "Klasa B 2026/2027, grupa: Krosno I",
+    "url": "/liga/1/liga15099.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15100,
+    "name": "Klasa B 2026/2027, grupa: Krosno II",
+    "url": "/liga/1/liga15100.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15101,
+    "name": "Klasa B 2026/2027, grupa: Krosno III",
+    "url": "/liga/1/liga15101.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15102,
+    "name": "Klasa B 2026/2027, grupa: Krosno IV",
+    "url": "/liga/1/liga15102.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15103,
+    "name": "Klasa B 2026/2027, grupa: Krosno V",
+    "url": "/liga/1/liga15103.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15179,
+    "name": "Klasa B 2026/2027, grupa: Lubaczów",
+    "url": "/liga/1/liga15179.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 9
+  },
+  {
+    "id": 15180,
+    "name": "Klasa B 2026/2027, grupa: Przemyśl",
+    "url": "/liga/1/liga15180.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15181,
+    "name": "Klasa B 2026/2027, grupa: Przeworsk",
+    "url": "/liga/1/liga15181.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15089,
+    "name": "Klasa B 2026/2027, grupa: Rzeszów I",
+    "url": "/liga/1/liga15089.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15090,
+    "name": "Klasa B 2026/2027, grupa: Rzeszów II - Strzyżów",
+    "url": "/liga/1/liga15090.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 10
+  },
+  {
+    "id": 15091,
+    "name": "Klasa B 2026/2027, grupa: Rzeszów III - Łańcut",
+    "url": "/liga/1/liga15091.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 7
+  },
+  {
+    "id": 15092,
+    "name": "Klasa B 2026/2027, grupa: Rzeszów IV - Łańcut",
+    "url": "/liga/1/liga15092.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15093,
+    "name": "Klasa B 2026/2027, grupa: Rzeszów V - Mielec",
+    "url": "/liga/1/liga15093.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15094,
+    "name": "Klasa B 2026/2027, grupa: Rzeszów VI - Mielec",
+    "url": "/liga/1/liga15094.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15095,
+    "name": "Klasa B 2026/2027, grupa: Rzeszów VII - Kolbuszowa",
+    "url": "/liga/1/liga15095.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15056,
+    "name": "Klasa B 2026/2027, grupa: Stalowa Wola I",
+    "url": "/liga/1/liga15056.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15057,
+    "name": "Klasa B 2026/2027, grupa: Stalowa Wola II",
+    "url": "/liga/1/liga15057.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15058,
+    "name": "Klasa B 2026/2027, grupa: Stalowa Wola III",
+    "url": "/liga/1/liga15058.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Podkarpackie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14905,
+    "name": "IV liga 2026/2027, grupa: podlaska",
+    "url": "/liga/1/liga14905.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Podlaskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14825,
+    "name": "Klasa okręgowa 2026/2027, grupa: podlaska",
+    "url": "/liga/1/liga14825.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Podlaskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15138,
+    "name": "Klasa A 2026/2027, grupa: podlaska I",
+    "url": "/liga/1/liga15138.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podlaskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15139,
+    "name": "Klasa A 2026/2027, grupa: podlaska II",
+    "url": "/liga/1/liga15139.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podlaskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15140,
+    "name": "Klasa A 2026/2027, grupa: podlaska III",
+    "url": "/liga/1/liga15140.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Podlaskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14749,
+    "name": "IV liga 2026/2027, grupa: pomorska",
+    "url": "/liga/1/liga14749.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 18
+  },
+  {
+    "id": 14750,
+    "name": "Klasa okręgowa 2026/2027, grupa: Gdańsk I",
+    "url": "/liga/1/liga14750.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14751,
+    "name": "Klasa okręgowa 2026/2027, grupa: Gdańsk II",
+    "url": "/liga/1/liga14751.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14774,
+    "name": "Klasa okręgowa 2026/2027, grupa: Słupsk",
+    "url": "/liga/1/liga14774.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14752,
+    "name": "Klasa A 2026/2027, grupa: Gdańsk I",
+    "url": "/liga/1/liga14752.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14753,
+    "name": "Klasa A 2026/2027, grupa: Gdańsk II",
+    "url": "/liga/1/liga14753.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14754,
+    "name": "Klasa A 2026/2027, grupa: Gdańsk III",
+    "url": "/liga/1/liga14754.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14755,
+    "name": "Klasa A 2026/2027, grupa: Gdańsk IV (Malbork)",
+    "url": "/liga/1/liga14755.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14775,
+    "name": "Klasa A 2026/2027, grupa: Słupsk I",
+    "url": "/liga/1/liga14775.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14776,
+    "name": "Klasa A 2026/2027, grupa: Słupsk II",
+    "url": "/liga/1/liga14776.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14756,
+    "name": "Klasa B 2026/2027, grupa: Gdańsk I",
+    "url": "/liga/1/liga14756.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14757,
+    "name": "Klasa B 2026/2027, grupa: Gdańsk II",
+    "url": "/liga/1/liga14757.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14758,
+    "name": "Klasa B 2026/2027, grupa: Gdańsk III",
+    "url": "/liga/1/liga14758.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14759,
+    "name": "Klasa B 2026/2027, grupa: Gdańsk IV",
+    "url": "/liga/1/liga14759.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14760,
+    "name": "Klasa B 2026/2027, grupa: Gdańsk V",
+    "url": "/liga/1/liga14760.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14761,
+    "name": "Klasa B 2026/2027, grupa: Gdańsk VI",
+    "url": "/liga/1/liga14761.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14762,
+    "name": "Klasa B 2026/2027, grupa: Gdańsk VII (Malbork)",
+    "url": "/liga/1/liga14762.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14763,
+    "name": "Klasa B 2026/2027, grupa: Gdańsk VIII (Malbork)",
+    "url": "/liga/1/liga14763.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14777,
+    "name": "Klasa B 2026/2027, grupa: Słupsk I",
+    "url": "/liga/1/liga14777.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14778,
+    "name": "Klasa B 2026/2027, grupa: Słupsk II",
+    "url": "/liga/1/liga14778.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Pomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14747,
+    "name": "IV liga 2026/2027, grupa: śląska",
+    "url": "/liga/1/liga14747.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 18
+  },
+  {
+    "id": 15098,
+    "name": "Klasa okręgowa 2026/2027, grupa: śląska I (Bytom-Zabrze)",
+    "url": "/liga/1/liga15098.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 17
+  },
+  {
+    "id": 15119,
+    "name": "Klasa okręgowa 2026/2027, grupa: śląska II (Częstochowa-Lubliniec)",
+    "url": "/liga/1/liga15119.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14767,
+    "name": "Klasa okręgowa 2026/2027, grupa: śląska III (Racibórz-Rybnik)",
+    "url": "/liga/1/liga14767.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14959,
+    "name": "Klasa okręgowa 2026/2027, grupa: śląska IV (Katowice-Sosnowiec)",
+    "url": "/liga/1/liga14959.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14817,
+    "name": "Klasa okręgowa 2026/2027, grupa: śląska V (Bielsko-Biała-Tychy)",
+    "url": "/liga/1/liga14817.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14856,
+    "name": "Klasa okręgowa 2026/2027, grupa: śląska VI (Skoczów-Żywiec)",
+    "url": "/liga/1/liga14856.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15104,
+    "name": "Klasa A 2026/2027, grupa: Bielsko-Biała",
+    "url": "/liga/1/liga15104.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15182,
+    "name": "Klasa A 2026/2027, grupa: Częstochowa I",
+    "url": "/liga/1/liga15182.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15183,
+    "name": "Klasa A 2026/2027, grupa: Częstochowa II",
+    "url": "/liga/1/liga15183.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15032,
+    "name": "Klasa A 2026/2027, grupa: Katowice",
+    "url": "/liga/1/liga15032.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15168,
+    "name": "Klasa A 2026/2027, grupa: Lubliniec",
+    "url": "/liga/1/liga15168.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14891,
+    "name": "Klasa A 2026/2027, grupa: Racibórz",
+    "url": "/liga/1/liga14891.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15049,
+    "name": "Klasa A 2026/2027, grupa: Rybnik I",
+    "url": "/liga/1/liga15049.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15050,
+    "name": "Klasa A 2026/2027, grupa: Rybnik II",
+    "url": "/liga/1/liga15050.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14893,
+    "name": "Klasa A 2026/2027, grupa: Skoczów",
+    "url": "/liga/1/liga14893.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15170,
+    "name": "Klasa A 2026/2027, grupa: Sosnowiec",
+    "url": "/liga/1/liga15170.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14974,
+    "name": "Klasa A 2026/2027, grupa: Tychy",
+    "url": "/liga/1/liga14974.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15134,
+    "name": "Majer Klasa A 2026/2027, grupa: Zabrze",
+    "url": "/liga/1/liga15134.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14895,
+    "name": "Klasa A 2026/2027, grupa: Żywiec",
+    "url": "/liga/1/liga14895.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15105,
+    "name": "Klasa B 2026/2027, grupa: Bielsko-Biała",
+    "url": "/liga/1/liga15105.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15206,
+    "name": "Klasa B 2026/2027, grupa: Częstochowa I",
+    "url": "/liga/1/liga15206.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 9
+  },
+  {
+    "id": 15207,
+    "name": "Klasa B 2026/2027, grupa: Częstochowa II",
+    "url": "/liga/1/liga15207.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 10
+  },
+  {
+    "id": 15209,
+    "name": "Klasa B 2026/2027, grupa: Katowice",
+    "url": "/liga/1/liga15209.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15169,
+    "name": "Klasa B 2026/2027, grupa: Lubliniec",
+    "url": "/liga/1/liga15169.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 15
+  },
+  {
+    "id": 14892,
+    "name": "Klasa B 2026/2027, grupa: Racibórz",
+    "url": "/liga/1/liga14892.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15051,
+    "name": "Klasa B 2026/2027, grupa: Rybnik I",
+    "url": "/liga/1/liga15051.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 15052,
+    "name": "Klasa B 2026/2027, grupa: Rybnik II",
+    "url": "/liga/1/liga15052.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14894,
+    "name": "Klasa B 2026/2027, grupa: Skoczów",
+    "url": "/liga/1/liga14894.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 10
+  },
+  {
+    "id": 15175,
+    "name": "Klasa B 2026/2027, grupa: Sosnowiec",
+    "url": "/liga/1/liga15175.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14975,
+    "name": "Klasa B 2026/2027, grupa: Tychy",
+    "url": "/liga/1/liga14975.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 15
+  },
+  {
+    "id": 15135,
+    "name": "Eurotech Klasa B 2026/2027, grupa: Zabrze",
+    "url": "/liga/1/liga15135.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14896,
+    "name": "Klasa B 2026/2027, grupa: Żywiec",
+    "url": "/liga/1/liga14896.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 9
+  },
+  {
+    "id": 14929,
+    "name": "Klasa C 2026/2027, grupa: Racibórz I",
+    "url": "/liga/1/liga14929.html",
+    "tier": 1,
+    "level": "Klasa C",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 8
+  },
+  {
+    "id": 14930,
+    "name": "Klasa C 2026/2027, grupa: Racibórz II",
+    "url": "/liga/1/liga14930.html",
+    "tier": 1,
+    "level": "Klasa C",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 8
+  },
+  {
+    "id": 15136,
+    "name": "Eurokan Klasa C 2026/2027, grupa: Zabrze",
+    "url": "/liga/1/liga15136.html",
+    "tier": 1,
+    "level": "Klasa C",
+    "region": "Śląskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14780,
+    "name": "IV liga 2026/2027, grupa: świętokrzyska",
+    "url": "/liga/1/liga14780.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Świętokrzyskie",
+    "central": false,
+    "clubCount": 18
+  },
+  {
+    "id": 14982,
+    "name": "Klasa okręgowa 2026/2027, grupa: świętokrzyska",
+    "url": "/liga/1/liga14982.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Świętokrzyskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15226,
+    "name": "Klasa A 2026/2027, grupa: Kielce I",
+    "url": "/liga/1/liga15226.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Świętokrzyskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15227,
+    "name": "Klasa A 2026/2027, grupa: Kielce II",
+    "url": "/liga/1/liga15227.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Świętokrzyskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15228,
+    "name": "Klasa A 2026/2027, grupa: Sandomierz",
+    "url": "/liga/1/liga15228.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Świętokrzyskie",
+    "central": false,
+    "clubCount": 0
+  },
+  {
+    "id": 14771,
+    "name": "IV liga 2026/2027, grupa: warmińsko-mazurska",
+    "url": "/liga/1/liga14771.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Warmińsko-mazurskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14806,
+    "name": "Klasa okręgowa 2026/2027, grupa: warmińsko-mazurska I",
+    "url": "/liga/1/liga14806.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Warmińsko-mazurskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14807,
+    "name": "Klasa okręgowa 2026/2027, grupa: warmińsko-mazurska II",
+    "url": "/liga/1/liga14807.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Warmińsko-mazurskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14931,
+    "name": "Klasa A 2026/2027, grupa: warmińsko-mazurska I",
+    "url": "/liga/1/liga14931.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Warmińsko-mazurskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14932,
+    "name": "Klasa A 2026/2027, grupa: warmińsko-mazurska II",
+    "url": "/liga/1/liga14932.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Warmińsko-mazurskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14933,
+    "name": "Klasa A 2026/2027, grupa: warmińsko-mazurska III",
+    "url": "/liga/1/liga14933.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Warmińsko-mazurskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14934,
+    "name": "Klasa A 2026/2027, grupa: warmińsko-mazurska IV",
+    "url": "/liga/1/liga14934.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Warmińsko-mazurskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15006,
+    "name": "Klasa B 2026/2027, grupa: warmińsko-mazurska I",
+    "url": "/liga/1/liga15006.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Warmińsko-mazurskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 15007,
+    "name": "Klasa B 2026/2027, grupa: warmińsko-mazurska II",
+    "url": "/liga/1/liga15007.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Warmińsko-mazurskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15008,
+    "name": "Klasa B 2026/2027, grupa: warmińsko-mazurska III",
+    "url": "/liga/1/liga15008.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Warmińsko-mazurskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15009,
+    "name": "Klasa B 2026/2027, grupa: warmińsko-mazurska IV",
+    "url": "/liga/1/liga15009.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Warmińsko-mazurskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 15010,
+    "name": "Klasa B 2026/2027, grupa: warmińsko-mazurska V",
+    "url": "/liga/1/liga15010.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Warmińsko-mazurskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 14779,
+    "name": "IV liga Artbud Group 2026/2027, grupa: wielkopolska",
+    "url": "/liga/1/liga14779.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 18
+  },
+  {
+    "id": 14827,
+    "name": "V liga Red Box 2026/2027, grupa: wielkopolska I",
+    "url": "/liga/1/liga14827.html",
+    "tier": 1,
+    "level": "V liga",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14828,
+    "name": "V liga Red Box 2026/2027, grupa: wielkopolska II",
+    "url": "/liga/1/liga14828.html",
+    "tier": 1,
+    "level": "V liga",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14829,
+    "name": "V liga Red Box 2026/2027, grupa: wielkopolska III",
+    "url": "/liga/1/liga14829.html",
+    "tier": 1,
+    "level": "V liga",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14830,
+    "name": "Klasa okręgowa Red Box 2026/2027, grupa: wielkopolska I",
+    "url": "/liga/1/liga14830.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14831,
+    "name": "Klasa okręgowa Red Box 2026/2027, grupa: wielkopolska II",
+    "url": "/liga/1/liga14831.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14832,
+    "name": "Klasa okręgowa Red Box 2026/2027, grupa: wielkopolska III",
+    "url": "/liga/1/liga14832.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14833,
+    "name": "Klasa okręgowa Red Box 2026/2027, grupa: wielkopolska IV",
+    "url": "/liga/1/liga14833.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14834,
+    "name": "Klasa okręgowa Red Box 2026/2027, grupa: wielkopolska V",
+    "url": "/liga/1/liga14834.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14835,
+    "name": "Klasa okręgowa Red Box 2026/2027, grupa: wielkopolska VI",
+    "url": "/liga/1/liga14835.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 15011,
+    "name": "Klasa A Proton 2026/2027, grupa: wielkopolska I",
+    "url": "/liga/1/liga15011.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15012,
+    "name": "Klasa A Proton 2026/2027, grupa: wielkopolska II",
+    "url": "/liga/1/liga15012.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15013,
+    "name": "Klasa A Proton 2026/2027, grupa: wielkopolska III",
+    "url": "/liga/1/liga15013.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15014,
+    "name": "Klasa A Proton 2026/2027, grupa: wielkopolska IV",
+    "url": "/liga/1/liga15014.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15019,
+    "name": "Klasa A Proton 2026/2027, grupa: wielkopolska IX",
+    "url": "/liga/1/liga15019.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15015,
+    "name": "Klasa A Proton 2026/2027, grupa: wielkopolska V",
+    "url": "/liga/1/liga15015.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15016,
+    "name": "Klasa A Proton 2026/2027, grupa: wielkopolska VI",
+    "url": "/liga/1/liga15016.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15017,
+    "name": "Klasa A Proton 2026/2027, grupa: wielkopolska VII",
+    "url": "/liga/1/liga15017.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15018,
+    "name": "Klasa A Proton 2026/2027, grupa: wielkopolska VIII",
+    "url": "/liga/1/liga15018.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15120,
+    "name": "Klasa B Proton 2026/2027, grupa: wielkopolska I",
+    "url": "/liga/1/liga15120.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15121,
+    "name": "Klasa B Proton 2026/2027, grupa: wielkopolska II",
+    "url": "/liga/1/liga15121.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15122,
+    "name": "Klasa B Proton 2026/2027, grupa: wielkopolska III",
+    "url": "/liga/1/liga15122.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15123,
+    "name": "Klasa B Proton 2026/2027, grupa: wielkopolska IV",
+    "url": "/liga/1/liga15123.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15128,
+    "name": "Klasa B Proton 2026/2027, grupa: wielkopolska IX",
+    "url": "/liga/1/liga15128.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15124,
+    "name": "Klasa B Proton 2026/2027, grupa: wielkopolska V",
+    "url": "/liga/1/liga15124.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15125,
+    "name": "Klasa B Proton 2026/2027, grupa: wielkopolska VI",
+    "url": "/liga/1/liga15125.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 15126,
+    "name": "Klasa B Proton 2026/2027, grupa: wielkopolska VII",
+    "url": "/liga/1/liga15126.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15127,
+    "name": "Klasa B Proton 2026/2027, grupa: wielkopolska VIII",
+    "url": "/liga/1/liga15127.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15129,
+    "name": "Klasa B Proton 2026/2027, grupa: wielkopolska X",
+    "url": "/liga/1/liga15129.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 15130,
+    "name": "Klasa B Proton 2026/2027, grupa: wielkopolska XI",
+    "url": "/liga/1/liga15130.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 15131,
+    "name": "Klasa B Proton 2026/2027, grupa: wielkopolska XII",
+    "url": "/liga/1/liga15131.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 15132,
+    "name": "Klasa B Proton 2026/2027, grupa: wielkopolska XIII",
+    "url": "/liga/1/liga15132.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 15133,
+    "name": "Klasa B Proton 2026/2027, grupa: wielkopolska XIV",
+    "url": "/liga/1/liga15133.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Wielkopolskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14748,
+    "name": "IV liga 2026/2027, grupa: zachodniopomorska",
+    "url": "/liga/1/liga14748.html",
+    "tier": 2,
+    "level": "IV liga",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14802,
+    "name": "Klasa okręgowa 2026/2027, grupa: zachodniopomorska I",
+    "url": "/liga/1/liga14802.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14803,
+    "name": "Klasa okręgowa 2026/2027, grupa: zachodniopomorska II",
+    "url": "/liga/1/liga14803.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14804,
+    "name": "Klasa okręgowa 2026/2027, grupa: zachodniopomorska III",
+    "url": "/liga/1/liga14804.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14805,
+    "name": "Klasa okręgowa 2026/2027, grupa: zachodniopomorska IV",
+    "url": "/liga/1/liga14805.html",
+    "tier": 1,
+    "level": "Klasa okręgowa",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 16
+  },
+  {
+    "id": 14897,
+    "name": "Klasa A 2026/2027, grupa: zachodniopomorska I",
+    "url": "/liga/1/liga14897.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14898,
+    "name": "Klasa A 2026/2027, grupa: zachodniopomorska II",
+    "url": "/liga/1/liga14898.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14899,
+    "name": "Klasa A 2026/2027, grupa: zachodniopomorska III",
+    "url": "/liga/1/liga14899.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14900,
+    "name": "Klasa A 2026/2027, grupa: zachodniopomorska IV",
+    "url": "/liga/1/liga14900.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14901,
+    "name": "Klasa A 2026/2027, grupa: zachodniopomorska V",
+    "url": "/liga/1/liga14901.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14902,
+    "name": "Klasa A 2026/2027, grupa: zachodniopomorska VI",
+    "url": "/liga/1/liga14902.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14903,
+    "name": "Klasa A 2026/2027, grupa: zachodniopomorska VII",
+    "url": "/liga/1/liga14903.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 14
+  },
+  {
+    "id": 14904,
+    "name": "Klasa A 2026/2027, grupa: zachodniopomorska VIII",
+    "url": "/liga/1/liga14904.html",
+    "tier": 1,
+    "level": "Klasa A",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14911,
+    "name": "Klasa B 2026/2027, grupa: zachodniopomorska I",
+    "url": "/liga/1/liga14911.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14912,
+    "name": "Klasa B 2026/2027, grupa: zachodniopomorska II",
+    "url": "/liga/1/liga14912.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 13
+  },
+  {
+    "id": 14913,
+    "name": "Klasa B 2026/2027, grupa: zachodniopomorska III",
+    "url": "/liga/1/liga14913.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 14914,
+    "name": "Klasa B 2026/2027, grupa: zachodniopomorska IV",
+    "url": "/liga/1/liga14914.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 11
+  },
+  {
+    "id": 14919,
+    "name": "Klasa B 2026/2027, grupa: zachodniopomorska IX",
+    "url": "/liga/1/liga14919.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 6
+  },
+  {
+    "id": 14915,
+    "name": "Klasa B 2026/2027, grupa: zachodniopomorska V",
+    "url": "/liga/1/liga14915.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 12
+  },
+  {
+    "id": 14916,
+    "name": "Klasa B 2026/2027, grupa: zachodniopomorska VI",
+    "url": "/liga/1/liga14916.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 6
+  },
+  {
+    "id": 14917,
+    "name": "Klasa B 2026/2027, grupa: zachodniopomorska VII",
+    "url": "/liga/1/liga14917.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 9
+  },
+  {
+    "id": 14918,
+    "name": "Klasa B 2026/2027, grupa: zachodniopomorska VIII",
+    "url": "/liga/1/liga14918.html",
+    "tier": 1,
+    "level": "Klasa B",
+    "region": "Zachodniopomorskie",
+    "central": false,
+    "clubCount": 8
+  }
+]

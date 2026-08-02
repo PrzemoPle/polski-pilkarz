@@ -1,0 +1,438 @@
+/* Lab — ten sam język PixelArt co kariera */
+:root {
+  --lab-accent: var(--pitch);
+  --lab-warn: #c45e12;
+  --lab-info: var(--sky-deep);
+}
+
+.lab-badge {
+  display: inline-block;
+  border: 3px solid var(--gold);
+  background: var(--ink);
+  color: var(--gold);
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  margin-bottom: 12px;
+  animation: badge-blink 1.4s steps(1, end) infinite;
+}
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 16px;
+}
+
+.lab-panel {
+  background: var(--chalk);
+  border: 4px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 20px 22px;
+}
+
+.lab-panel h2 {
+  margin-bottom: 6px;
+}
+
+.lab-muted {
+  color: var(--muted);
+  margin: 0 0 14px;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.attr-groups {
+  display: grid;
+  gap: 14px;
+}
+
+.attr-group h3 {
+  margin: 0 0 8px;
+  font-size: 11px;
+}
+
+.attr-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 56px 40px 40px;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 2px dashed #7a9a80;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.attr-row > span:first-child {
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.attr-row button {
+  border: 3px solid var(--line);
+  background: #fff;
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 1;
+  height: 34px;
+  box-shadow: 2px 2px 0 var(--line);
+}
+
+.attr-row button:hover:not(:disabled) {
+  background: var(--gold);
+}
+
+.attr-row button:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--line);
+}
+
+.attr-row button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.attr-val {
+  text-align: center;
+  font-family: var(--font-pixel);
+  font-size: 12px;
+}
+
+.points-bank {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid var(--line);
+  background: var(--gold);
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  box-shadow: 2px 2px 0 var(--line);
+}
+
+.points-bank strong {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.soft-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 12px 0 16px;
+}
+
+.soft-grid div {
+  border: 3px solid var(--line);
+  padding: 8px 10px;
+  background: #fff;
+  box-shadow: 2px 2px 0 var(--line);
+}
+
+.soft-grid span {
+  display: block;
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.soft-grid strong {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.mode-picks {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 16px;
+}
+
+.mode-picks label {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  border: 3px solid var(--line);
+  padding: 12px;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--line);
+}
+
+.mode-picks label:has(input:checked) {
+  background: var(--chalk2);
+  border-color: var(--pitch-dark);
+}
+
+.mode-picks label strong {
+  display: block;
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.mode-picks label span {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.3;
+  text-transform: none;
+  letter-spacing: 0;
+  margin: 0;
+  font-family: var(--font-body);
+}
+
+.match-score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 3px solid var(--line);
+  background: var(--pitch-dark);
+  color: #eef6ea;
+  box-shadow: 3px 3px 0 var(--line);
+}
+
+.match-score .eyebrow {
+  color: #a8d4b0;
+}
+
+.match-score .big {
+  font-family: var(--font-pixel);
+  font-size: 28px;
+  letter-spacing: 0;
+  color: var(--gold);
+}
+
+.weather-chip {
+  border: 3px solid var(--line);
+  background: var(--sky);
+  color: var(--ink);
+  padding: 8px 10px;
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  box-shadow: 2px 2px 0 var(--line);
+}
+
+.log-box {
+  max-height: 220px;
+  overflow: auto;
+  border: 3px solid var(--line);
+  background: #fff;
+  padding: 10px 12px;
+  font-size: 18px;
+  line-height: 1.35;
+  margin: 12px 0;
+  box-shadow: inset 2px 2px 0 rgba(15, 26, 18, 0.06);
+}
+
+.log-box .m {
+  color: var(--muted);
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  margin-right: 6px;
+}
+
+.log-box .goal {
+  color: var(--blaze);
+  font-weight: 700;
+}
+
+.log-box .bad {
+  color: #7a1d1d;
+}
+
+.log-box .event {
+  color: var(--lab-info);
+}
+
+.log-box .decision {
+  color: var(--pitch-dark);
+  font-weight: 700;
+}
+
+.decision-box-lab {
+  border: 3px solid var(--line);
+  border-left: 8px solid var(--pitch);
+  background: #fff;
+  padding: 14px 16px;
+  margin: 12px 0;
+  box-shadow: 2px 2px 0 var(--line);
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.action-grid button {
+  text-align: left;
+  border: 3px solid var(--line);
+  background: var(--chalk);
+  padding: 10px 12px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  box-shadow: 2px 2px 0 var(--line);
+  transition: transform 80ms steps(2, end), box-shadow 80ms steps(2, end);
+}
+
+.action-grid button:hover {
+  background: var(--gold);
+}
+
+.action-grid button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--line);
+}
+
+.action-grid button .sub {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.locked-list {
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.locked-list li {
+  margin: 3px 0;
+}
+
+.season-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 3px solid var(--line);
+  margin: 12px 0;
+  background: #fff;
+}
+
+.stat-strip div {
+  padding: 10px;
+  border-right: 3px solid var(--line);
+}
+
+.stat-strip div:last-child {
+  border-right: 0;
+}
+
+.stat-strip span {
+  display: block;
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.stat-strip strong {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.fixture-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-height: 280px;
+  overflow: auto;
+  border: 3px solid var(--line);
+  background: #fff;
+}
+
+.fixture-list div {
+  display: grid;
+  grid-template-columns: 52px 1fr 70px;
+  gap: 8px;
+  padding: 8px 10px;
+  border-bottom: 2px dashed #7a9a80;
+  font-size: 18px;
+}
+
+.fixture-list div:last-child {
+  border-bottom: 0;
+}
+
+.fixture-list .tag {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  text-transform: uppercase;
+}
+
+.tag.key,
+.tag.derby,
+.tag.cup {
+  color: var(--blaze);
+}
+
+.title-stage--lab {
+  min-height: 220px;
+  margin-bottom: 16px;
+}
+
+.title-lab-links {
+  position: relative;
+  z-index: 1;
+  margin-top: 12px;
+}
+
+.lab-setup-board .create-grid {
+  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-areas: "id skills";
+}
+
+.lab-setup-board .create-id {
+  grid-area: id;
+}
+
+.lab-setup-board label span {
+  display: block;
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  color: #a8c8b0;
+}
+
+@media (max-width: 900px) {
+  .lab-setup-board .create-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: "id" "skills";
+  }
+}
+
+@media (max-width: 900px) {
+  .lab-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .action-grid,
+  .soft-grid,
+  .stat-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .attr-row {
+    grid-template-columns: 1fr 54px 36px 36px;
+  }
+}
