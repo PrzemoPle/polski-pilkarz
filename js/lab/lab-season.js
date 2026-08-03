@@ -217,6 +217,11 @@
 
     function autoPlayRestOfSeason() {
       const results = [];
+      // Najpierw rozstrzygnij nierozwiązane zdarzenie przedmeczowe —
+      // inaczej auto zagra mecz bez efektu eventu.
+      if (seasonEvent && seasonEvent.unresolved) {
+        resolveSeasonEventChoice(0);
+      }
       if (pendingMatch) results.push(autoPlayCurrentMatch());
       while (!finished) {
         startNextMatch();

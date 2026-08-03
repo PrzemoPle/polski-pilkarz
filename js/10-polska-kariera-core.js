@@ -127,6 +127,28 @@
     }
   }
 
+  // Jedno źródło prawdy dla OVR: aktualizuje overall, synchronizuje attrs
+  // i nie pozwala średniej skilli (max 99) wyzerować Trybu Legendy (100+).
+  function applyOverallChange(nextOverall, beforeOverall=state.overall){
+    const before=beforeOverall;
+    const target=clamp(nextOverall,20,overallCap());
+    const delta=target-before;
+    state.overall=target;
+    if(window.LabData && state.attrs && delta){
+      const keys=window.LabData.ATTR_KEYS;
+      keys.forEach(k=>{ state.attrs[k]=clamp((state.attrs[k]||40)+delta,1,99); });
+    }
+    if(window.LabData && state.attrs && state.overall<=99){
+      state.overall=window.LabData.overallFromAttrs(state.attrs);
+    }
+    noteLegendOverallChange(before);
+    return state.overall-before;
+  }
+
+  function applyOverallDelta(delta){
+    return applyOverallChange(state.overall+delta, state.overall);
+  }
+
   function ensureLegendReferenceSet(){
     if(Array.isArray(state.legendReferenceNames) && state.legendReferenceNames.length===9){
       return state.legendReferenceNames;
@@ -828,11 +850,10 @@
       else if(r>p.up+p.flat){ delta=p.downDelta; band='PORAŻKA'; }
     }
 
-    state.overall=clamp(state.overall+delta,20,overallCap());
-    noteLegendOverallChange(before);
+    applyOverallChange(before+delta, before);
     const result=state.overall>before?`OVR ${before} → ${state.overall}`:state.overall<before?`OVR ${before} → ${state.overall}`:`OVR bez zmian (${state.overall})`;
     log('Skutek decyzji', `Rzut ${r}/100 • ${band} • ${result}`);
-    return {roll:r,band,delta,before,after:state.overall,result,profile:p};
+    return {roll:r,band,delta:state.overall-before,before,after:state.overall,result,profile:p};
   }
 
   function projectedStartChance(club, extraBoost=0){
@@ -1642,16 +1663,7 @@
     // Brak limitu rocznej zmiany OVR.
     // Wyjątkowy zbieg: sezon życia + wiek + środowisko + rezerwa talentu
     // może dać naprawdę wyjątkowy skok. Analogicznie fatalny rok może boleć.
-    state.overall=clamp(state.overall+growth,20,overallCap());
-    noteLegendOverallChange(before);
-    if(window.LabData && state.attrs){
-      const delta=state.overall-before;
-      if(delta){
-        const keys=window.LabData.ATTR_KEYS;
-        keys.forEach(k=>{ state.attrs[k]=clamp((state.attrs[k]||40)+delta,1,99); });
-      }
-      state.overall=window.LabData.overallFromAttrs(state.attrs);
-    }
+    applyOverallChange(before+growth, before);
     state.boost=0;
 
     state.season={apps,goals,assists,minutes};
@@ -1699,7 +1711,7 @@
 
     const injurySeasonText=state.lastInjurySeverity
       ? `Uraz: ${state.lastInjurySeverity}${state.lastInjuryLost?` • stracone mecze: ${state.lastInjuryLost}`:''}${state.lastInjuryOvrPenalty?` • OVR ${state.lastInjuryOvrPenalty}`:''}.`
-      : `Uraz: brak.`;
+      : '';
 
     const seasonNotes=[];
     if(availabilityNote) seasonNotes.push(availabilityNote);
@@ -1735,7 +1747,7 @@
 
     const seasonNoteParts=[];
     if(breakthrough) seasonNoteParts.push('przełom');
-    seasonNoteParts.push(injurySeasonText);
+    if(injurySeasonText) seasonNoteParts.push(injurySeasonText);
     if(seasonNotes.length) seasonNoteParts.push(...seasonNotes);
     seasonRecord.note=seasonNoteParts.join(' • ');
 
@@ -1753,8 +1765,8 @@
       // fans drift from form / apps
       if(state.relations){
         if(apps>=28) state.relations.fans=Math.max(0,Math.min(100,state.relations.fans+2));
-        if(form.label&&/KRYZYS|SŁABA/i.test(form.label)) state.relations.fans=Math.max(0,Math.min(100,state.relations.fans-3));
-        if(form.label&&/ŚWIETNA|REWELACYJNA|WYBITNA/i.test(form.label)) state.relations.coach=Math.max(0,Math.min(100,state.relations.coach+2));
+        if(form.key==='crisis'||form.key==='poor') state.relations.fans=Math.max(0,Math.min(100,state.relations.fans-3));
+        if(form.key==='great'||form.key==='career') state.relations.coach=Math.max(0,Math.min(100,state.relations.coach+2));
         window.CareerLife.syncSoftFromRelations(state);
       }
       els.eventBox.innerHTML=window.CareerLife.newspaperHtml(headlines,{
@@ -2992,9 +3004,7 @@
     }[spec.stat];
 
     if(spec.stat==='overall'){
-      const beforeOverall=state.overall;
-      state.overall=clamp(state.overall+delta,20,overallCap());
-      noteLegendOverallChange(beforeOverall);
+      applyOverallDelta(delta);
     } else if(spec.stat==='playChance'){
       state.boost=clamp((state.boost||0)+delta,-20,25);
     } else if(spec.stat==='injuryRisk'){
@@ -3331,8 +3341,7 @@
     state.age++;
     state.seasonYear++;
     const before=state.overall;
-    state.overall=clamp(state.overall-loss,20,overallCap());
-    noteLegendOverallChange(before);
+    applyOverallChange(before-loss, before);
     state.corruptionShadow=3;
     state.season={apps:0,goals:0,assists:0,minutes:0};
     state.seasonNationalCaps=0;
@@ -3389,9 +3398,8 @@
             if(win){
               const before=state.overall;
               const bonus=Math.max(1,Math.round(before*.25));
-              state.overall=before+bonus;
+              applyOverallChange(before+bonus, before);
               state.grajewskiOverallCap=Math.max(state.grajewskiOverallCap||0,state.overall);
-              noteLegendOverallChange(before);
               log('Przyjaciele Andrzeja Grajewskiego — Reszta Świata',`${result.gf}:${result.ga} • zwycięstwo • OVR ${before} → ${state.overall} (+${bonus}, czyli 25%)`);
             } else {
               log('Przyjaciele Andrzeja Grajewskiego — Reszta Świata',`${result.gf}:${result.ga} • porażka • natychmiastowy koniec kariery`);
@@ -3459,8 +3467,7 @@
         else if(ch.specialRoll==='olympic_supplements'){
           const before=state.overall;
           const delta=rand(-5,5);
-          state.overall=clamp(before+delta,20,overallCap());
-          noteLegendOverallChange(before);
+          applyOverallChange(before+delta, before);
           const applied=state.overall-before;
           simpleResult=applied===0
             ?`Wylosowano ${delta>=0?'+':''}${delta} OVR. Twój OVR pozostaje na poziomie ${state.overall}.`
@@ -3486,8 +3493,34 @@
             return;
           }
 
-          // Wyjątek: wybór klubu. Tu stawką jest sam klub i prognoza minut.
+          // Zwykły wybór: najpierw rzut OVR (gdy profil nie jest null), potem act().
+          // Oferty transferowe ustawiają ovrProfile:null — bez natychmiastowego rzutu.
+          const ovrRoll=applyChoiceOvrRoll(ch);
           if(ch.act) ch.act();
+          if(ovrRoll){
+            simpleResult=ovrRoll.result;
+            detailResult=`Rzut d100: ${ovrRoll.roll}. Profil ${ovrRoll.profile.name}. ${choiceStakeText(ch)}`;
+            // Pokaż wynik rzutu zamiast od razu zamykać ekran.
+            els.decisionTitle.textContent='WYNIK DECYZJI';
+            els.decisionText.innerHTML=`<strong>${simpleResult}</strong>
+              <details class="roll-details">
+                <summary>Pokaż szczegóły losowania</summary>
+                <div>${detailResult}</div>
+              </details>`;
+            els.decisionChoices.innerHTML='';
+            const next=document.createElement('button');
+            next.className='primary full';
+            next.textContent='DALEJ';
+            next.onclick=()=>{
+              state.pendingDecision=false;
+              els.decisionBox.classList.add('hidden');
+              els.playSeasonBtn.classList.remove('hidden');
+              onDone();
+            };
+            els.decisionChoices.appendChild(next);
+            render();
+            return;
+          }
           state.pendingDecision=false;
           els.decisionBox.classList.add('hidden');
           els.playSeasonBtn.classList.remove('hidden');
@@ -5157,6 +5190,8 @@
     log,
     clamp,
     rand,
-    pick
+    pick,
+    applyOverallDelta,
+    applyOverallChange
   };
 })();
