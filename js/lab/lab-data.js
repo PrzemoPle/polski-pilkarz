@@ -269,7 +269,7 @@
       if (act.nearOnly && !(ctx.distance <= 28)) return false;
       if (act.aerial && !ctx.aerial) return false;
       if (act.setPiece && !ctx.setPiece) return false;
-      if (ctx.defending && !act.defending && act.id !== 'delay') return false;
+      if (ctx.defending && !act.defending) return false;
       if (!ctx.defending && act.defending) return false;
       if (ctx.setPiece && !act.setPiece && act.id !== 'pass') return false;
       return true;

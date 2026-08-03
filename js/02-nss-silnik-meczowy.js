@@ -588,9 +588,15 @@
         } else if(key==='shoot'&&ctx.type==='high'){
           if(selected.has('shoot')) selected.delete('shoot'); else selected.add('shoot');
         } else if(key==='shoot'&&ctx.type==='setpiece'){
-          selected.delete('pass'); selected.add('setPiece');
+          // Strzał ze stałego fragmentu wymaga obu tagów: setPiece + shoot.
+          // Samo setPiece bez shoot/pass kończy się domyślnym dośrodkowaniem.
+          selected.clear();
+          selected.add('setPiece');
+          selected.add('shoot');
         } else if(key==='pass'&&ctx.type==='setpiece'){
-          selected.delete('shoot'); selected.add('setPiece');
+          selected.clear();
+          selected.add('setPiece');
+          selected.add('pass');
         } else if(key==='shoot'&&ctx.type==='ground'){
           selected.clear(); selected.add('shoot');
         } else if(key==='header'){
