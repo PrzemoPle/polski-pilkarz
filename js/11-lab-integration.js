@@ -247,7 +247,7 @@
       $('#cmNext').classList.toggle('hidden', !ended);
     }
 
-    $('#cmAutoSeason').disabled = !!sum.finished;
+    $('#cmAutoSeason').disabled = !!sum.finished || !!(ev && ev.unresolved);
   }
 
   function renderLiveAttrs(st) {
