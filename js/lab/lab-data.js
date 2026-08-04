@@ -280,9 +280,13 @@
     return ACTIONS.filter((act) => {
       if (meetsNeeds(attrs, act.needs)) return false;
       if (act.defending && !ctx.defending) return false;
+      if (!act.defending && act.group === 'def') return false;
       if (act.nearOnly && !(ctx.distance <= 28)) return false;
       if (act.aerial && !ctx.aerial) return false;
       if (act.setPiece && !ctx.setPiece) return false;
+      if (ctx.defending && !act.defending) return false;
+      if (!ctx.defending && act.defending) return false;
+      if (ctx.setPiece && !act.setPiece && act.id !== 'pass') return false;
       return Object.keys(act.needs || {}).length > 0;
     }).map((act) => ({
       ...act,

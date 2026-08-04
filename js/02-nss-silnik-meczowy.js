@@ -279,7 +279,8 @@
           const setPieceDistance=corner?8:rand(18,31);
           return {
             type:'setpiece',side:'home',distance:setPieceDistance,defenders:rand(2,4),support:true,
-            allowed:['setPiece','shoot','pass'],requiresControl:false,corner,
+            // Rzut rożny: tylko dośrodkowanie/podanie — strzał bezpośredni jest zablokowany w resolveSetPiece.
+            allowed:corner?['setPiece','pass']:['setPiece','shoot','pass'],requiresControl:false,corner,
             text:corner
               ? `Masz wykonać rzut rożny dla Polski.`
               : `Polska ma rzut wolny ${setPieceDistance} metrów od bramki. Podchodzisz do piłki.`
@@ -716,7 +717,6 @@
 
           const involved=entered&&!sentOff&&beat.personal===true;
           if(involved){
-            stats.personalEventsSeen++;
             const context=makeContext(beat);
             if(context.requiresControl){
               const controlResult=automaticControl(context);
@@ -724,6 +724,7 @@
                 return {type:'commentary',minute,text:controlResult.text,goal:false,side:'my',score:score(),flashKey:controlResult.flashKey};
               }
             }
+            stats.personalEventsSeen++;
             pendingContext=context;
             awaitingChoice=true;
             return {type:'decision',minute,text:context.text,context,score:score()};

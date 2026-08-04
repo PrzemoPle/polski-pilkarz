@@ -32,11 +32,13 @@
     const baseSoft = { ...player.soft };
     let { attrs, soft } = D.applyWeather(baseAttrs, baseSoft, weather);
 
-    // presja ważnego meczu
+    // presja ważnego meczu (composure to atr, nie soft)
     if (importance === 'derby' || importance === 'cup') {
-      soft.confidence = clamp(soft.confidence + (soft.composure > 55 ? 3 : -4), 0, 100);
+      soft.confidence = clamp(soft.confidence + ((attrs.composure || 50) > 55 ? 3 : -4), 0, 100);
       soft.focus = clamp(soft.focus + 2, 0, 100);
     }
+    // Soft po pogodzie/presji — zapisujemy tylko delty z gry, bez stackowania modów.
+    const softKickoff = { ...soft };
 
     let minute = 0;
     let scoreH = 0;
@@ -329,6 +331,7 @@
             pending.locked = D.lockedActions(liveAttrs(), pending).slice(0, 3);
             phase = 'decision';
             result = { text: fancy ? 'Efektowny zwód! Nadal masz piłkę.' : 'Mijasz rywala i idziesz dalej.', end: false, continue: true };
+            push(result.text, 'action');
             return result;
           }
           result = { text: 'Udany drybling, lecz akcja wygasa.', end: true };
@@ -425,8 +428,15 @@
       push(result.text, result.goal ? 'goal' : result.turnover ? 'bad' : 'action');
       if (result.end) {
         pending = null;
-        phase = 'play';
-        possession = result.turnover ? 'away' : chance(rng, 0.55) ? 'home' : 'away';
+        // Po czerwonej kartce zostajemy w play (tylko tło) — nie kasuj fazy ended
+        // z innych ścieżek; sent-off kontynuuje z red=true w tick().
+        if (!red) {
+          phase = 'play';
+          possession = result.turnover ? 'away' : chance(rng, 0.55) ? 'home' : 'away';
+        } else {
+          phase = 'play';
+          possession = 'away';
+        }
       }
       return result;
     }
@@ -495,6 +505,16 @@
       return snapshot();
     }
 
+    function softForSeason() {
+      // Cofnij pogodę/presję; zostaw tylko zmiany z meczu (fatigue, eventy, akcje).
+      const out = { ...baseSoft };
+      D.SOFT_KEYS.forEach((k) => {
+        const delta = (soft[k] || 0) - (softKickoff[k] || 0);
+        if (delta) out[k] = clamp((baseSoft[k] || 50) + delta, 0, 100);
+      });
+      return out;
+    }
+
     function snapshot() {
       return {
         minute,
@@ -504,7 +524,8 @@
         pending,
         weather,
         stats: { ...stats },
-        soft: { ...soft },
+        soft: softForSeason(),
+        softLive: { ...soft },
         attrs: liveAttrs(),
         yellow,
         red,

@@ -674,18 +674,24 @@
   // Sezon jest JEDNYM czytelnym rzutem DYSPOZYCJI.
   // Początkowa szansa na grę NIE wpływa na to, czy wylosujesz świetny czy słaby rok.
   // Profesjonalizm tylko lekko przesuwa rozkład; głównym rozstrzygnięciem pozostaje rzut.
+  const SEASON_FORM_BANDS = [
+    {key:'crisis',label:'KRYZYS',base:6,grade:-2,hierarchy:-18,productionRange:[.30,.50],gradePair:[0,1],gradeBounds:[0,1],performanceMod:-6,seasonBonus:-2},
+    {key:'poor',label:'SŁABY',base:14,grade:-1,hierarchy:-8,productionRange:[.75,1.05],gradePair:[1,2],gradeBounds:[0,3],performanceMod:-3,seasonBonus:-1},
+    {key:'normal',label:'NORMALNY',base:45,grade:0,hierarchy:0,productionRange:[.80,1.20],gradePair:[3,4],gradeBounds:[3,5],performanceMod:0,seasonBonus:0},
+    {key:'good',label:'DOBRY',base:23,grade:1,hierarchy:15,productionRange:[1.05,1.35],gradePair:[5,6],gradeBounds:[4,7],performanceMod:3,seasonBonus:1},
+    {key:'great',label:'ŚWIETNY',base:10,grade:2,hierarchy:35,productionRange:[1.20,1.50],gradePair:[6,7],gradeBounds:[5,7],performanceMod:6,seasonBonus:2},
+    {key:'career',label:'SEZON ŻYCIA',base:2,grade:3,hierarchy:50,productionRange:[1.40,1.65],gradePair:[7,8],gradeBounds:[7,8],performanceMod:10,seasonBonus:3}
+  ];
+
+  function seasonFormBandByKey(key){
+    return SEASON_FORM_BANDS.find(x=>x.key===key) || SEASON_FORM_BANDS[2];
+  }
+
   function rollSeasonForm(){
     const profMod=clamp(Math.round((state.professionalism-50)/18),-3,3);
     const qualityMod=profMod;
 
-    const rows=[
-      {key:'crisis',label:'KRYZYS',base:6,grade:-2,hierarchy:-18,productionRange:[.30,.50],gradePair:[0,1],gradeBounds:[0,1],performanceMod:-6,seasonBonus:-2},
-      {key:'poor',label:'SŁABY',base:14,grade:-1,hierarchy:-8,productionRange:[.75,1.05],gradePair:[1,2],gradeBounds:[0,3],performanceMod:-3,seasonBonus:-1},
-      {key:'normal',label:'NORMALNY',base:45,grade:0,hierarchy:0,productionRange:[.80,1.20],gradePair:[3,4],gradeBounds:[3,5],performanceMod:0,seasonBonus:0},
-      {key:'good',label:'DOBRY',base:23,grade:1,hierarchy:15,productionRange:[1.05,1.35],gradePair:[5,6],gradeBounds:[4,7],performanceMod:3,seasonBonus:1},
-      {key:'great',label:'ŚWIETNY',base:10,grade:2,hierarchy:35,productionRange:[1.20,1.50],gradePair:[6,7],gradeBounds:[5,7],performanceMod:6,seasonBonus:2},
-      {key:'career',label:'SEZON ŻYCIA',base:2,grade:3,hierarchy:50,productionRange:[1.40,1.65],gradePair:[7,8],gradeBounds:[7,8],performanceMod:10,seasonBonus:3}
-    ];
+    const rows=SEASON_FORM_BANDS;
 
     // Profesjonalizm i tryb gry tylko lekko przesuwają rozkład.
     // Hierarchia przed sezonem nie zmienia szans na wylosowanie dobrej dyspozycji.
@@ -1456,12 +1462,9 @@
     let form=rollSeasonForm();
     if(useMatch && Number.isFinite(matchOverrides.avgRating)){
       const r=matchOverrides.avgRating;
-      if(r>=8.2) form={...form,key:'career',label:'SEZON ŻYCIA',seasonBonus:2,hierarchy:25};
-      else if(r>=7.4) form={...form,key:'great',label:'ŚWIETNY',seasonBonus:1,hierarchy:18};
-      else if(r>=6.8) form={...form,key:'good',label:'DOBRY',seasonBonus:1,hierarchy:10};
-      else if(r>=6.0) form={...form,key:'normal',label:'NORMALNY',seasonBonus:0,hierarchy:0};
-      else if(r>=5.4) form={...form,key:'poor',label:'SŁABY',seasonBonus:-1,hierarchy:-8};
-      else form={...form,key:'crisis',label:'KRYZYS',seasonBonus:-2,hierarchy:-18};
+      const key=r>=8.2?'career':r>=7.4?'great':r>=6.8?'good':r>=6.0?'normal':r>=5.4?'poor':'crisis';
+      // Pełny szablon — samo podmienianie key/label zostawiało stare gradeBounds/performanceMod.
+      form={...form,...seasonFormBandByKey(key)};
     }
 
     // Dyspozycja zmienia pozycję w hierarchii W TRAKCIE sezonu.
@@ -3059,6 +3062,8 @@
       s:state, performance, clamp, rand, pick, tierName, log,
       loanMove, moveClub, regionalReturn, findTransferClub, findLowerClub, findPlayableClub,
       playChance:()=>projectedStartChance(state.club,state.boost||0),
+      applyOverallDelta,
+      applyOverallChange,
       data:GAME_DATA
     };
   }

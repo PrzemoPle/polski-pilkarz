@@ -391,6 +391,20 @@
     els.matchTitle.textContent = `${fx.home.name} vs ${fx.away.name}`;
     els.homeName.textContent = fx.home.name;
     els.awayName.textContent = fx.away.name;
+    if (!snap) {
+      els.score.textContent = '—';
+      els.minute.textContent = '—';
+      els.phase.textContent = pending.awaitingEvent ? 'event' : '';
+      els.weather.textContent = pending.awaitingEvent ? 'Zdarzenie przedmeczowe' : '—';
+      els.decision.classList.add('hidden');
+      els.tickBtn.disabled = true;
+      els.autoMatchBtn.disabled = true;
+      if (els.autoSeasonBtn) {
+        els.autoSeasonBtn.disabled = !!sum.finished || !!sum.seasonEvent?.unresolved;
+      }
+      els.nextBtn.classList.add('hidden');
+      return;
+    }
     els.score.textContent = `${snap.scoreH}:${snap.scoreA}`;
     els.minute.textContent = `${snap.minute}'`;
     els.phase.textContent = snap.phase;
