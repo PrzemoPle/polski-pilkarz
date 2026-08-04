@@ -391,6 +391,20 @@
     els.matchTitle.textContent = `${fx.home.name} vs ${fx.away.name}`;
     els.homeName.textContent = fx.home.name;
     els.awayName.textContent = fx.away.name;
+    if (!snap) {
+      els.score.textContent = '—';
+      els.minute.textContent = '—';
+      els.phase.textContent = pending.awaitingEvent ? 'event' : '';
+      els.weather.textContent = pending.awaitingEvent ? 'Zdarzenie przedmeczowe' : '—';
+      els.decision.classList.add('hidden');
+      els.tickBtn.disabled = true;
+      els.autoMatchBtn.disabled = true;
+      if (els.autoSeasonBtn) {
+        els.autoSeasonBtn.disabled = !!sum.finished || !!sum.seasonEvent?.unresolved;
+      }
+      els.nextBtn.classList.add('hidden');
+      return;
+    }
     els.score.textContent = `${snap.scoreH}:${snap.scoreA}`;
     els.minute.textContent = `${snap.minute}'`;
     els.phase.textContent = snap.phase;
@@ -407,6 +421,9 @@
     const ended = snap.phase === 'ended';
     els.tickBtn.disabled = ended || snap.phase === 'decision' || !!sum.seasonEvent?.unresolved;
     els.autoMatchBtn.disabled = ended || !!sum.seasonEvent?.unresolved;
+    if (els.autoSeasonBtn) {
+      els.autoSeasonBtn.disabled = !!sum.finished || !!sum.seasonEvent?.unresolved;
+    }
     els.nextBtn.classList.toggle('hidden', !ended);
   }
 
@@ -415,6 +432,13 @@
   els.start.addEventListener('change', rebuildDraft);
   els.points.addEventListener('change', rebuildDraft);
   els.startBtn.addEventListener('click', startLab);
+  const labSetupForm = document.getElementById('labSetupForm');
+  if (labSetupForm) {
+    labSetupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      startLab();
+    });
+  }
   els.againBtn.addEventListener('click', () => {
     season = null;
     els.resetBtn.classList.add('hidden');

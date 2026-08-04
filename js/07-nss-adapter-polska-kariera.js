@@ -187,7 +187,8 @@
 
       const qualification=tournamentEngine.qualify(kind);
       const qualified=qualification.polandQualified;
-      const total=kind==='WORLD'?41:41;
+      // polandRank jest względem puli UEFA — dla mundiali 16 miejsc z ~41 federacji.
+      const total=41;
       const spots=kind==='WORLD'?16:24;
       const label=kind==='WORLD'?'MUNDIAL':'EURO';
       const icon=kind==='WORLD'?'🌍':'🇪🇺';
@@ -213,9 +214,10 @@
         pending:qualified,
         text
       };
+      const qualScore=qualification.polandScore;
       host.log(
         `${label} ${year}: Polska ${qualified?'awansowała':'nie awansowała'}.`,
-        `${qualification.polandRank}. miejsce • OVR 85`
+        `${qualification.polandRank}. miejsce${qualScore!=null?` • wynik kwalifikacji ${Math.round(qualScore)}`:''}`
       );
       return text;
     }

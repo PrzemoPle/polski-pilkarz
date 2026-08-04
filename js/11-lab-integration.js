@@ -154,9 +154,11 @@
     $('#cmTitle').textContent = pending
       ? `${pending.fixture.home.name} vs ${pending.fixture.away.name}`
       : 'Sezon meczowy';
-    $('#cmWeather').textContent = pending
+    $('#cmWeather').textContent = pending && pending.weather
       ? `${pending.weather.icon || ''} ${pending.weather.label} — ${pending.weather.note}`
-      : '—';
+      : pending && pending.awaitingEvent
+        ? 'Zdarzenie przedmeczowe'
+        : '—';
     const snap = pending && pending.snap;
     $('#cmScore').textContent = snap ? `${snap.scoreH}:${snap.scoreA}` : '—';
     $('#cmMinute').textContent = snap ? `${snap.minute}'` : '—';
@@ -247,7 +249,7 @@
       $('#cmNext').classList.toggle('hidden', !ended);
     }
 
-    $('#cmAutoSeason').disabled = !!sum.finished;
+    $('#cmAutoSeason').disabled = !!sum.finished || !!(ev && ev.unresolved);
   }
 
   function renderLiveAttrs(st) {

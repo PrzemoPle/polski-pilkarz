@@ -24,6 +24,7 @@
     let played = 0;
     let seasonLog = [];
     let pendingMatch = null;
+    let awaitingFixture = null;
     let seasonEvent = null;
     let pointsBank = player.pointsBank || 0;
     let finished = false;
@@ -129,7 +130,29 @@
       player.overall = D.overallFromAttrs(player.attrs);
       seasonLog.push({ type: 'event', title: seasonEvent.title, text: choice.label, effects: choice.effects });
       seasonEvent = { ...seasonEvent, unresolved: false, chosen: choice.label };
+      // Dopiero po evencie budujemy mecz — inaczej skille/soft z wyboru nie działają.
+      if (awaitingFixture && !pendingMatch) {
+        bindMatch(awaitingFixture);
+        awaitingFixture = null;
+      }
       return seasonEvent;
+    }
+
+    function bindMatch(fx) {
+      const weather = D.rollWeather(Math.random, fx.month);
+      const interactive = isInteractiveFixture(fx);
+      // Silnik LAB zawsze traktuje `home` jako drużynę gracza (gole → scoreH).
+      // Fixtures trzymają prawdziwy układ boiska w fx.home/fx.away do UI.
+      const match = global.LabMatch.createMatch({
+        player,
+        home: club,
+        away: fx.opponent,
+        weather,
+        importance: fx.importance,
+        interactive
+      });
+      pendingMatch = { fixture: fx, match, interactive, weather };
+      return pendingMatch;
     }
 
     function startNextMatch() {
@@ -141,25 +164,20 @@
       if (Math.random() < 0.35) rollSeasonEvent();
 
       const fx = fixtures[index];
-      const weather = D.rollWeather(Math.random, fx.month);
-      const interactive = isInteractiveFixture(fx);
-      const match = global.LabMatch.createMatch({
-        player,
-        home: fx.home,
-        away: fx.away,
-        weather,
-        importance: fx.importance,
-        interactive
-      });
-      pendingMatch = { fixture: fx, match, interactive, weather };
-      return pendingMatch;
+      if (seasonEvent && seasonEvent.unresolved) {
+        awaitingFixture = fx;
+        pendingMatch = null;
+        return { fixture: fx, interactive: isInteractiveFixture(fx), weather: null, match: null, awaitingEvent: true };
+      }
+      awaitingFixture = null;
+      return bindMatch(fx);
     }
 
     function applyMatchResult(snap) {
       const fx = pendingMatch.fixture;
-      const weHome = fx.home.name === club.name;
-      const gf = weHome ? snap.scoreH : snap.scoreA;
-      const ga = weHome ? snap.scoreA : snap.scoreH;
+      // scoreH zawsze = gole naszej drużyny (bindMatch ustawia club jako home silnika)
+      const gf = snap.scoreH;
+      const ga = snap.scoreA;
       if (gf > ga) tablePoints += 3;
       else if (gf === ga) tablePoints += 1;
 
@@ -210,21 +228,25 @@
     }
 
     function autoPlayCurrentMatch() {
-      if (!pendingMatch) return null;
+      if (!pendingMatch || !pendingMatch.match) return null;
       const snap = pendingMatch.match.skipToEnd(true);
       return applyMatchResult(snap);
     }
 
     function autoPlayRestOfSeason() {
       const results = [];
+      // Najpierw rozstrzygnij nierozwiązane zdarzenie przedmeczowe —
+      // inaczej auto zagra mecz bez efektu eventu.
+      if (seasonEvent && seasonEvent.unresolved) {
+        resolveSeasonEventChoice(0);
+      }
       if (pendingMatch) results.push(autoPlayCurrentMatch());
       while (!finished) {
         startNextMatch();
         if (seasonEvent && seasonEvent.unresolved) {
-          // auto: pierwsza opcja
           resolveSeasonEventChoice(0);
         }
-        if (!pendingMatch) break;
+        if (!pendingMatch || !pendingMatch.match) break;
         // w autoPlayRest zawsze symuluj
         const snap = pendingMatch.match.skipToEnd(true);
         results.push(applyMatchResult(snap));
@@ -262,9 +284,17 @@
               fixture: pendingMatch.fixture,
               interactive: pendingMatch.interactive,
               weather: pendingMatch.weather,
-              snap: pendingMatch.match.snapshot()
+              snap: pendingMatch.match ? pendingMatch.match.snapshot() : null
             }
-          : null,
+          : awaitingFixture
+            ? {
+                fixture: awaitingFixture,
+                interactive: isInteractiveFixture(awaitingFixture),
+                weather: null,
+                snap: null,
+                awaitingEvent: true
+              }
+            : null,
         player: {
           name: player.name,
           position: player.position,

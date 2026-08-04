@@ -45,7 +45,7 @@
         choices:[
           {label:'Idę', ovrProfile:null,
            preview:'Lojalność +5 • 50% → OVR -1 • 50% → bez straty OVR',
-           act:()=>{const r=h.rand(1,100);h.s.loyalty=h.clamp((h.s.loyalty||0)+5,0,15);if(r<=50)h.s.overall=Math.max(20,h.s.overall-1);h.log('Idziesz na poker ze starszyzną.',`Lojalność +5 • rzut ${r}/100${r<=50?' • OVR -1':' • OVR bez zmian'}.`);}},
+           act:()=>{const r=h.rand(1,100);h.s.loyalty=h.clamp((h.s.loyalty||0)+5,0,15);if(r<=50)h.applyOverallDelta(-1);h.log('Idziesz na poker ze starszyzną.',`Lojalność +5 • rzut ${r}/100${r<=50?' • OVR -1':' • OVR bez zmian'}.`);}},
           {label:'Nie idę', ovrProfile:null,
            preview:'Lojalność -3 • profesjonalizm +10',
            act:()=>{h.s.loyalty=h.clamp((h.s.loyalty||0)-3,0,15);h.s.professionalism=h.clamp(h.s.professionalism+10,0,100);h.log('Odmawiasz starszyźnie.','Lojalność -3 • profesjonalizm +10.');}}
@@ -114,7 +114,7 @@
         text:'Jurij Szatałow proponuje ci treningi indywidualne w Murzasichle. Tomasz Łapiński i Jacek Zieliński mają inny plan.',
         choices:[
           {label:'Jadę łowić ryby z Łapińskim i Zielińskim',ovrProfile:null,preview:'Ryzyko urazu spada o połowę',act:()=>{const before=h.s.injuryRisk;h.s.injuryRisk=h.clamp(Math.round(before/2),5,50);h.log('Jedziesz łowić ryby.','Ryzyko urazu spada o połowę.');}},
-          {label:'Jadę trenować z Szatałowem',ovrProfile:null,preview:'50% → OVR +3 • 50% → ryzyko urazu rośnie dwukrotnie',act:()=>{const r=h.rand(1,100);if(r<=50)h.s.overall+=3;else h.s.injuryRisk=h.clamp(h.s.injuryRisk*2,5,50);h.log('Trenujesz w Murzasichle.',`Rzut ${r}/100 • ${r<=50?'OVR +3':'ryzyko urazu rośnie dwukrotnie'}.`);}}
+          {label:'Jadę trenować z Szatałowem',ovrProfile:null,preview:'50% → OVR +3 • 50% → ryzyko urazu rośnie dwukrotnie',act:()=>{const r=h.rand(1,100);if(r<=50)h.applyOverallDelta(3);else h.s.injuryRisk=h.clamp(h.s.injuryRisk*2,5,50);h.log('Trenujesz w Murzasichle.',`Rzut ${r}/100 • ${r<=50?'OVR +3':'ryzyko urazu rośnie dwukrotnie'}.`);}}
         ]
       })),
 
@@ -148,7 +148,7 @@
           title:'Trener widzi cię inaczej.',
           text:`Chce częściej ustawiać cię na ${role}. To może dać więcej minut, ale oddala cię od nominalnej pozycji.`,
           choices:[
-            {label:'Próbuję',ovrProfile:null,preview:'75% → szansa na grę +6 p.p. • 25% → OVR -1',act:()=>{const r=h.rand(1,100);if(r<=75)h.s.boost=(h.s.boost||0)+6;else h.s.overall=Math.max(20,h.s.overall-1);h.log('Próbujesz nowej pozycji.',`Rzut ${r}/100 • ${r<=75?'szansa na grę +6 p.p.':'OVR -1'}.`);}},
+            {label:'Próbuję',ovrProfile:null,preview:'75% → szansa na grę +6 p.p. • 25% → OVR -1',act:()=>{const r=h.rand(1,100);if(r<=75)h.s.boost=(h.s.boost||0)+6;else h.applyOverallDelta(-1);h.log('Próbujesz nowej pozycji.',`Rzut ${r}/100 • ${r<=75?'szansa na grę +6 p.p.':'OVR -1'}.`);}},
             {label:'Każę mu spier…',ovrProfile:null,preview:'Bez efektu',act:()=>h.log('Odrzucasz nową rolę.','Nic się nie zmienia.')}
           ]
         };
@@ -160,7 +160,7 @@
         title:'Możesz dostać stałe fragmenty.',
         text:'Sztab pyta, czy chcesz zostać po treningach i przejąć część rzutów wolnych albo karnych.',
         choices:[
-          {label:'Zostaję po treningu',ovrProfile:null,preview:'50% → OVR +1 • 50% → ryzyko urazu +5 p.p.',act:()=>{const r=h.rand(1,100);if(r<=50)h.s.overall+=1;else h.s.injuryRisk=h.clamp(h.s.injuryRisk+5,5,50);h.log('Ćwiczysz stałe fragmenty.',`Rzut ${r}/100 • ${r<=50?'OVR +1':'ryzyko urazu +5 p.p.'}.`);}},
+          {label:'Zostaję po treningu',ovrProfile:null,preview:'50% → OVR +1 • 50% → ryzyko urazu +5 p.p.',act:()=>{const r=h.rand(1,100);if(r<=50)h.applyOverallDelta(1);else h.s.injuryRisk=h.clamp(h.s.injuryRisk+5,5,50);h.log('Ćwiczysz stałe fragmenty.',`Rzut ${r}/100 • ${r<=50?'OVR +1':'ryzyko urazu +5 p.p.'}.`);}},
           {label:'Nie chce mi się, po treningu jadę do kobity',ovrProfile:null,preview:'Ryzyko urazu -5 p.p. • 50% → medialność +20',act:()=>{const r=h.rand(1,100);h.s.injuryRisk=h.clamp(h.s.injuryRisk-5,5,50);if(r<=50)h.s.recognition=h.clamp((h.s.recognition||0)+20,0,100);h.log('Rezygnujesz z dodatkowego treningu.',`Ryzyko urazu -5 p.p. • rzut ${r}/100${r<=50?' • medialność +20':' • bez bonusu medialności'}.`);}}
         ]
       })),
@@ -293,7 +293,7 @@
         text:'Sugeruje, żebyś jadł jarmuż.',
         choices:[
           {label:'Jem jarmuż',rollSpec:{stat:'injuryRisk',name:'Plan żywienia',outcomes:[[80,-3],[20,2]]}},
-          {label:'Idę na kebsa',ovrProfile:null,preview:'75% → medialność +10 • 25% → OVR +1',act:()=>{const r=h.rand(1,100);if(r<=75)h.s.recognition=h.clamp((h.s.recognition||0)+10,0,100);else h.s.overall+=1;h.log('Idziesz na kebsa.',`Rzut ${r}/100 • ${r<=75?'medialność +10':'OVR +1'}.`);}}
+          {label:'Idę na kebsa',ovrProfile:null,preview:'75% → medialność +10 • 25% → OVR +1',act:()=>{const r=h.rand(1,100);if(r<=75)h.s.recognition=h.clamp((h.s.recognition||0)+10,0,100);else h.applyOverallDelta(1);h.log('Idziesz na kebsa.',`Rzut ${r}/100 • ${r<=75?'medialność +10':'OVR +1'}.`);}}
         ]
       })),
 
@@ -314,7 +314,7 @@
         title:'Klub chce na tobie zarobić.',
         text:'Dyrektor mówi, że dobra oferta może zostać przyjęta nawet bez twojego entuzjazmu. Możesz otworzyć się na rozmowy albo jasno powiedzieć, że chcesz zostać.',
         choices:[
-          {label:'Dobra, idę',ovrProfile:null,preview:'OVR +1 i natychmiastowy transfer do pierwszego wylosowanego klubu',act:()=>{h.s.overall+=1;const t=h.findTransferClub(false);if(t){h.moveClub(t);h.s.skipMarketOnce=true;}else h.log('Klub próbuje cię sprzedać.','Nie znajduje się żaden możliwy kierunek.');}},
+          {label:'Dobra, idę',ovrProfile:null,preview:'OVR +1 i natychmiastowy transfer do pierwszego wylosowanego klubu',act:()=>{h.applyOverallDelta(1);const t=h.findTransferClub(false);if(t){h.moveClub(t);h.s.skipMarketOnce=true;}else h.log('Klub próbuje cię sprzedać.','Nie znajduje się żaden możliwy kierunek.');}},
           {label:'Panie, ja się buduję na przedmieściach, zostaję',rollSpec:{stat:'loyalty',name:'Deklaracja pozostania',outcomes:[[100,5]]}}
         ]
       })),
@@ -429,7 +429,7 @@
         title:'Imieniny Zbigniewa Mandziejewicza.',
         text:'W polskiej piłce są daty meczowe, terminy okienka i są też imieniny Zbigniewa Mandziejewicza. Część środowiska będzie na miejscu. Możesz pojechać i pobyć wśród ludzi futbolu albo wykorzystać spokojniejszy dzień na własną robotę.',
         choices:[
-          {label:'Jadę na imieniny',ovrProfile:null,preview:'75% → medialność +25 • 25% → OVR +1',act:()=>{const r=h.rand(1,100);if(r<=75)h.s.recognition=h.clamp((h.s.recognition||0)+25,0,100);else h.s.overall+=1;h.log('Jedziesz na imieniny Zbigniewa Mandziejewicza.',`Rzut ${r}/100 • ${r<=75?'medialność +25':'OVR +1'}.`);}},
+          {label:'Jadę na imieniny',ovrProfile:null,preview:'75% → medialność +25 • 25% → OVR +1',act:()=>{const r=h.rand(1,100);if(r<=75)h.s.recognition=h.clamp((h.s.recognition||0)+25,0,100);else h.applyOverallDelta(1);h.log('Jedziesz na imieniny Zbigniewa Mandziejewicza.',`Rzut ${r}/100 • ${r<=75?'medialność +25':'OVR +1'}.`);}},
           {label:'Zostaję na treningu',rollSpec:{stat:'loyalty',name:'Pozostanie z klubem',outcomes:[[100,5]]}}
         ]
       })),
@@ -700,7 +700,7 @@
         title:'Nerijus Radžius zaprasza cię na balety.',
         text:'Zaproszenie brzmi dobrze, ale trudno przewidzieć, jak skończy się noc.',
         choices:[
-          {label:'Idę',ovrProfile:null,preview:'34% → medialność +20 • 33% → ryzyko urazu +20 p.p. • 33% → OVR +1',act:()=>{const r=h.rand(1,100);let result;if(r<=34){h.s.recognition=h.clamp((h.s.recognition||0)+20,0,100);result='medialność +20';}else if(r<=67){h.s.injuryRisk=h.clamp(h.s.injuryRisk+20,5,50);result='ryzyko urazu +20 p.p.';}else{h.s.overall+=1;result='OVR +1';}h.log('Idziesz na balety z Nerijusem Radžiusem.',`Rzut ${r}/100 • ${result}.`);}},
+          {label:'Idę',ovrProfile:null,preview:'34% → medialność +20 • 33% → ryzyko urazu +20 p.p. • 33% → OVR +1',act:()=>{const r=h.rand(1,100);let result;if(r<=34){h.s.recognition=h.clamp((h.s.recognition||0)+20,0,100);result='medialność +20';}else if(r<=67){h.s.injuryRisk=h.clamp(h.s.injuryRisk+20,5,50);result='ryzyko urazu +20 p.p.';}else{h.applyOverallDelta(1);result='OVR +1';}h.log('Idziesz na balety z Nerijusem Radžiusem.',`Rzut ${r}/100 • ${result}.`);}},
           {label:'Zostaję',ovrProfile:null,preview:'Bez efektu',act:()=>h.log('Zostajesz w domu.','Nic się nie zmienia.')}
         ]
       })),
@@ -722,7 +722,7 @@
         title:'Marek Citko proponuje ci indywidualne treningi.',
         text:'Może to być przełom albo bardzo kosztowny eksperyment.',
         choices:[
-          {label:'Idę',ovrProfile:null,preview:'1% → OVR +20 • 99% → ryzyko urazu +25 p.p.',act:()=>{const r=h.rand(1,100);if(r===1)h.s.overall+=20;else h.s.injuryRisk=h.clamp(h.s.injuryRisk+25,5,50);h.log('Trenujesz z Markiem Citką.',`Rzut ${r}/100 • ${r===1?'OVR +20':'ryzyko urazu +25 p.p.'}.`);}},
+          {label:'Idę',ovrProfile:null,preview:'1% → OVR +20 • 99% → ryzyko urazu +25 p.p.',act:()=>{const r=h.rand(1,100);if(r===1)h.applyOverallDelta(20);else h.s.injuryRisk=h.clamp(h.s.injuryRisk+25,5,50);h.log('Trenujesz z Markiem Citką.',`Rzut ${r}/100 • ${r===1?'OVR +20':'ryzyko urazu +25 p.p.'}.`);}},
           {label:'Nie idę',rollSpec:{stat:'professionalism',name:'Odmowa',outcomes:[[100,1]]}}
         ]
       })),
@@ -733,7 +733,7 @@
         title:'Spotykasz Adriusa Gedgaudasa.',
         text:'Możesz wykorzystać okazję i zapytać go o piłkę albo dyskretnie pójść w drugą stronę.',
         choices:[
-          {label:'Pytam o porady piłkarskie',ovrProfile:null,preview:'20% → OVR +1 • 80% → profesjonalizm -30',act:()=>{const r=h.rand(1,100);if(r<=20)h.s.overall+=1;else h.s.professionalism=h.clamp(h.s.professionalism-30,0,100);h.log('Rozmawiasz z Adriusem Gedgaudasem.',`Rzut ${r}/100 • ${r<=20?'OVR +1':'profesjonalizm -30'}.`);}},
+          {label:'Pytam o porady piłkarskie',ovrProfile:null,preview:'20% → OVR +1 • 80% → profesjonalizm -30',act:()=>{const r=h.rand(1,100);if(r<=20)h.applyOverallDelta(1);else h.s.professionalism=h.clamp(h.s.professionalism-30,0,100);h.log('Rozmawiasz z Adriusem Gedgaudasem.',`Rzut ${r}/100 • ${r<=20?'OVR +1':'profesjonalizm -30'}.`);}},
           {label:'Udaję, że go nie poznaję',ovrProfile:null,preview:'Bez efektu',act:()=>h.log('Mijasz Adriusa Gedgaudasa.','Nic się nie zmienia.')}
         ]
       })),

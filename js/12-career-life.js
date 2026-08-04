@@ -95,13 +95,13 @@
       lines.push(`Asysty jak z automatu: ${assists}. Kolega z linii ataku dziękuje.`);
     }
 
-    if (formLabel && /KRYZYS|SŁABA|CRISIS/i.test(formLabel)) {
+    if (formLabel && /KRYZYS|SŁAB/i.test(formLabel)) {
       lines.push(`Kryzys formy w ${clubName}. Kibice gwizdali, trener milczał.`);
-    } else if (formLabel && /ŚWIETNA|REWELACYJNA|CAREER|WYBITNA/i.test(formLabel)) {
+    } else if (formLabel && /ŚWIETN|SEZON ŻYCIA|REWELACYJN|WYBITN|HISTORYCZN|CAREER/i.test(formLabel)) {
       lines.push(`Sezon życia? Dyspozycja: ${formLabel}. ${gradeLabel || ''}`.trim());
     }
 
-    if (injuryText && /URAZ|KONTUZJ|WIĘZAD/i.test(injuryText)) {
+    if (injuryText && /URAZ|KONTUZJ|WIĘZAD/i.test(injuryText) && !/brak/i.test(injuryText)) {
       lines.push(`Lazaret: ${injuryText.replace(/^[^A-ZĄĆĘŁŃÓŚŹŻ]*/i, '').slice(0, 90)}`);
     }
 
@@ -194,12 +194,21 @@
       const before = state.overall;
       const gain = rand(0, 100) <= 55 ? 1 : 0;
       if (gain) {
-        state.overall = before + 1;
-        if (state.attrs && global.LabData) {
-          const keys = Object.keys(state.attrs);
-          const k = keys[rand(0, keys.length - 1)];
-          state.attrs[k] = clamp((state.attrs[k] || 40) + rand(1, 2), 1, 99);
-          state.overall = global.LabData.overallFromAttrs(state.attrs);
+        // OVR jest kanoniczne: bump wszystkich attrs o +1 (jak w sezonie),
+        // nie jednej cechy + recompute, które kasowało prawie cały zysk.
+        if (helpers.applyOverallDelta) {
+          helpers.applyOverallDelta(1);
+        } else {
+          state.overall = before + 1;
+          if (state.attrs && global.LabData) {
+            global.LabData.ATTR_KEYS.forEach((k) => {
+              state.attrs[k] = clamp((state.attrs[k] || 40) + 1, 1, 99);
+            });
+            if (state.overall <= 99) {
+              state.overall = global.LabData.overallFromAttrs(state.attrs);
+            }
+          }
+          state.peakOverall = Math.max(state.peakOverall || 0, state.overall);
         }
       }
       state.injuryRisk = clamp(state.injuryRisk + rand(1, 3), 5, 45);
@@ -264,7 +273,7 @@
       return;
     }
     const state = host.getState();
-    const { els, render, log, clamp, rand } = host;
+    const { els, render, log, clamp, rand, applyOverallDelta } = host;
     if (!state || state.retired) {
       if (typeof onDone === 'function') onDone();
       return;
@@ -278,7 +287,7 @@
     els.decisionText.textContent =
       'Masz 2 punkty energii. Trening, odpoczynek, trener, szatnia albo media — wybierz, zanim wystartuje nowy sezon.';
 
-    const helpers = { clamp, rand, log };
+    const helpers = { clamp, rand, log, applyOverallDelta };
     const picked = [];
 
     function finish() {

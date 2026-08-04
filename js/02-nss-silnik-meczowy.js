@@ -279,7 +279,8 @@
           const setPieceDistance=corner?8:rand(18,31);
           return {
             type:'setpiece',side:'home',distance:setPieceDistance,defenders:rand(2,4),support:true,
-            allowed:['setPiece','shoot','pass'],requiresControl:false,corner,
+            // Rzut rożny: tylko dośrodkowanie/podanie — strzał bezpośredni jest zablokowany w resolveSetPiece.
+            allowed:corner?['setPiece','pass']:['setPiece','shoot','pass'],requiresControl:false,corner,
             text:corner
               ? `Masz wykonać rzut rożny dla Polski.`
               : `Polska ma rzut wolny ${setPieceDistance} metrów od bramki. Podchodzisz do piłki.`
@@ -588,9 +589,15 @@
         } else if(key==='shoot'&&ctx.type==='high'){
           if(selected.has('shoot')) selected.delete('shoot'); else selected.add('shoot');
         } else if(key==='shoot'&&ctx.type==='setpiece'){
-          selected.delete('pass'); selected.add('setPiece');
+          // Strzał ze stałego fragmentu wymaga obu tagów: setPiece + shoot.
+          // Samo setPiece bez shoot/pass kończy się domyślnym dośrodkowaniem.
+          selected.clear();
+          selected.add('setPiece');
+          selected.add('shoot');
         } else if(key==='pass'&&ctx.type==='setpiece'){
-          selected.delete('shoot'); selected.add('setPiece');
+          selected.clear();
+          selected.add('setPiece');
+          selected.add('pass');
         } else if(key==='shoot'&&ctx.type==='ground'){
           selected.clear(); selected.add('shoot');
         } else if(key==='header'){
@@ -710,7 +717,6 @@
 
           const involved=entered&&!sentOff&&beat.personal===true;
           if(involved){
-            stats.personalEventsSeen++;
             const context=makeContext(beat);
             if(context.requiresControl){
               const controlResult=automaticControl(context);
@@ -718,6 +724,7 @@
                 return {type:'commentary',minute,text:controlResult.text,goal:false,side:'my',score:score(),flashKey:controlResult.flashKey};
               }
             }
+            stats.personalEventsSeen++;
             pendingContext=context;
             awaitingChoice=true;
             return {type:'decision',minute,text:context.text,context,score:score()};
