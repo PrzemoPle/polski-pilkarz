@@ -19,6 +19,7 @@ Otwórz: [http://127.0.0.1:8765/](http://127.0.0.1:8765/)
 |--------|------|
 | `index.html` | Główna kariera (create player → sezony → życie → emerytura) |
 | `lab.html` | LAB — piaskownica meczowa / skilli |
+| `kanban.html` | Tablica Kanban — zadania z drag-and-drop i localStorage |
 
 ## Funkcje
 
