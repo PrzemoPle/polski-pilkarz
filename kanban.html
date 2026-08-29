@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1e293b" />
+  <title>Tablica Kanban</title>
+  <link rel="stylesheet" href="css/kanban.css?v=1" />
+</head>
+<body>
+  <div class="kanban-app">
+    <header class="kanban-header">
+      <div class="kanban-header__text">
+        <h1>Tablica Kanban</h1>
+        <p>Przeciągaj karty między kolumnami. Stan zapisywany automatycznie.</p>
+      </div>
+      <button id="addCardBtn" class="btn btn--primary" type="button">
+        <span class="btn__icon" aria-hidden="true">+</span>
+        Nowa karta
+      </button>
+    </header>
+
+    <main id="kanbanBoard" class="kanban-board" aria-label="Tablica kanban"></main>
+  </div>
+
+  <dialog id="cardDialog" class="card-dialog">
+    <form id="cardForm" class="card-dialog__form">
+      <header class="card-dialog__header">
+        <h2 id="dialogTitle">Nowa karta</h2>
+        <button class="card-dialog__close" type="button" aria-label="Zamknij">&times;</button>
+      </header>
+
+      <div class="card-dialog__body">
+        <label class="field">
+          <span class="field__label">Kolumna</span>
+          <select id="cardColumn" name="column" required></select>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Tytuł</span>
+          <input id="cardTitle" name="title" type="text" maxlength="120" placeholder="Np. Przygotować prezentację" required />
+        </label>
+
+        <label class="field">
+          <span class="field__label">Opis</span>
+          <textarea id="cardDescription" name="description" rows="4" maxlength="500" placeholder="Opcjonalny opis zadania…"></textarea>
+        </label>
+      </div>
+
+      <footer class="card-dialog__footer">
+        <button id="deleteCardBtn" class="btn btn--danger hidden" type="button">Usuń</button>
+        <div class="card-dialog__actions">
+          <button class="btn btn--ghost" type="button" data-action="cancel">Anuluj</button>
+          <button id="saveCardBtn" class="btn btn--primary" type="button">Zapisz</button>
+        </div>
+      </footer>
+    </form>
+  </dialog>
+
+  <template id="columnTemplate">
+    <section class="kanban-column" data-column-id="">
+      <header class="kanban-column__header">
+        <h2 class="kanban-column__title"></h2>
+        <span class="kanban-column__count" aria-label="Liczba kart">0</span>
+      </header>
+      <div class="kanban-column__cards" role="list"></div>
+      <button class="kanban-column__add btn btn--ghost" type="button">
+        <span aria-hidden="true">+</span> Dodaj kartę
+      </button>
+    </section>
+  </template>
+
+  <template id="cardTemplate">
+    <article class="kanban-card" draggable="true" role="listitem" data-card-id="">
+      <header class="kanban-card__header">
+        <h3 class="kanban-card__title"></h3>
+        <div class="kanban-card__actions">
+          <button class="kanban-card__edit" type="button" aria-label="Edytuj kartę" title="Edytuj">✎</button>
+          <button class="kanban-card__delete" type="button" aria-label="Usuń kartę" title="Usuń">×</button>
+        </div>
+      </header>
+      <p class="kanban-card__description"></p>
+    </article>
+  </template>
+
+  <script src="js/kanban.js?v=1"></script>
+</body>
+</html>
