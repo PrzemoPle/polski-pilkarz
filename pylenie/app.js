@@ -390,6 +390,7 @@
       btn.textContent = city.name;
       btn.addEventListener("click", () => {
         els.cityResults.hidden = true;
+        els.cityPanel.hidden = true;
         loadFor(city.lat, city.lon, city.name);
       });
       li.appendChild(btn);
