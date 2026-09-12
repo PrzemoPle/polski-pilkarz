@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Pylenie">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8f2e4"/>
+      <stop offset="100%" stop-color="#cfe3c6"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <circle cx="256" cy="248" r="78" fill="#2f5d3a"/>
+  <circle cx="214" cy="214" r="14" fill="#dcefd4"/>
+  <circle cx="286" cy="222" r="10" fill="#dcefd4"/>
+  <circle cx="246" cy="268" r="12" fill="#9fbf96"/>
+  <path d="M160 340c32-46 72-70 96-78 24 8 64 32 96 78" fill="none" stroke="#2f5d3a" stroke-width="18" stroke-linecap="round"/>
+  <path d="M188 318c18-20 36-30 52-34 16 4 34 14 52 34" fill="none" stroke="#5f8a66" stroke-width="10" stroke-linecap="round"/>
+</svg>

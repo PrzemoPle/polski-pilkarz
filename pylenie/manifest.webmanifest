@@ -1,0 +1,32 @@
+{
+  "name": "Pylenie — tu i teraz",
+  "short_name": "Pylenie",
+  "description": "Sprawdź aktualne pylenie w Twojej lokalizacji w Polsce.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f3f7ef",
+  "theme_color": "#1f4d32",
+  "lang": "pl",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
