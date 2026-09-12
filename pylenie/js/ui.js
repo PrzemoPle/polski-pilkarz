@@ -2,7 +2,6 @@ import {
   ALLERGENS,
   shownLevel,
   fmtDay,
-  fmtDateTime,
   verdict,
   interpretation,
   changeText,
@@ -11,31 +10,27 @@ import {
 
 const $ = (id) => document.getElementById(id);
 
-function pill(level) {
-  const s = shownLevel(level);
-  const el = document.createElement("span");
-  el.className = "pill";
-  el.dataset.level = s.id;
-  el.innerHTML = `<i class="shape" aria-hidden="true"></i>${s.label}`;
-  return el;
+const LEVEL_COLOR = {
+  none: "var(--muted)",
+  low: "var(--low)",
+  moderate: "var(--moderate)",
+  high: "var(--high)",
+  "very-high": "var(--very-high)",
+};
+
+function fmtNum(v) {
+  return (Math.round(v * 10) / 10).toString().replace(".", ",");
 }
 
-function spark(values, level) {
-  const wrap = document.createElement("span");
-  wrap.className = "spark";
-  wrap.dataset.level = shownLevel(level).id;
-  wrap.setAttribute("aria-hidden", "true");
-  if (!values?.length) return wrap;
-  const step = Math.max(1, Math.floor(values.length / 8));
-  const sample = [];
-  for (let i = 0; i < values.length; i += step) sample.push(values[i]);
-  const max = Math.max(1, ...sample);
-  for (const v of sample.slice(0, 8)) {
-    const bar = document.createElement("i");
-    bar.style.height = `${Math.max(3, Math.round((v / max) * 20))}px`;
-    wrap.appendChild(bar);
-  }
-  return wrap;
+function fmtHeaderDate(date) {
+  const d = new Intl.DateTimeFormat("pl-PL", { weekday: "long", day: "numeric", month: "long" }).format(date);
+  const t = new Intl.DateTimeFormat("pl-PL", { hour: "2-digit", minute: "2-digit" }).format(date);
+  return `${d}, ${t}`;
+}
+
+function setMeter(el, level) {
+  if (!el) return;
+  el.dataset.level = shownLevel(level).id;
 }
 
 export function say(msg) {
@@ -43,23 +38,8 @@ export function say(msg) {
   if (el) el.textContent = msg;
 }
 
-export function setTab(view) {
-  const today = view === "today";
-  $("tab-today")?.classList.toggle("is-active", today);
-  $("tab-forecast")?.classList.toggle("is-active", !today);
-  $("tab-today")?.setAttribute("aria-selected", String(today));
-  $("tab-forecast")?.setAttribute("aria-selected", String(!today));
-  if ($("panel-today")) $("panel-today").hidden = !today;
-  if ($("panel-forecast")) $("panel-forecast").hidden = today;
-}
-
 export function show(state) {
-  const map = {
-    welcome: "state-welcome",
-    loading: "state-loading",
-    error: "state-error",
-    content: "content",
-  };
+  const map = { start: "screen-start", loading: "screen-loading", error: "screen-error", app: "app" };
   for (const [key, id] of Object.entries(map)) {
     const el = $(id);
     if (el) el.hidden = key !== state;
@@ -70,12 +50,63 @@ export function setError(text) {
   if ($("error-text")) $("error-text").textContent = text;
 }
 
-export function openDlg(id) {
-  $(id)?.showModal?.();
+export function applyTheme(pref) {
+  const resolved = pref === "system" ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : pref;
+  document.documentElement.dataset.theme = resolved;
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.content = resolved === "dark" ? "#0f1512" : "#f6f3ea";
 }
 
-export function closeDlg(id) {
-  if ($(id)?.open) $(id).close();
+export function setThemeSeg(pref) {
+  document.querySelectorAll("#theme-seg [data-theme-value]").forEach((btn) => {
+    btn.classList.toggle("is-on", btn.dataset.themeValue === pref);
+  });
+}
+
+export function setTab(tab) {
+  document.querySelectorAll(".screen[data-tab]").forEach((el) => {
+    el.hidden = el.dataset.tab !== tab;
+  });
+  document.querySelectorAll(".tabbar-item").forEach((btn) => {
+    const on = btn.dataset.tabBtn === tab;
+    btn.classList.toggle("is-on", on);
+    if (on) btn.setAttribute("aria-current", "page");
+    else btn.removeAttribute("aria-current");
+  });
+}
+
+function levelRow(item, { watched = false, sub = "", trailing = "" } = {}) {
+  const li = document.createElement("li");
+  const row = document.createElement("div");
+  row.className = "row-static";
+  const left = document.createElement("div");
+  left.className = "row-left";
+  const name = document.createElement("div");
+  name.className = "row-name";
+  if (watched) {
+    const dot = document.createElement("span");
+    dot.className = "dot";
+    name.append(dot);
+  }
+  name.append(document.createTextNode(item.name));
+  const meta = document.createElement("div");
+  meta.className = "row-meta";
+  meta.textContent = sub;
+  left.append(name, meta);
+  const right = document.createElement("div");
+  right.className = "row-right";
+  const s = shownLevel(item.level);
+  const lvl = document.createElement("span");
+  lvl.className = "row-level" + (item.level?.id === "none" ? " is-none" : "");
+  lvl.textContent = s.label;
+  const meter = document.createElement("span");
+  meter.className = "meter meter-sm";
+  meter.dataset.level = s.id;
+  meter.innerHTML = "<i></i><i></i><i></i><i></i>";
+  right.append(lvl, meter);
+  row.append(left, right);
+  li.appendChild(row);
+  return li;
 }
 
 export function renderCities(items, onPick) {
@@ -101,61 +132,65 @@ export function renderCities(items, onPick) {
 export function renderSaved(id, places, { onPick, onRemove } = {}) {
   const list = $(id);
   if (!list) return;
+  const block = list.closest(".saved-block");
+  if (block) block.hidden = places.length === 0;
   list.innerHTML = "";
   if (!places.length) {
-    const li = document.createElement("li");
-    li.className = "muted";
-    li.textContent = "Brak zapisanych miejsc.";
-    list.appendChild(li);
+    if (id !== "start-saved") {
+      const li = document.createElement("li");
+      li.className = "muted";
+      li.style.padding = "14px 16px";
+      li.textContent = "Brak zapisanych miejsc.";
+      list.appendChild(li);
+    }
     return;
   }
   for (const p of places) {
     const li = document.createElement("li");
-    const wrap = document.createElement("div");
-    wrap.style.display = "grid";
-    wrap.style.gridTemplateColumns = onRemove ? "1fr auto" : "1fr";
-    wrap.style.gap = "8px";
+    const row = document.createElement("div");
+    row.className = "saved-row";
     const btn = document.createElement("button");
     btn.type = "button";
+    btn.className = "pick";
     btn.textContent = p.label || p.name;
     btn.addEventListener("click", () => onPick?.(p));
-    wrap.appendChild(btn);
+    row.appendChild(btn);
     if (onRemove) {
       const rm = document.createElement("button");
       rm.type = "button";
-      rm.className = "icon-btn";
+      rm.className = "rm";
       rm.setAttribute("aria-label", `Usuń ${p.name}`);
       rm.textContent = "×";
       rm.addEventListener("click", () => onRemove(p.id));
-      wrap.appendChild(rm);
+      row.appendChild(rm);
     }
-    li.appendChild(wrap);
+    li.appendChild(row);
     list.appendChild(li);
   }
 }
 
-export function renderWatch(ids, onToggle) {
-  const list = $("watch-list");
-  if (!list) return;
-  list.innerHTML = "";
+export function renderWatchChips(ids, onToggle) {
+  const wrap = $("watch-chips");
+  if (!wrap) return;
+  wrap.innerHTML = "";
   for (const a of ALLERGENS) {
-    const li = document.createElement("li");
-    const label = document.createElement("label");
-    const input = document.createElement("input");
-    input.type = "checkbox";
-    input.checked = ids.includes(a.id);
-    input.addEventListener("change", () => onToggle(a.id));
-    label.append(input, document.createTextNode(` ${a.name}`));
-    li.appendChild(label);
-    list.appendChild(li);
+    const btn = document.createElement("button");
+    btn.type = "button";
+    const on = ids.includes(a.id);
+    btn.className = "chip" + (on ? " is-on" : "");
+    btn.innerHTML = on
+      ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg>${a.name}`
+      : a.name;
+    btn.addEventListener("click", () => onToggle(a.id));
+    wrap.appendChild(btn);
   }
 }
 
 export function renderMain({ place, forecast, selectedDay, watched, onSelectDay, onOpenAllergen }) {
-  const { current, days, source, mockNote, generatedAt } = forecast;
+  const { current, days, source, mockNote } = forecast;
   const overall = shownLevel(current.overall);
   const top = current.allergens.find((a) => a.value > 0) || current.allergens[0];
-  const asOf = new Date(current.asOf || generatedAt);
+  const asOf = new Date(current.asOf || forecast.generatedAt);
   const todayKey = localKey(asOf);
   const yesterday = [...days].reverse().find((d) => d.date < todayKey);
   const focusKey = selectedDay || todayKey;
@@ -164,205 +199,171 @@ export function renderMain({ place, forecast, selectedDay, watched, onSelectDay,
     days.find((d) => d.date >= todayKey) ||
     days.at(-1);
 
-  $("header-place").textContent = place.label || place.name;
-  $("place-title").textContent = place.name;
-  $("meta-line").textContent = `Aktualizacja: ${fmtDateTime(asOf)}`;
-  $("overall-badge").dataset.level = overall.id;
-  $("overall-text").textContent = overall.label;
-  $("verdict").textContent = verdict({ overall: current.overall, top, place: place.name });
+  $("place-name").textContent = place.label || place.name;
+  $("today-date").textContent = fmtHeaderDate(asOf);
+  $("verdict-word").textContent = overall.label;
+  $("verdict-word").dataset.long = overall.label.length > 9 ? "1" : "0";
+  setMeter($("today-meter"), current.overall);
+  $("verdict-sentence").textContent = verdict({ overall: current.overall, top, place: place.name });
   $("interpretation").textContent = interpretation(current.overall);
 
-  $("trust-line").textContent =
-    source === "mock"
-      ? `Dane przykładowe (mock). Wygenerowano: ${fmtDateTime(new Date(generatedAt))}.`
-      : `Dane modelu CAMS. Stan na ${fmtDateTime(asOf)}.`;
-
-  const mode = $("data-mode");
-  if (mode) {
-    if (source === "mock") {
-      mode.hidden = false;
-      mode.textContent = mockNote || "Wyświetlane są dane przykładowe (mock).";
-    } else {
-      mode.hidden = true;
-    }
+  const mock = $("mock-note");
+  if (mock) {
+    mock.hidden = source !== "mock";
+    mock.textContent = mockNote || "Dane przykładowe dla wybranej lokalizacji, nie są aktualnym pomiarem.";
   }
 
-  const save = $("save-current");
-  if (save) save.hidden = false;
-
+  // highlights (top 3 active)
   const highlights = $("highlights");
   highlights.innerHTML = "";
-  const active = current.allergens.filter((a) => a.value > 0).slice(0, 5);
+  const active = current.allergens.filter((a) => a.value > 0).slice(0, 3);
   const rows = active.length ? active : current.allergens.slice(0, 3);
   for (const item of rows) {
-    const li = document.createElement("li");
-    const name = document.createElement("span");
-    name.className = "ah-name";
-    if (watched.includes(item.id)) {
-      const dot = document.createElement("span");
-      dot.className = "watch-dot";
-      name.append(dot, document.createTextNode(item.name));
-    } else name.textContent = item.name;
-    const meta = document.createElement("span");
-    meta.className = "ah-meta";
     const y = yesterday?.allergens.find((a) => a.id === item.id)?.level;
-    meta.textContent = `${item.value.toFixed(1)} ziaren/m³ · ${changeText(item.level, y)}`;
-    li.append(name, pill(item.level), meta);
+    const li = levelRow(item, {
+      watched: watched.includes(item.id),
+      sub: `${fmtNum(item.value)} ziaren/m³, ${changeText(item.level, y)}`,
+    });
+    li.addEventListener("click", () => onOpenAllergen(item.id));
+    li.style.cursor = "pointer";
     highlights.appendChild(li);
   }
 
+  // allergens screen
+  $("allergens-title").textContent = `${current.allergens.length === 1 ? "Jeden" : sixWord(current.allergens.length)} śledzon${current.allergens.length === 1 ? "y" : "ych"}`;
   const list = $("allergen-list");
   list.innerHTML = "";
-  const sorted = [...(focusDay?.allergens || [])].sort(
-    (a, b) => b.level.rank - a.level.rank || b.peak - a.peak
-  );
+  const sorted = [...(focusDay?.allergens || [])].sort((a, b) => b.level.rank - a.level.rank || b.peak - a.peak);
   for (const item of sorted) {
-    const li = document.createElement("li");
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "row";
-    btn.addEventListener("click", () => onOpenAllergen(item.id));
-    const left = document.createElement("div");
-    const name = document.createElement("div");
-    name.className = "ar-name";
-    if (watched.includes(item.id)) {
-      const dot = document.createElement("span");
-      dot.className = "watch-dot";
-      name.append(dot, document.createTextNode(item.name));
-    } else name.textContent = item.name;
-    const season = document.createElement("div");
-    season.className = "ar-season";
-    season.textContent = `Sezon: ${item.season}`;
-    left.append(name, season);
-    const trend = document.createElement("div");
-    trend.className = "ar-trend";
-    const y = yesterday?.allergens.find((a) => a.id === item.id)?.level;
-    trend.append(
-      document.createTextNode(
-        `${item.peak.toFixed(1)} ziaren/m³ (szczyt dnia) · ${changeText(item.level, y)} `
-      ),
-      spark(item.hourly, item.level)
-    );
-    btn.append(left, pill(item.level), trend);
-    li.appendChild(btn);
+    const li = levelRow(item, { watched: watched.includes(item.id), sub: `Sezon ${item.season}` });
+    li.addEventListener("click", () => onOpenAllergen(item.id));
+    li.style.cursor = "pointer";
+    highlightSeason(li);
     list.appendChild(li);
   }
 
+  // forecast screen
+  $("forecast-place").textContent = `Prognoza, ${place.name}`;
+  $("forecast-day-title").textContent = fmtDay(new Date(`${focusKey}T12:00:00`), { weekday: "long", day: "numeric", month: "short" });
+
   const daysEl = $("days");
   daysEl.innerHTML = "";
-  const upcoming = days.filter((d) => d.date >= todayKey).slice(0, 7);
+  const upcoming = days.filter((d) => d.date >= todayKey).slice(0, 4);
   for (const day of upcoming) {
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "day";
+    btn.className = "day-chip" + (day.date === focusKey ? " is-on" : "");
     btn.setAttribute("role", "listitem");
-    if (day.date === focusKey) btn.classList.add("is-on");
     const date = new Date(`${day.date}T12:00:00`);
     const ov = shownLevel(day.overall);
-    const topA = [...day.allergens].sort((a, b) => b.peak - a.peak)[0];
-    let blurb = "Spokojnie";
-    if (topA && topA.peak >= 1) {
-      if (ov.rank === 1) blurb = "Niskie nasilenie";
-      else if (ov.rank >= 3) blurb = `Głównie ${topA.name.toLowerCase()}`;
-      else blurb = topA.name;
-    }
     btn.innerHTML = `
-      <span class="dow">${fmtDay(date, { weekday: "short" })}</span>
-      <span class="date">${fmtDay(date, { day: "numeric", month: "short" })}</span>
-      <span class="pill" data-level="${ov.id}"><i class="shape" aria-hidden="true"></i>${ov.label}</span>
-      <span class="blurb">${blurb}</span>`;
+      <span class="dow">${fmtDay(date, { weekday: "short", day: "numeric" })}</span>
+      <span class="meter meter-sm" data-level="${ov.id}"><i></i><i></i><i></i><i></i></span>
+      <span class="lbl">${ov.label}</span>`;
     btn.addEventListener("click", () => onSelectDay(day.date));
     daysEl.appendChild(btn);
   }
 
-  const panel = $("day-panel");
-  if (focusDay && panel) {
-    panel.hidden = false;
-    $("day-panel-title").textContent = `Szczegóły: ${fmtDay(new Date(`${focusDay.date}T12:00:00`))}`;
-    const pl = $("day-panel-list");
-    pl.innerHTML = "";
-    const activeDays = [...focusDay.allergens].filter((a) => a.peak > 0).sort((a, b) => b.peak - a.peak);
-    for (const item of activeDays.length ? activeDays : focusDay.allergens.slice(0, 3)) {
-      const li = document.createElement("li");
-      const row = document.createElement("div");
-      row.className = "row";
-      row.innerHTML = `<div><div class="ar-name">${item.name}</div><div class="ar-season">${item.peak.toFixed(1)} ziaren/m³</div></div>`;
-      row.appendChild(pill(item.level));
-      li.appendChild(row);
-      pl.appendChild(li);
-    }
-  }
+  const topA = [...(focusDay?.allergens || [])].sort((a, b) => b.peak - a.peak)[0];
+  $("forecast-peak-note").textContent = topA && topA.peak > 0 ? `${topA.name} do ${fmtNum(topA.peak)} ziaren/m³` : "";
 
-  const trend = $("trend");
-  const bars = $("trend-bars");
-  const trendText = $("trend-text");
-  if (upcoming.length && trend && bars) {
-    trend.hidden = false;
-    bars.innerHTML = "";
-    const summary = [];
-    for (const day of upcoming) {
-      const col = document.createElement("div");
-      col.className = "tbar";
-      const ov = shownLevel(day.overall);
-      col.dataset.level = ov.id;
-      const fill = document.createElement("div");
-      fill.className = "fill";
-      fill.style.height = `${Math.max(6, Math.round(((ov.rank || 0) / 4) * 100))}px`;
-      const lbl = document.createElement("div");
-      lbl.className = "lbl";
-      lbl.textContent = fmtDay(new Date(`${day.date}T12:00:00`), { weekday: "short" });
-      col.append(fill, lbl);
-      bars.appendChild(col);
-      summary.push(`${fmtDay(new Date(`${day.date}T12:00:00`))}: ${ov.label}`);
+  const bars = $("hourly-bars");
+  bars.innerHTML = "";
+  const hourly = topA?.hourly || [];
+  const max = Math.max(1, ...hourly);
+  const thresholds = ALLERGENS.find((a) => a.id === topA?.id)?.thresholds;
+  let peakHour = 0;
+  let peakVal = -1;
+  hourly.forEach((v, h) => {
+    if (v > peakVal) {
+      peakVal = v;
+      peakHour = h;
     }
-    if (trendText) trendText.textContent = summary.join(". ");
-  }
+    const bar = document.createElement("i");
+    const pct = Math.max(4, Math.round((v / max) * 100));
+    bar.style.height = `${pct}%`;
+    const lvl = thresholds ? levelId(v, thresholds) : "low";
+    bar.style.setProperty("--lvl-color", LEVEL_COLOR[lvl]);
+    bars.appendChild(bar);
+  });
+  const summaryText = topA && topA.peak > 0
+    ? `Najwięcej około ${String(peakHour).padStart(2, "0")}:00. Rano i po zmroku wyraźnie mniej.`
+    : "Bez istotnego pylenia w ciągu dnia.";
+  $("hourly-summary").textContent = summaryText;
+  $("trend-text").textContent = summaryText;
 
   say(`Załadowano pylenie dla ${place.name}. Poziom ogólny: ${overall.label}.`);
-  show("content");
 }
 
-export function renderAllergen(id, forecast, watched, onToggle) {
+function sixWord(n) {
+  const words = ["Zero", "Jeden", "Dwa", "Trzy", "Cztery", "Pięć", "Sześć", "Siedem", "Osiem", "Dziewięć"];
+  return words[n] || String(n);
+}
+
+function highlightSeason(li) {
+  const meta = li.querySelector(".row-meta");
+  if (meta) meta.textContent = meta.textContent.replace("–", "-");
+}
+
+function levelId(value, thresholds) {
+  if (value < thresholds[0]) return "none";
+  if (value < thresholds[1]) return "low";
+  if (value < thresholds[2]) return "moderate";
+  if (value < thresholds[3]) return "high";
+  return "very-high";
+}
+
+export function openAllergenSheet(id, forecast, watched, onToggle) {
   const item = forecast.current.allergens.find((a) => a.id === id);
   const meta = ALLERGENS.find((a) => a.id === id);
   if (!item || !meta) return;
 
-  $("allergen-title").textContent = item.name;
-  const body = $("allergen-body");
-  const s = shownLevel(item.level);
   const todayKey = localKey(new Date(forecast.current.asOf || Date.now()));
-  const series = forecast.days
-    .filter((d) => d.date >= todayKey)
-    .map((d) => {
-      const row = d.allergens.find((a) => a.id === id);
-      return { date: d.date, peak: row?.peak || 0, level: row?.level };
-    });
+  const yesterday = [...forecast.days].reverse().find((d) => d.date < todayKey);
+  const y = yesterday?.allergens.find((a) => a.id === id)?.level;
 
-  body.innerHTML = `
-    <div class="stat"><span>Teraz</span><strong>${item.value.toFixed(1)} ziaren/m³ · ${s.label}</strong></div>
-    <div class="stat"><span>Szczyt dziś</span><strong>${item.dayPeak.toFixed(1)} ziaren/m³</strong></div>
-    <div class="stat"><span>Typowy sezon</span><strong>${meta.season}</strong></div>
-    <p class="muted" style="margin-top:16px">${meta.description}</p>
-    <h3 class="sub">Najbliższe dni</h3>
-    <ul class="list compact" id="allergen-days"></ul>
-    <button type="button" class="btn btn-secondary btn-block" id="toggle-watch" style="margin-top:16px">
-      ${watched.includes(id) ? "Usuń z obserwowanych" : "Dodaj do obserwowanych"}
-    </button>`;
+  $("sheet-season").textContent = `Sezon ${meta.season}`;
+  $("sheet-name").textContent = item.name;
+  $("sheet-value").textContent = fmtNum(item.value);
+  setMeter($("sheet-meter"), item.level);
+  $("sheet-level-label").textContent = shownLevel(item.level).label;
+  $("sheet-change").textContent = `${changeText(item.level, y)}, szczyt ${fmtNum(item.dayPeak)}`;
+  $("sheet-description").textContent = meta.description;
 
-  const list = body.querySelector("#allergen-days");
-  for (const point of series) {
+  const list = $("sheet-days");
+  list.innerHTML = "";
+  const series = forecast.days.filter((d) => d.date >= todayKey);
+  for (const d of series) {
+    const row = d.allergens.find((a) => a.id === id);
     const li = document.createElement("li");
-    const row = document.createElement("div");
-    row.className = "row";
-    row.innerHTML = `<div><div class="ar-name">${fmtDay(new Date(`${point.date}T12:00:00`))}</div><div class="ar-season">${point.peak.toFixed(1)} ziaren/m³</div></div>`;
-    row.appendChild(pill(point.level));
-    li.appendChild(row);
+    li.className = "row-static";
+    li.style.padding = "12px 0";
+    li.innerHTML = `<span>${fmtDay(new Date(`${d.date}T12:00:00`), { weekday: "short", day: "numeric", month: "short" })}</span>`;
+    const right = document.createElement("span");
+    right.className = "row-right";
+    const val = document.createElement("span");
+    val.className = "row-level";
+    val.textContent = `${fmtNum(row?.peak || 0)} ziaren/m³`;
+    const meter = document.createElement("span");
+    meter.className = "meter meter-xs";
+    meter.dataset.level = shownLevel(row?.level).id;
+    meter.innerHTML = "<i></i><i></i><i></i><i></i>";
+    right.append(val, meter);
+    li.appendChild(right);
     list.appendChild(li);
   }
 
-  body.querySelector("#toggle-watch")?.addEventListener("click", () => {
-    onToggle(id);
-    closeDlg("dialog-allergen");
-  });
-  openDlg("dialog-allergen");
+  const isWatched = watched.includes(id);
+  const toggleBtn = $("sheet-toggle-watch");
+  toggleBtn.textContent = isWatched ? "Przestań obserwować" : "Obserwuj ten alergen";
+  toggleBtn.className = "btn btn-block " + (isWatched ? "btn-secondary" : "btn-primary");
+  toggleBtn.onclick = () => onToggle(id);
+
+  $("sheet-backdrop").hidden = false;
+  $("allergen-sheet").hidden = false;
+}
+
+export function closeAllergenSheet() {
+  $("sheet-backdrop").hidden = true;
+  $("allergen-sheet").hidden = true;
 }
