@@ -1,219 +1,212 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#f7f6f2" />
-  <meta name="description" content="Aktualne i prognozowane pylenie alergenów w wybranej lokalizacji w Polsce." />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-title" content="Pylenie" />
-  <link rel="manifest" href="./manifest.webmanifest" />
-  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css" />
-  <title>Pylenie — co pyli w Twojej lokalizacji</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0f1512" />
+<meta name="description" content="Aktualne i prognozowane pylenie alergenów w wybranej lokalizacji w Polsce." />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Pylenie" />
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./styles.css" />
+<title>Pylenie — co pyli w Twojej lokalizacji</title>
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("pylenie:theme:v1") || "system";
+      if (t === "system") {
+        t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.dataset.theme = t;
+    } catch (e) {
+      document.documentElement.dataset.theme = "dark";
+    }
+  })();
+</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Przejdź do treści</a>
+  <p class="sr-only" id="live" aria-live="polite"></p>
 
-  <header class="site-header">
-    <div class="shell header-row">
-      <div class="brand-block">
-        <a class="brand" href="./" aria-current="page">Pylenie</a>
-        <p class="brand-tag">Prognoza pyłków w Polsce</p>
+  <!-- START / WYBÓR MIASTA -->
+  <section class="screen start" id="screen-start" hidden>
+    <div class="start-inner">
+      <h1>Gdzie sprawdzać pylenie?</h1>
+      <label class="field-label" for="city-input">Miejscowość w Polsce</label>
+      <div class="search-field">
+        <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg>
+        <input id="city-input" type="search" placeholder="np. Poznań, Gdańsk…" autocomplete="off" enterkeyhint="search" />
       </div>
-      <div class="header-actions">
-        <button type="button" class="location-btn" id="open-location" aria-haspopup="dialog" aria-controls="dialog-location">
-          <span class="location-btn-label">Lokalizacja</span>
-          <span class="location-btn-value" id="header-place">Wybierz miejscowość</span>
-        </button>
-        <button type="button" class="icon-btn" id="open-settings" aria-haspopup="dialog" aria-controls="dialog-settings" aria-label="Ustawienia">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <circle cx="12" cy="12" r="3" />
-            <path d="M12 3v2.2M12 18.8V21M4.9 6.5l1.6 1.6M17.5 17.9l1.6 1.6M3 12h2.2M18.8 12H21M4.9 17.5l1.6-1.6M17.5 6.1l1.6-1.6" />
-          </svg>
-        </button>
+      <ul class="results" id="city-results" role="listbox" hidden></ul>
+
+      <div class="saved-block" id="start-saved-block" hidden>
+        <h2 class="sub">Zapisane miejsca</h2>
+        <ul class="saved" id="start-saved"></ul>
       </div>
+
+      <div class="start-spacer"></div>
+      <button type="button" class="btn btn-secondary btn-block" id="start-geo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2l3 7-3 3-3-3 3-7zM12 12v10" /></svg>
+        Użyj mojej lokalizacji
+      </button>
+      <p class="fine center">O zgodę zapytamy dopiero po dotknięciu.</p>
     </div>
-  </header>
+  </section>
 
-  <main id="main" class="shell">
-    <div class="tabs" role="tablist" aria-label="Zakres czasu">
-      <button type="button" class="tab is-active" role="tab" id="tab-today" aria-selected="true" aria-controls="panel-today">Dziś</button>
-      <button type="button" class="tab" role="tab" id="tab-forecast" aria-selected="false" aria-controls="panel-forecast">Prognoza</button>
+  <!-- STAN ŁADOWANIA / BŁĘDU -->
+  <section class="screen state-msg" id="screen-loading" hidden aria-busy="true">
+    <div class="skeleton" aria-hidden="true">
+      <div class="sk word"></div>
+      <div class="sk meter"></div>
+      <div class="sk line"></div>
+      <div class="sk card"></div>
     </div>
+    <p class="muted center">Pobieram dane o pyleniu…</p>
+  </section>
 
-    <p class="sr-only" id="live" aria-live="polite"></p>
+  <section class="screen state-msg" id="screen-error" hidden>
+    <p class="verdict">Nie udało się pobrać danych.</p>
+    <p class="muted center" id="error-text">Spróbuj ponownie za chwilę.</p>
+    <div class="actions center">
+      <button type="button" class="btn btn-primary" id="retry">Spróbuj ponownie</button>
+      <button type="button" class="btn btn-secondary" id="error-location">Zmień lokalizację</button>
+    </div>
+  </section>
 
-    <section class="state" id="state-welcome" hidden>
-      <h1>Sprawdź, co pyli tam, gdzie jesteś</h1>
-      <p>W kilka sekund zobaczysz dzisiejszy poziom, najważniejsze alergeny i prognozę na najbliższe dni.</p>
-      <div class="actions">
-        <button type="button" class="btn btn-primary" id="welcome-search">Wpisz miejscowość</button>
-        <button type="button" class="btn btn-secondary" id="welcome-geo">Użyj mojej lokalizacji</button>
-      </div>
-      <p class="fine">Lokalizacji urządzenia użyjemy dopiero po Twojej zgodzie. Dane mają charakter informacyjny i nie zastępują konsultacji medycznej.</p>
-    </section>
+  <!-- APKA -->
+  <div id="app" hidden>
+    <main id="main">
 
-    <section class="state" id="state-loading" hidden aria-busy="true">
-      <div class="skeleton" aria-hidden="true">
-        <div class="sk line w40"></div>
-        <div class="sk line w70"></div>
-        <div class="sk box"></div>
-        <div class="sk line"></div>
-      </div>
-      <p class="muted">Pobieram dane o pyleniu…</p>
-    </section>
+      <!-- DZIŚ -->
+      <section class="screen" id="tab-today" data-tab="today">
+        <header class="top-row">
+          <button type="button" class="place-btn" id="open-place">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-7.5 7-12a7 7 0 10-14 0c0 4.5 7 12 7 12z" /><circle cx="12" cy="9" r="2.5" /></svg>
+            <span id="place-name">—</span>
+          </button>
+          <span class="date-label" id="today-date">—</span>
+        </header>
 
-    <section class="state" id="state-error" hidden>
-      <h1>Nie udało się pobrać danych</h1>
-      <p id="error-text">Nie udało się pobrać danych dla tej lokalizacji. Spróbuj ponownie za chwilę.</p>
-      <div class="actions">
-        <button type="button" class="btn btn-primary" id="retry">Spróbuj ponownie</button>
-        <button type="button" class="btn btn-secondary" id="error-location">Zmień lokalizację</button>
-      </div>
-    </section>
+        <p class="eyebrow">Pylenie dziś</p>
+        <h1 class="verdict-word" id="verdict-word">—</h1>
+        <div class="meter meter-lg" id="today-meter" data-level="low"><i></i><i></i><i></i><i></i></div>
 
-    <div id="content" hidden>
-      <section class="today" id="panel-today" role="tabpanel" aria-labelledby="tab-today">
-        <div class="today-top">
-          <div>
-            <h1 id="place-title">—</h1>
-            <p class="meta" id="meta-line">—</p>
+        <p class="verdict-sentence" id="verdict-sentence">—</p>
+        <p class="interpretation" id="interpretation">—</p>
+        <p class="mock-note" id="mock-note" hidden></p>
+
+        <div class="bottom-block">
+          <div class="section-head">
+            <h2>Najważniejsze dziś</h2>
+            <button type="button" class="link-btn" id="see-all">Wszystkie</button>
           </div>
-          <div class="badge" id="overall-badge" data-level="low">
-            <i class="shape" aria-hidden="true"></i>
-            <span id="overall-text">—</span>
-          </div>
+          <ul class="card list" id="highlights"></ul>
         </div>
-        <p class="verdict" id="verdict">—</p>
-        <p class="note" id="interpretation">—</p>
-
-        <h2 class="label">Najważniejsze alergeny dziś</h2>
-        <ul class="highlights" id="highlights"></ul>
-        <button type="button" class="text-btn" id="jump-details">Zobacz pełne szczegóły</button>
       </section>
 
-      <section class="forecast" id="panel-forecast" role="tabpanel" aria-labelledby="tab-forecast" hidden>
+      <!-- PROGNOZA -->
+      <section class="screen" id="tab-forecast" data-tab="forecast" hidden>
+        <p class="eyebrow" id="forecast-place">Prognoza</p>
+        <h1 class="screen-title" id="forecast-day-title">—</h1>
+
+        <div class="day-row" id="days" role="list"></div>
+
         <div class="section-head">
-          <h2>Prognoza</h2>
-          <p class="muted">Najbliższe dni według modelu CAMS.</p>
+          <h2>Godzina po godzinie</h2>
+          <span class="muted small" id="forecast-peak-note"></span>
         </div>
-        <div class="days" id="days" role="list"></div>
-        <div class="day-panel" id="day-panel" hidden>
-          <h3 id="day-panel-title">—</h3>
-          <ul class="list compact" id="day-panel-list"></ul>
-        </div>
-        <figure class="trend" id="trend" hidden>
-          <figcaption>Trend ogólnego poziomu</figcaption>
-          <div class="trend-bars" id="trend-bars" role="img" aria-label="Wykres trendu pylenia"></div>
-          <p class="sr-only" id="trend-text"></p>
-        </figure>
+        <div class="hourly-chart" id="hourly-bars" role="img" aria-label="Wykres godzinowy pylenia"></div>
+        <div class="hourly-axis"><span>0:00</span><span>6:00</span><span>12:00</span><span>18:00</span><span>23:00</span></div>
+        <p class="muted small" id="hourly-summary"></p>
+        <p class="sr-only" id="trend-text"></p>
       </section>
 
-      <section class="details" id="details">
-        <div class="section-head">
-          <h2>Alergeny</h2>
-          <p class="muted">Poziomy, zmiana względem wczoraj i typowy sezon.</p>
-        </div>
-        <div class="legend" aria-label="Legenda poziomów">
-          <span data-level="low"><i class="shape" aria-hidden="true"></i> niski</span>
-          <span data-level="moderate"><i class="shape" aria-hidden="true"></i> umiarkowany</span>
-          <span data-level="high"><i class="shape" aria-hidden="true"></i> wysoki</span>
-          <span data-level="very-high"><i class="shape" aria-hidden="true"></i> bardzo wysoki</span>
-        </div>
-        <ul class="list" id="allergen-list"></ul>
+      <!-- ALERGENY -->
+      <section class="screen" id="tab-allergens" data-tab="allergens" hidden>
+        <p class="eyebrow">Alergeny, dziś</p>
+        <h1 class="screen-title" id="allergens-title">Sześć śledzonych</h1>
+        <p class="lead">Obserwowane mają znacznik. Dotknij, by zobaczyć przebieg i najbliższe dni.</p>
+        <ul class="card list" id="allergen-list"></ul>
       </section>
 
-      <section class="trust">
-        <h2>Źródło i ograniczenia</h2>
-        <p id="trust-line">—</p>
-        <p>
-          Prognoza godzinowa pochodzi z modelu
-          <a href="https://open-meteo.com/en/docs/air-quality-api" rel="noopener" target="_blank">CAMS / Copernicus przez Open-Meteo</a>.
-          Oficjalne komunikaty tygodniowe:
+      <!-- USTAWIENIA -->
+      <section class="screen" id="tab-settings" data-tab="settings" hidden>
+        <p class="eyebrow">Ustawienia</p>
+        <h1 class="screen-title">Twoje pylenie</h1>
+
+        <h2 class="section-label">Obserwowane alergeny</h2>
+        <div class="chips" id="watch-chips"></div>
+
+        <h2 class="section-label">Wygląd</h2>
+        <div class="segmented" id="theme-seg" role="tablist" aria-label="Motyw">
+          <button type="button" data-theme-value="dark" role="tab">Ciemny</button>
+          <button type="button" data-theme-value="light" role="tab">Jasny</button>
+          <button type="button" data-theme-value="system" role="tab">Systemowy</button>
+        </div>
+
+        <h2 class="section-label">Zapisane miejsca</h2>
+        <ul class="card list" id="settings-saved"></ul>
+        <button type="button" class="btn btn-secondary btn-block" id="save-current">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+          Dodaj bieżące miejsce
+        </button>
+
+        <footer class="settings-footer">
+          Dane: model CAMS / Copernicus przez
+          <a href="https://open-meteo.com/en/docs/air-quality-api" rel="noopener" target="_blank">Open-Meteo</a>.
+          Komunikaty tygodniowe:
           <a href="https://biometeo.imgw.pl/?page=PYLKI" rel="noopener" target="_blank">Serwis Pyłkowy IMGW-PIB</a>.
-        </p>
-        <p>
-          Dane mają charakter informacyjny i nie stanowią porady medycznej.
-          <button type="button" class="text-btn inline" id="open-method">Jak liczymy poziom pylenia?</button>
-        </p>
-        <p class="mode" id="data-mode" hidden></p>
+          To informacja, nie porada medyczna.
+        </footer>
       </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Główna nawigacja">
+      <button type="button" class="tabbar-item" data-tab-btn="today" aria-current="page">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2" /><path d="M12 2.5v2.2M12 19.3v2.2M4.4 4.4l1.6 1.6M18 18l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.4 19.6l1.6-1.6M18 6l1.6-1.6" /></svg>
+        <span>Dziś</span>
+      </button>
+      <button type="button" class="tabbar-item" data-tab-btn="forecast">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="16" rx="3" /><path d="M3.5 9.5h17M8 3v3M16 3v3" /></svg>
+        <span>Prognoza</span>
+      </button>
+      <button type="button" class="tabbar-item" data-tab-btn="allergens">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21V10M12 10c0-4-3-6-7-6 0 4 2 7 7 6zM12 10c0-4 3-6 7-6 0 4-2 7-7 6z" /></svg>
+        <span>Alergeny</span>
+      </button>
+      <button type="button" class="tabbar-item" data-tab-btn="settings">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3" /><path d="M12 3v2.2M12 18.8V21M4.9 6.5l1.6 1.6M17.5 17.9l1.6 1.6M3 12h2.2M18.8 12H21M4.9 17.5l1.6-1.6M17.5 6.1l1.6-1.6" /></svg>
+        <span>Ustawienia</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- ARKUSZ ALERGENU -->
+  <div class="sheet-backdrop" id="sheet-backdrop" hidden></div>
+  <div class="sheet" id="allergen-sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-name" hidden>
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <p class="eyebrow" id="sheet-season">—</p>
+    <div class="sheet-top">
+      <h2 id="sheet-name">—</h2>
+      <div class="sheet-now"><strong id="sheet-value">—</strong><span>ziaren/m³ teraz</span></div>
     </div>
-  </main>
-
-  <dialog class="dialog" id="dialog-location" aria-labelledby="location-title">
-    <form method="dialog" class="dialog-card">
-      <header class="dialog-head">
-        <h2 id="location-title">Lokalizacja</h2>
-        <button type="submit" class="icon-btn" value="cancel" aria-label="Zamknij">×</button>
-      </header>
-      <div class="dialog-body">
-        <label class="field" for="city-input">Wyszukaj miejscowość w Polsce</label>
-        <div class="search">
-          <input id="city-input" type="search" placeholder="np. Poznań, Gdańsk…" autocomplete="off" enterkeyhint="search" />
-          <button type="button" class="btn btn-primary" id="search-city">Szukaj</button>
-        </div>
-        <ul class="results" id="city-results" role="listbox" hidden></ul>
-        <p class="or">lub</p>
-        <button type="button" class="btn btn-secondary btn-block" id="use-geo">Użyj bieżącej lokalizacji urządzenia</button>
-        <p class="fine">Zapytamy o zgodę dopiero po kliknięciu.</p>
-        <h3 class="sub">Zapisane miejsca</h3>
-        <ul class="saved" id="saved-places"></ul>
-      </div>
-    </form>
-  </dialog>
-
-  <dialog class="dialog" id="dialog-settings" aria-labelledby="settings-title">
-    <form method="dialog" class="dialog-card">
-      <header class="dialog-head">
-        <h2 id="settings-title">Ustawienia</h2>
-        <button type="submit" class="icon-btn" value="cancel" aria-label="Zamknij">×</button>
-      </header>
-      <div class="dialog-body">
-        <h3 class="sub">Obserwowane alergeny</h3>
-        <p class="muted">Podświetlimy je na liście.</p>
-        <ul class="watch" id="watch-list"></ul>
-        <h3 class="sub">Zapisane lokalizacje</h3>
-        <ul class="saved" id="settings-saved"></ul>
-        <button type="button" class="btn btn-secondary btn-block" id="save-current" hidden>Zapisz bieżącą lokalizację</button>
-      </div>
-    </form>
-  </dialog>
-
-  <dialog class="dialog" id="dialog-allergen" aria-labelledby="allergen-title">
-    <form method="dialog" class="dialog-card">
-      <header class="dialog-head">
-        <h2 id="allergen-title">—</h2>
-        <button type="submit" class="icon-btn" value="cancel" aria-label="Zamknij">×</button>
-      </header>
-      <div class="dialog-body" id="allergen-body"></div>
-    </form>
-  </dialog>
-
-  <dialog class="dialog" id="dialog-method" aria-labelledby="method-title">
-    <form method="dialog" class="dialog-card">
-      <header class="dialog-head">
-        <h2 id="method-title">Jak liczymy poziom pylenia?</h2>
-        <button type="submit" class="icon-btn" value="cancel" aria-label="Zamknij">×</button>
-      </header>
-      <div class="dialog-body prose">
-        <p>Stężenia (ziarna/m³) pochodzą z europejskiego modelu CAMS. Przeliczamy je na cztery poziomy słowne:</p>
-        <ul>
-          <li><strong>niski</strong> — zwykle dobrze tolerowany przez większość osób;</li>
-          <li><strong>umiarkowany</strong> — osoby wrażliwe mogą odczuwać objawy;</li>
-          <li><strong>wysoki</strong> — częstsze dolegliwości u alergików;</li>
-          <li><strong>bardzo wysoki</strong> — silne nasilenie, warto ograniczyć ekspozycję.</li>
-        </ul>
-        <p>Ogólny poziom dnia to najwyższy poziom spośród monitorowanych alergenów. Prognoza modelu ma ograniczenia — lokalne warunki mogą się różnić. IMGW publikuje osobne, cotygodniowe komunikaty pomiarowe.</p>
-      </div>
-    </form>
-  </dialog>
+    <div class="meter meter-lg" id="sheet-meter" data-level="low"><i></i><i></i><i></i><i></i></div>
+    <div class="sheet-meter-row">
+      <span id="sheet-level-label">—</span>
+      <span class="muted" id="sheet-change">—</span>
+    </div>
+    <p class="muted" id="sheet-description">—</p>
+    <h3 class="section-label">Najbliższe dni</h3>
+    <ul class="list plain" id="sheet-days"></ul>
+    <button type="button" class="btn btn-primary btn-block" id="sheet-toggle-watch">Obserwuj ten alergen</button>
+  </div>
 
   <script type="module" src="./js/app.js"></script>
 </body>
