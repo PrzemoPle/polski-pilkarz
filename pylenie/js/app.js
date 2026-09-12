@@ -3,40 +3,43 @@ import {
   getLast,
   getPlaces,
   getWatch,
+  getTheme,
   removePlace,
   savePlace,
   setLast,
+  setTheme,
   toggleWatch,
 } from "./store.js";
 import {
-  closeDlg,
-  openDlg,
-  renderAllergen,
+  applyTheme,
+  closeAllergenSheet,
+  openAllergenSheet,
   renderCities,
   renderMain,
   renderSaved,
-  renderWatch,
+  renderWatchChips,
   setError,
   setTab,
+  setThemeSeg,
   show,
   say,
 } from "./ui.js";
+
+const $ = (id) => document.getElementById(id);
 
 const state = {
   place: null,
   forecast: null,
   selectedDay: null,
   watched: getWatch(),
+  tab: "today",
 };
-
-const $ = (id) => document.getElementById(id);
 
 function refreshSaved() {
   const places = getPlaces();
   const handlers = {
     onPick: (place) => {
-      closeDlg("dialog-location");
-      closeDlg("dialog-settings");
+      closeAllergenSheet();
       load(place);
     },
     onRemove: (id) => {
@@ -44,12 +47,12 @@ function refreshSaved() {
       refreshSaved();
     },
   };
-  renderSaved("saved-places", places, handlers);
+  renderSaved("start-saved", places, handlers);
   renderSaved("settings-saved", places, handlers);
 }
 
 function refreshWatch() {
-  renderWatch(state.watched, (id) => {
+  renderWatchChips(state.watched, (id) => {
     state.watched = toggleWatch(id);
     refreshWatch();
     if (state.place && state.forecast) paint();
@@ -65,17 +68,22 @@ function paint() {
     watched: state.watched,
     onSelectDay: (date) => {
       state.selectedDay = date;
-      setTab("forecast");
-      paint();
+      goTab("forecast");
     },
     onOpenAllergen: (id) => {
-      renderAllergen(id, state.forecast, state.watched, (allergenId) => {
+      openAllergenSheet(id, state.forecast, state.watched, (allergenId) => {
         state.watched = toggleWatch(allergenId);
         refreshWatch();
+        closeAllergenSheet();
         paint();
       });
     },
   });
+}
+
+function goTab(tab) {
+  state.tab = tab;
+  setTab(tab);
 }
 
 async function load(place, { mockOk = true } = {}) {
@@ -87,11 +95,13 @@ async function load(place, { mockOk = true } = {}) {
   try {
     state.forecast = await fetchPollen(place.lat, place.lon);
     paint();
+    show("app");
   } catch (err) {
     if (mockOk) {
       state.forecast = mockForecast(place.name);
       paint();
-      say("Nie udało się pobrać żywych danych. Pokazuję dane przykładowe (mock).");
+      show("app");
+      say("Nie udało się pobrać żywych danych. Pokazuję dane przykładowe.");
       return;
     }
     setError(err.message || "Nie udało się pobrać danych.");
@@ -104,7 +114,6 @@ async function geo() {
   if (!navigator.geolocation) {
     setError("To urządzenie nie obsługuje geolokalizacji. Wpisz miejscowość ręcznie.");
     show("error");
-    openDlg("dialog-location");
     return;
   }
   show("loading");
@@ -119,7 +128,6 @@ async function geo() {
     });
     const { latitude: lat, longitude: lon } = pos.coords;
     const label = await reverseLabel(lat, lon);
-    closeDlg("dialog-location");
     await load({
       id: `geo:${lat.toFixed(3)},${lon.toFixed(3)}`,
       name: label.name,
@@ -134,7 +142,6 @@ async function geo() {
     if (err?.code === 3) msg = "Przekroczono czas oczekiwania na lokalizację. Spróbuj wpisać miasto.";
     setError(msg);
     show("error");
-    openDlg("dialog-location");
   }
 }
 
@@ -142,60 +149,81 @@ async function search() {
   try {
     const results = await searchCities($("city-input")?.value || "");
     if (!results.length) say("Nie znaleziono miejscowości. Spróbuj innej nazwy.");
-    renderCities(results, (city) => {
-      closeDlg("dialog-location");
-      load(city);
-    });
+    renderCities(results, (city) => load(city));
   } catch (err) {
     say(err.message || "Błąd wyszukiwania.");
   }
 }
 
-function bind() {
-  $("open-location")?.addEventListener("click", () => openDlg("dialog-location"));
-  $("open-settings")?.addEventListener("click", () => {
-    refreshSaved();
-    refreshWatch();
-    if ($("save-current")) $("save-current").hidden = !state.place;
-    openDlg("dialog-settings");
+function bindTheme() {
+  const pref = getTheme();
+  applyTheme(pref);
+  setThemeSeg(pref);
+  document.querySelectorAll("#theme-seg [data-theme-value]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const v = btn.dataset.themeValue;
+      setTheme(v);
+      applyTheme(v);
+      setThemeSeg(v);
+    });
   });
-  $("welcome-search")?.addEventListener("click", () => openDlg("dialog-location"));
-  $("welcome-geo")?.addEventListener("click", () => geo());
-  $("use-geo")?.addEventListener("click", () => geo());
+  if (window.matchMedia) {
+    matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => {
+      if (getTheme() === "system") applyTheme("system");
+    });
+  }
+}
+
+function bind() {
+  document.querySelectorAll("[data-tab-btn]").forEach((btn) => {
+    btn.addEventListener("click", () => goTab(btn.dataset.tabBtn));
+  });
+  $("open-place")?.addEventListener("click", () => goTab("settings"));
+  $("see-all")?.addEventListener("click", () => goTab("allergens"));
+
+  $("start-geo")?.addEventListener("click", () => geo());
   $("search-city")?.addEventListener("click", () => search());
+  $("city-input")?.addEventListener("input", () => {
+    const v = $("city-input").value || "";
+    if (v.trim().length >= 2) search();
+    else renderCities([], () => {});
+  });
   $("city-input")?.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
       search();
     }
   });
+
   $("retry")?.addEventListener("click", () => {
     if (state.place) load(state.place, { mockOk: false });
-    else openDlg("dialog-location");
+    else show("start");
   });
-  $("error-location")?.addEventListener("click", () => openDlg("dialog-location"));
-  $("jump-details")?.addEventListener("click", () => {
-    $("details")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-  $("open-method")?.addEventListener("click", () => openDlg("dialog-method"));
+  $("error-location")?.addEventListener("click", () => show("start"));
+
   $("save-current")?.addEventListener("click", () => {
     if (!state.place) return;
     savePlace(state.place);
     refreshSaved();
     say(`Zapisano lokalizację: ${state.place.name}.`);
   });
-  $("tab-today")?.addEventListener("click", () => setTab("today"));
-  $("tab-forecast")?.addEventListener("click", () => setTab("forecast"));
-  setTab("today");
+
+  $("sheet-backdrop")?.addEventListener("click", () => closeAllergenSheet());
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeAllergenSheet();
+  });
+
+  bindTheme();
 }
 
 function init() {
   bind();
   refreshSaved();
   refreshWatch();
+  goTab("today");
   const last = getLast();
   if (last?.lat && last?.lon) load(last);
-  else show("welcome");
+  else show("start");
 
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
