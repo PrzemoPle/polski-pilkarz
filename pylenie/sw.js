@@ -1,4 +1,4 @@
-const CACHE = "pylenie-v2";
+const CACHE = "pylenie-v3";
 const ASSETS = [
   "./",
   "./index.html",
@@ -56,4 +56,5 @@ self.addEventListener("fetch", (event) => {
       return cached || network;
     })
   );
-});
+}
+);
