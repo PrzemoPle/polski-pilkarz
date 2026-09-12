@@ -1,13 +1,13 @@
 {
-  "name": "Pylenie — tu i teraz",
+  "name": "Pylenie",
   "short_name": "Pylenie",
-  "description": "Sprawdź aktualne pylenie w Twojej lokalizacji w Polsce.",
+  "description": "Aktualne i prognozowane pylenie alergenów w wybranej lokalizacji w Polsce.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#f3f7ef",
-  "theme_color": "#1f4d32",
+  "background_color": "#f7f6f2",
+  "theme_color": "#f7f6f2",
   "lang": "pl",
   "icons": [
     {
