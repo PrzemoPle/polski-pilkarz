@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f4d32" />
+  <meta name="description" content="Sprawdź aktualne pylenie w Twojej lokalizacji w Polsce." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Pylenie" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Pylenie — tu i teraz</title>
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true"></div>
+  <div class="pollen-drift" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <main class="app">
+    <header class="hero">
+      <p class="brand">Pylenie</p>
+      <h1 class="headline">Co pyli <em>tam, gdzie jesteś</em></h1>
+      <p class="lede">Godzinowa prognoza pyłków dla Twojej lokalizacji. Dane modelu CAMS (Copernicus) przez Open-Meteo.</p>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="btn-locate">
+          <span class="btn-icon" aria-hidden="true">◎</span>
+          Sprawdź moją lokalizację
+        </button>
+        <button type="button" class="btn btn-ghost" id="btn-city">Wybierz miasto</button>
+      </div>
+    </header>
+
+    <section class="panel city-panel" id="city-panel" hidden>
+      <label class="field-label" for="city-input">Miasto w Polsce</label>
+      <div class="city-row">
+        <input id="city-input" type="search" placeholder="np. Kraków, Gdańsk…" autocomplete="off" />
+        <button type="button" class="btn btn-primary" id="btn-search">Szukaj</button>
+      </div>
+      <ul class="city-results" id="city-results" hidden></ul>
+    </section>
+
+    <section class="status" id="status" aria-live="polite">
+      <p class="status-text">Włącz lokalizację albo wybierz miasto, żeby zobaczyć pylenie.</p>
+    </section>
+
+    <section class="summary" id="summary" hidden>
+      <div class="summary-top">
+        <div>
+          <p class="place" id="place-name">—</p>
+          <p class="when" id="as-of">—</p>
+        </div>
+        <div class="overall" id="overall">
+          <span class="overall-level" id="overall-level">—</span>
+          <span class="overall-label">ogólne obciążenie</span>
+        </div>
+      </div>
+      <p class="advice" id="advice"></p>
+    </section>
+
+    <section class="species" id="species" hidden>
+      <h2>Aktywne alergeny</h2>
+      <div class="species-list" id="species-list"></div>
+    </section>
+
+    <section class="forecast" id="forecast" hidden>
+      <h2>Najbliższe godziny</h2>
+      <div class="chart" id="hourly-chart" role="img" aria-label="Wykres obciążenia pyłkami w najbliższych godzinach"></div>
+    </section>
+
+    <section class="sources">
+      <h2>Źródła danych</h2>
+      <p>
+        Godzinowa prognoza: <a href="https://open-meteo.com/en/docs/air-quality-api" rel="noopener" target="_blank">Open-Meteo / CAMS Copernicus</a>.
+        Oficjalne komunikaty tygodniowe IMGW-PIB (Polska Sieć Aerobiologiczna):
+        <a href="https://biometeo.imgw.pl/?page=PYLKI" rel="noopener" target="_blank">Serwis Pyłkowy IMGW</a>.
+      </p>
+      <p class="note">
+        IMGW nie udostępnia obecnie otwartego API z pomiarami stężeń pyłku w czasie rzeczywistym —
+        ich serwis aktualizuje się zwykle w czwartki w sezonie (luty–wrzesień). Ta aplikacja pokazuje
+        modelową prognozę godzinową dla współrzędnych GPS.
+      </p>
+    </section>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
