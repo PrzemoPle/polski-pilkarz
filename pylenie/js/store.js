@@ -2,6 +2,7 @@ const K = {
   places: "pylenie:places:v1",
   watch: "pylenie:watch:v1",
   last: "pylenie:last:v1",
+  theme: "pylenie:theme:v1",
 };
 
 function read(key, fallback) {
@@ -68,4 +69,13 @@ export function getLast() {
 
 export function setLast(place) {
   write(K.last, place);
+}
+
+export function getTheme() {
+  const v = read(K.theme, "system");
+  return ["dark", "light", "system"].includes(v) ? v : "system";
+}
+
+export function setTheme(v) {
+  write(K.theme, v);
 }
